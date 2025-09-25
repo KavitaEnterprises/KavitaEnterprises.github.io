@@ -1,0 +1,217 @@
+[
+  {
+    "id": 1,
+    "name": "FinGaurd HomePure 12L RO+UV Water Purifier",
+    "sku": "FG-HP-12L-ROUV",
+    "price": 14500,
+    "category": "RO Systems",
+    "description": "Premium 7-stage purification system with RO, UV sterilization, and TDS controller. Manufactured by FinGaurd for Indian households. Ideal for families of 4-6 members with storage tank and advanced purification technology.",
+    "image": "assets/images/ro_system_1.jpg",
+    "tags": ["12L storage", "RO+UV", "TDS control", "home use", "7-stage", "family"],
+    "specifications": {
+      "storageCapacity": "12 Liters",
+      "purificationStages": 7,
+      "purificationTechnology": ["RO", "UV", "UF"],
+      "tdsController": true,
+      "membraneCapacity": "75 GPD",
+      "inputWaterPressure": "10-40 PSI",
+      "powerConsumption": "36 Watts",
+      "dimensions": "370 x 260 x 500 mm",
+      "weight": "8.5 kg",
+      "suitableFor": "Municipal water, Borewell water",
+      "idealFamilySize": "4-6 members",
+      "certifications": ["ISI", "NSF", "WQA"],
+      "installationType": "Wall mounted / Counter top",
+      "warrantyPeriod": "1 Year comprehensive",
+      "serviceLife": "8-10 years"
+    },
+    "features": {
+      "removalCapabilities": ["TDS reduction 90%+", "Chlorine removal", "Heavy metals", "Bacteria & Viruses", "Pesticides", "Bad taste & odor"],
+      "smartFeatures": ["LED indicators", "Auto shut-off", "Tank full indicator", "Filter change alerts"],
+      "safetyFeatures": ["Electrical protection", "Water leak protection", "UV fail safe"],
+      "maintenance": ["Annual service recommended", "Filter replacement: 6-12 months", "UV lamp: 12 months", "RO membrane: 18-24 months"]
+    },
+    "waterQuality": {
+      "inputTdsRange": "Up to 2000 ppm",
+      "outputTdsRange": "50-150 ppm",
+      "phLevel": "6.5-8.5",
+      "flowRate": "8-10 L/hour",
+      "recoveryRatio": "30%",
+      "rejectionRate": "95%+"
+    }
+  },
+  {
+    "id": 2,
+    "name": "FinGaurd Compact 8L RO Water Purifier",
+    "sku": "FG-CP-8L-RO",
+    "price": 11500,
+    "category": "RO Systems",
+    "description": "Space-saving 8-liter RO water purifier perfect for small kitchens and apartments. Features 6-stage purification including pre-filters, RO membrane, and post-carbon filter for pure, healthy water.",
+    "image": "assets/images/ro_system_2.jpg",
+    "tags": ["8L compact", "space-saving", "RO system", "apartment", "6-stage", "small family"],
+    "specifications": {
+      "storageCapacity": "8 Liters",
+      "purificationStages": 6,
+      "purificationTechnology": ["RO", "UF"],
+      "tdsController": false,
+      "membraneCapacity": "50 GPD",
+      "inputWaterPressure": "10-40 PSI",
+      "powerConsumption": "24 Watts",
+      "dimensions": "320 x 220 x 420 mm",
+      "weight": "6.2 kg",
+      "suitableFor": "Municipal water, Low TDS borewell",
+      "idealFamilySize": "2-4 members",
+      "certifications": ["ISI", "NSF"],
+      "installationType": "Counter top",
+      "warrantyPeriod": "1 Year comprehensive",
+      "serviceLife": "6-8 years"
+    },
+    "features": {
+      "removalCapabilities": ["TDS reduction 85%+", "Chlorine removal", "Heavy metals", "Bacteria & Viruses", "Bad taste & odor"],
+      "smartFeatures": ["LED service indicator", "Auto shut-off", "Tank full indicator"],
+      "safetyFeatures": ["Electrical protection", "Water leak protection"],
+      "maintenance": ["Annual service recommended", "Filter replacement: 6-12 months", "RO membrane: 12-18 months"]
+    },
+    "waterQuality": {
+      "inputTdsRange": "Up to 1500 ppm",
+      "outputTdsRange": "50-200 ppm",
+      "phLevel": "6.5-8.0",
+      "flowRate": "6-8 L/hour",
+      "recoveryRatio": "25%",
+      "rejectionRate": "90%+"
+    }
+  },
+  {
+    "id": 3,
+    "name": "FinGaurd Spun Sediment Filter (10-inch)",
+    "sku": "FG-SF-10-PP",
+    "price": 280,
+    "category": "Filters",
+    "description": "Genuine FinGaurd 10-inch spun polypropylene sediment filter. Removes sand, silt, dirt, rust, and other suspended particles. Compatible with all FinGaurd RO systems and most standard housings.",
+    "image": "assets/images/filter_1.jpg",
+    "tags": ["sediment filter", "10 inch", "PP spun", "genuine part", "pre-filter", "replacement"],
+    "specifications": {
+      "filterType": "Spun Polypropylene",
+      "size": "10 inch x 2.5 inch",
+      "micronRating": "5 micron",
+      "material": "100% Pure Polypropylene",
+      "maxTemperature": "60°C",
+      "maxPressure": "6 bar",
+      "flowRate": "15-20 LPM",
+      "compatibility": "Standard 10-inch housings",
+      "lifespan": "3-6 months",
+      "certifications": ["NSF", "FDA approved material"]
+    },
+    "features": {
+      "removalCapabilities": ["Sand & Silt", "Dirt & Rust", "Suspended particles", "Turbidity reduction"],
+      "construction": ["Gradient density", "No chemical additives", "Food grade material"],
+      "performance": ["High dirt holding capacity", "Low pressure drop", "Excellent particle retention"]
+    },
+    "installation": {
+      "position": "First stage pre-filter",
+      "housingRequired": "10-inch sediment housing",
+      "replacementIndicator": "Pressure drop or discoloration"
+    }
+  },
+  {
+    "id": 4,
+    "name": "FinGaurd Carbon Block Filter (10-inch)",
+    "sku": "FG-CB-10-ACF",
+    "price": 380,
+    "category": "Filters",
+    "description": "High-quality activated carbon block filter that removes chlorine, bad taste, odor, and organic compounds. Essential for maintaining water quality and protecting RO membrane life.",
+    "image": "assets/images/filter_1.jpg",
+    "tags": ["carbon filter", "10 inch", "taste & odor", "chlorine removal", "genuine part", "pre-filter"],
+    "specifications": {
+      "filterType": "Compressed Carbon Block",
+      "size": "10 inch x 2.5 inch",
+      "carbonType": "Coconut Shell Activated Carbon",
+      "micronRating": "0.5 micron",
+      "maxTemperature": "50°C",
+      "maxPressure": "6 bar",
+      "flowRate": "10-15 LPM",
+      "compatibility": "Standard 10-inch housings",
+      "lifespan": "6-12 months",
+      "certifications": ["NSF 42", "NSF 53", "FDA approved"]
+    },
+    "features": {
+      "removalCapabilities": ["Free Chlorine 99%+", "Chloramines", "Bad taste & odor", "Organic chemicals", "Pesticides", "Herbicides"],
+      "construction": ["High-density carbon block", "Uniform pore structure", "No carbon dust release"],
+      "performance": ["Excellent contaminant reduction", "Consistent flow rate", "Long service life"]
+    },
+    "installation": {
+      "position": "Second stage pre-filter",
+      "housingRequired": "10-inch carbon housing",
+      "replacementIndicator": "Taste/odor return or reduced flow"
+    }
+  },
+  {
+    "id": 5,
+    "name": "FinGaurd 75 GPD Booster Pump",
+    "sku": "FG-BP-75-GPD",
+    "price": 1850,
+    "category": "Spares",
+    "description": "Reliable 75 GPD booster pump designed for home RO systems. Increases input water pressure for optimal RO membrane performance. Energy-efficient and long-lasting motor with automatic pressure switch.",
+    "image": "assets/images/pump_1.jpg",
+    "tags": ["booster pump", "75 GPD", "home use", "pressure pump", "energy efficient", "auto switch"],
+    "specifications": {
+      "pumpType": "Diaphragm Booster Pump",
+      "capacity": "75 GPD (280 LPD)",
+      "maxPressure": "100 PSI",
+      "powerRating": "24V DC, 1.2 Amp",
+      "powerConsumption": "28 Watts",
+      "dimensions": "160 x 95 x 120 mm",
+      "weight": "1.8 kg",
+      "inletConnection": "1/4 inch Quick Fit",
+      "outletConnection": "1/4 inch Quick Fit",
+      "operatingVoltage": "24V DC",
+      "serviceLife": "3-5 years",
+      "certifications": ["CE", "RoHS"]
+    },
+    "features": {
+      "performance": ["Auto start/stop", "Self-priming", "Dry run protection", "Thermal protection"],
+      "construction": ["Corrosion resistant", "Quiet operation", "Leak-proof design", "Food grade materials"],
+      "efficiency": ["Low power consumption", "High pressure boost", "Consistent performance"]
+    },
+    "installation": {
+      "compatibility": "All 75 GPD RO systems",
+      "mounting": "Horizontal or vertical",
+      "maintenance": "Annual inspection recommended"
+    }
+  },
+  {
+    "id": 6,
+    "name": "FinGaurd RO Membrane 75 GPD",
+    "sku": "FG-ROM-75-TFC",
+    "price": 1200,
+    "category": "Spares",
+    "description": "Premium Thin Film Composite (TFC) RO membrane with 75 GPD capacity. Removes dissolved salts, heavy metals, bacteria, and viruses. Compatible with most domestic RO systems.",
+    "image": "assets/images/filter_1.jpg",
+    "tags": ["RO membrane", "75 GPD", "TFC technology", "genuine part", "replacement", "purification"],
+    "specifications": {
+      "membraneType": "Thin Film Composite (TFC)",
+      "capacity": "75 GPD (280 LPD)",
+      "size": "1812 (1.8 x 12 inch)",
+      "rejectionRate": "96-98%",
+      "maxPressure": "300 PSI",
+      "maxTemperature": "45°C",
+      "phRange": "2-11",
+      "chlorineTolerance": "< 0.1 ppm",
+      "dimensions": "45 x 305 mm",
+      "weight": "0.3 kg",
+      "compatibility": "Standard 1812 housings",
+      "serviceLife": "18-24 months",
+      "certifications": ["NSF 58", "FDA approved"]
+    },
+    "features": {
+      "removalCapabilities": ["Dissolved salts 96%+", "Heavy metals", "Bacteria & Viruses", "Nitrates", "Fluorides", "Arsenic", "Lead"],
+      "performance": ["High rejection rate", "Low pressure drop", "Consistent water quality", "Extended life"],
+      "construction": ["Multi-layer polyamide", "Polysulfone support", "Polyester backing"]
+    },
+    "installation": {
+      "position": "RO stage",
+      "pretreatment": "Sediment + Carbon filtration required",
+      "replacementIndicator": "TDS increase or flow reduction"
+    }
+  }
+]
