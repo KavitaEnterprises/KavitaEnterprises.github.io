@@ -5,7 +5,7 @@
     --secondary-color: #ffffff;
     --accent-color: #0066cc;
     --accent-hover: #0052a3;
-    --success-color: #00a86b;
+    --success-color: #1e3a5f;
     --warning-color: #ff6b35;
     --background-color: #ffffff;
     --surface-color: #ffffff;
@@ -293,19 +293,19 @@ nav .cart-count {
     justify-content: center;
     gap: var(--spacing-xs);
     padding: var(--spacing-md) var(--spacing-xl);
-    background-color: #25d366;
+    background-color: var(--accent-color);
     color: var(--text-white);
     font-weight: 600;
     font-size: var(--font-size-base);
-    border: 2px solid #25d366;
+    border: 2px solid var(--accent-color);
     transition: all 0.2s ease;
     cursor: pointer;
     text-decoration: none;
 }
 
 .btn-whatsapp-large:hover {
-    background-color: #128c7e;
-    border-color: #128c7e;
+    background-color: var(--accent-hover);
+    border-color: var(--accent-hover);
     transform: translateY(-2px);
 }
 
@@ -316,10 +316,10 @@ nav .cart-count {
     gap: var(--spacing-xs);
     padding: var(--spacing-sm) var(--spacing-lg);
     background-color: transparent;
-    color: #25d366;
+    color: var(--accent-color);
     font-weight: 600;
     font-size: var(--font-size-sm);
-    border: 2px solid #25d366;
+    border: 2px solid var(--accent-color);
     transition: all 0.2s ease;
     cursor: pointer;
     text-decoration: none;
@@ -328,14 +328,15 @@ nav .cart-count {
 }
 
 .btn-whatsapp:hover {
-    background-color: #25d366;
+    background-color: var(--accent-color);
     color: var(--text-white);
     transform: translateY(-2px);
 }
 
 .btn-whatsapp::before {
-    content: '💬';
-    font-size: var(--font-size-base);
+    content: 'Support';
+    font-size: var(--font-size-sm);
+    font-weight: 600;
 }
 
 /* --- Hero Section --- */
@@ -734,13 +735,15 @@ nav .cart-count {
 }
 
 .custom-alert.success {
-    border-color: #28a745;
+    border-color: var(--success-color);
 }
 
 .custom-alert.success::before {
-    content: '✅';
+    content: 'Success';
     margin-right: var(--spacing-sm);
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--success-color);
 }
 
 .custom-alert.info {
@@ -1533,11 +1536,11 @@ nav .cart-count {
     gap: var(--spacing-sm);
     width: 100%;
     padding: var(--spacing-md) var(--spacing-lg);
-    background-color: #25d366;
+    background-color: var(--accent-color);
     color: var(--text-white);
     font-weight: 700;
     font-size: var(--font-size-lg);
-    border: 2px solid #25d366;
+    border: 2px solid var(--accent-color);
     transition: all 0.2s ease;
     cursor: pointer;
     text-decoration: none;
@@ -1547,10 +1550,10 @@ nav .cart-count {
 }
 
 .whatsapp-checkout:hover {
-    background-color: #128c7e;
-    border-color: #128c7e;
+    background-color: var(--accent-hover);
+    border-color: var(--accent-hover);
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(37, 211, 102, 0.3);
+    box-shadow: 0 4px 8px rgba(0, 102, 204, 0.3);
 }
 
 .whatsapp-checkout:active {
@@ -2025,6 +2028,10 @@ footer {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
         gap: var(--spacing-sm);
         width: 100%;
+    }
+    
+    #product-grid, .product-grid, .products-grid {
+        padding: 0;
     }
     
     .hero {
