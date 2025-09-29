@@ -19,22 +19,7 @@
 </head>
 <body>
 
-    <header>
-        <nav>
-            <a href="index.html" class="logo">FinGaurd</a>
-            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle mobile menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="cart.html" class="cart-link">Cart <span class="cart-count">0</span></a></li>
-            </ul>
-        </nav>
-    </header>
-
+    <header data-include="components/header.html"></header>
     <main>
         <!-- Hero Section -->
         <section class="hero">
@@ -64,7 +49,7 @@
                 </div>
                 <div class="hero-visual">
                     <div class="hero-image-wrapper">
-                        <img src="assets/images/ro_system_1.jpg" alt="FinGaurd Premium RO System">
+                        <img src="assets/images/hero.png" alt="FinGaurd Premium RO System">
                         <div class="hero-floating-card">
                             <div class="card-icon">💧</div>
                             <div class="card-text">
@@ -183,28 +168,28 @@
                         <h2>Why 50,000+ Families Trust FinGaurd</h2>
                         <div class="benefits-list">
                             <div class="benefit-item">
-                                <div class="benefit-icon">🏭</div>
+                                <div class="benefit-icon" aria-hidden="true"><span class="material-symbols-outlined">apartment</span></div>
                                 <div class="benefit-content">
                                     <h3>Manufactured in India</h3>
                                     <p>Built specifically for Indian water conditions with local manufacturing excellence</p>
                                 </div>
                             </div>
                             <div class="benefit-item">
-                                <div class="benefit-icon">🔬</div>
+                                <div class="benefit-icon" aria-hidden="true"><span class="material-symbols-outlined">biotech</span></div>
                                 <div class="benefit-content">
                                     <h3>Laboratory Tested</h3>
                                     <p>Every product undergoes rigorous testing to ensure 99.9% purification efficiency</p>
                                 </div>
                             </div>
                             <div class="benefit-item">
-                                <div class="benefit-icon">🛠️</div>
+                                <div class="benefit-icon" aria-hidden="true"><span class="material-symbols-outlined">build</span></div>
                                 <div class="benefit-content">
                                     <h3>Expert Installation</h3>
                                     <p>Professional installation and maintenance support across India</p>
                                 </div>
                             </div>
                             <div class="benefit-item">
-                                <div class="benefit-icon">💰</div>
+                                <div class="benefit-icon" aria-hidden="true"><span class="material-symbols-outlined">currency_rupee</span></div>
                                 <div class="benefit-content">
                                     <h3>Direct Factory Pricing</h3>
                                     <p>No middleman markup - get premium quality at manufacturer prices</p>
@@ -308,36 +293,9 @@
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>FinGaurd</h4>
-                    <p>Premium RO water purification systems and parts manufacturer. Trusted by thousands of Indian households.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Products</h4>
-                    <ul>
-                        <li><a href="products.html?category=RO Systems">RO Systems</a></li>
-                        <li><a href="products.html?category=Filters">Filters</a></li>
-                        <li><a href="products.html?category=Spares">Spares</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Support</h4>
-                    <ul>
-                        <li><a href="#contact">Contact Us</a></li>
-                        <li><a href="#whatsapp">WhatsApp Support</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 FinGaurd. All Rights Reserved. | Premium Water Purification Solutions</p>
-            </div>
-        </div>
-    </footer>
-
+    <footer data-include="components/footer.html"></footer>
     <script src="js/products-db.js"></script>
+    <script src="js/include.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

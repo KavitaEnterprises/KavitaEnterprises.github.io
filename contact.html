@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - FinGaurd RO Water Purifiers</title>
+  <meta name="description" content="Get support, warranty help, service requests, or general inquiries for FinGaurd RO systems.">
+  <link rel="canonical" href="https://fingaurd.com/contact.html">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header data-include="components/header.html"></header>
+
+  <main>
+    <section class="products-hero">
+      <div class="container">
+        <div class="products-header">
+          <h1>Contact & Support</h1>
+          <p>Service, warranty, installation and general queries. We respond quickly on WhatsApp.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="expert-advice-section">
+      <div class="advice-content">
+        <form id="contact-form" class="advice-form" novalidate>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="cname">Full Name</label>
+              <input id="cname" name="name" type="text" placeholder="Your name" required>
+              <div class="error-message" id="cname-error"></div>
+            </div>
+            <div class="form-group">
+              <label for="cphone">Mobile Number</label>
+              <input id="cphone" name="phone" type="tel" placeholder="10‑digit mobile" required>
+              <div class="error-message" id="cphone-error"></div>
+            </div>
+            <div class="form-group full-width">
+              <label for="cmsg">Message</label>
+              <input id="cmsg" name="message" type="text" placeholder="How can we help?" required>
+              <div class="error-message" id="cmsg-error"></div>
+            </div>
+          </div>
+          <button type="submit" class="btn-whatsapp-large">Send on WhatsApp</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer data-include="components/footer.html"></footer>
+
+  <script src="js/products-db.js"></script>
+  <script src="js/include.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = document.getElementById('cname').value.trim();
+      const phone = document.getElementById('cphone').value.trim();
+      const message = document.getElementById('cmsg').value.trim();
+      let ok = true;
+      document.getElementById('cname-error').textContent = '';
+      document.getElementById('cphone-error').textContent = '';
+      document.getElementById('cmsg-error').textContent = '';
+      if (name.length < 2) { document.getElementById('cname-error').textContent = 'Please enter your name'; ok = false; }
+      if (!/^[6-9]\d{9}$/.test(phone)) { document.getElementById('cphone-error').textContent = 'Enter a valid 10‑digit Indian mobile number'; ok = false; }
+      if (message.length < 3) { document.getElementById('cmsg-error').textContent = 'Please add a short message'; ok = false; }
+      if (!ok) return;
+      const msg = `👋 *Contact Request*\n\n• *Name:* ${name}\n• *Mobile:* ${phone}\n\n*Message:* ${message}`;
+      WhatsApp.send(msg);
+      showAlert('Thanks! Your message has been sent on WhatsApp. We will reply soon.', 'success');
+      this.reset();
+    });
+  </script>
+</body>
+</html>

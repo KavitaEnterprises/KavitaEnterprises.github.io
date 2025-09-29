@@ -33,18 +33,18 @@ function showAlert(message, type = 'info', duration = 10000) {
 document.addEventListener('DOMContentLoaded', () => {
     const path = window.location.pathname.split("/").pop();
 
-    // Setup mobile menu
-
-
     if (path === 'index.html' || path === '') {
         loadHomePage();
         setupExpertAdviceForm();
+        if (window.setupWholesaleForm) window.setupWholesaleForm();
     } else if (path === 'products.html') {
         loadProductsPage();
     } else if (path === 'product.html') {
         loadProductDetailPage();
     } else if (path === 'cart.html') {
         loadCartPage();
+    } else if (path === 'wholesale.html') {
+        if (window.setupWholesaleForm) window.setupWholesaleForm();
     }
 });
 
@@ -56,6 +56,7 @@ function createProductCard(product) {
                 <div class="product-card-content">
                     <h3 itemprop="name">${product.name}</h3>
                     <p class="price" itemprop="price" content="${product.price}">${currency}${product.price.toLocaleString()}</p>
+                    <p style="margin:0;color:var(--text-secondary);font-size:var(--font-size-sm)">Bulk pricing available — <span style="color:var(--accent-color);font-weight:600">Wholesale</span></p>
                     <meta itemprop="priceCurrency" content="INR">
                     <div itemprop="brand" itemscope itemtype="http://schema.org/Brand">
                         <meta itemprop="name" content="FinGaurd">
@@ -85,26 +86,45 @@ async function loadProductsPage() {
 
     if (!productGrid) return;
 
-    // Check for category parameter in URL
+    // Check for URL parameters
     const urlParams = new URLSearchParams(window.location.search);
     const categoryParam = urlParams.get('category');
+    const qParam = urlParams.get('q') || '';
 
-    let allCategories = ['All', ...new Set(products.map(p => p.category))];
-    categoryFilters.innerHTML = `<ul>${allCategories.map(c => `<li data-category="${c}">${c}</li>`).join('')}</ul>`;
+    // Define displayed categories to align with footer
+    const displayedCategories = [
+        { label: 'All', category: 'All' },
+        { label: 'RO Systems', category: 'RO Systems' },
+        { label: 'Filters', category: 'Filters' },
+        { label: 'Accessories', category: 'Spares' },
+        { label: 'Membranes', category: 'Spares', q: 'membrane' }
+    ];
+
+    // Render category filters with optional q filters
+    categoryFilters.innerHTML = `<ul>${displayedCategories.map(c => `<li data-category="${c.category}"${c.q ? ` data-q="${c.q}"` : ''}>${c.label}</li>`).join('')}</ul>`;
 
     const categoryItems = categoryFilters.querySelectorAll('li');
-    
-    // Set active category based on URL parameter or default to 'All'
-    let activeCategory = 'All';
-    if (categoryParam && allCategories.includes(categoryParam)) {
-        activeCategory = categoryParam;
+
+    // Determine initial active item
+    let initialActiveItem = null;
+    // Priority: if q=membrane and category is Spares (or missing), activate Membranes
+    if (qParam && qParam.toLowerCase().includes('membrane')) {
+        initialActiveItem = Array.from(categoryItems).find(li => li.textContent.trim() === 'Membranes') || null;
     }
-    
-    categoryItems.forEach(item => {
-        if (item.dataset.category === activeCategory) {
-            item.classList.add('active');
-        }
-    });
+    if (!initialActiveItem) {
+        // If category matches a displayed item, use it; map 'Spares' -> Accessories by default
+        const desiredCategory = categoryParam || 'All';
+        initialActiveItem = Array.from(categoryItems).find(li => li.dataset.category === desiredCategory && (!li.dataset.q))
+            || Array.from(categoryItems).find(li => li.dataset.category === desiredCategory)
+            || Array.from(categoryItems).find(li => li.dataset.category === 'All');
+    }
+    if (initialActiveItem) {
+        initialActiveItem.classList.add('active');
+    }
+    // If URL provides q, reflect it in search box unless Membranes virtual filter will set it
+    if (qParam && (!initialActiveItem || !initialActiveItem.dataset.q)) {
+        searchBox.value = qParam;
+    }
 
     function displayProducts(filteredProducts) {
         if (filteredProducts.length === 0) {
@@ -115,13 +135,19 @@ async function loadProductsPage() {
     }
 
     function filterAndDisplay() {
-        const searchTerm = searchBox.value.toLowerCase();
-        const activeCategory = categoryFilters.querySelector('li.active').dataset.category;
+        const activeItem = categoryFilters.querySelector('li.active');
+        const activeCategory = activeItem ? activeItem.dataset.category : 'All';
+        const qFilter = activeItem && activeItem.dataset.q ? activeItem.dataset.q.toLowerCase() : '';
+        // Combine the virtual filter q with user-entered search
+        const combined = `${qFilter} ${searchBox.value}`.trim().toLowerCase();
+        const tokens = combined.split(/\s+/).filter(Boolean);
 
         const filteredProducts = products.filter(p => {
             const matchesCategory = activeCategory === 'All' || p.category === activeCategory;
-            const matchesSearch = p.name.toLowerCase().includes(searchTerm) || p.tags.some(t => t.toLowerCase().includes(searchTerm));
-            return matchesCategory && matchesSearch;
+            if (tokens.length === 0) return matchesCategory;
+            const haystack = `${p.name} ${p.tags.join(' ')}`.toLowerCase();
+            const matchesTokens = tokens.every(tok => haystack.includes(tok));
+            return matchesCategory && matchesTokens;
         });
 
         displayProducts(filteredProducts);
@@ -131,6 +157,8 @@ async function loadProductsPage() {
         item.addEventListener('click', () => {
             categoryItems.forEach(i => i.classList.remove('active'));
             item.classList.add('active');
+            // Reflect virtual q filter in search box for clarity
+            searchBox.value = item.dataset.q || '';
             filterAndDisplay();
         });
     });
@@ -216,6 +244,7 @@ function generateDetailedProductHTML(product) {
                 <meta itemprop="availability" content="http://schema.org/InStock">
             </p>
             <p class="description" itemprop="description">${product.description}</p>
+            <p style="margin:0;color:var(--success-color);font-weight:600">GST invoice available • PAN India Shipping</p>
             
             <div class="product-actions">
                 <div class="quantity-section">
@@ -226,6 +255,9 @@ function generateDetailedProductHTML(product) {
                     <button class="btn-primary" id="add-to-cart">Add to Cart</button>
                     <button class="btn-whatsapp" id="query-whatsapp">Query on WhatsApp</button>
                 </div>
+            </div>
+            <div class="cta-guarantee" style="justify-content:flex-start;gap:var(--spacing-sm);margin-top:var(--spacing-sm)">
+                <a href="wholesale.html" class="btn-outline">Request Wholesale Quote</a>
             </div>
     `;
 
@@ -511,5 +543,55 @@ function setupExpertAdviceForm() {
             // Show success message
             showAlert('Thank you! Your consultation request has been sent. Our expert will contact you shortly.', 'success');
         }
+    });
+}
+
+// --- WHOLESALE RFQ FORM ---
+window.setupWholesaleForm = function setupWholesaleForm() {
+    const form = document.getElementById('wholesale-form');
+    if (!form) return;
+
+    form.addEventListener('submit', function(e){
+        e.preventDefault();
+
+        // Clear errors
+        form.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+        form.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
+
+        const fd = new FormData(form);
+        const bizName = (fd.get('bizName') || '').trim();
+        const contactPerson = (fd.get('contactPerson') || '').trim();
+        const phone = (fd.get('phone') || '').trim();
+        const email = (fd.get('email') || '').trim();
+        const city = (fd.get('city') || '').trim();
+        const gstin = (fd.get('gstin') || '').trim();
+        const monthlyVolume = fd.get('monthlyVolume') || '';
+        const requirements = (fd.get('requirements') || '').trim();
+        const notes = (fd.get('notes') || '').trim();
+
+        let ok = true;
+        if (bizName.length < 2) { document.getElementById('biz-name-error').textContent = 'Please enter your business name'; document.getElementById('biz-name').classList.add('error'); ok = false; }
+        if (contactPerson.length < 2) { document.getElementById('contact-person-error').textContent = 'Please enter contact person'; document.getElementById('contact-person').classList.add('error'); ok = false; }
+        const phonePattern = /^[6-9]\d{9}$/; 
+        if (!phonePattern.test(phone)) { document.getElementById('phone-error').textContent = 'Enter a valid 10‑digit Indian mobile number'; document.getElementById('phone').classList.add('error'); ok = false; }
+        if (!city) { document.getElementById('city-error').textContent = 'Enter City/State'; document.getElementById('city').classList.add('error'); ok = false; }
+
+        if (!ok) return;
+
+    let msg = `*Wholesale / Dealer RFQ*\n\n`;
+        msg += `• *Business:* ${bizName}\n`;
+        msg += `• *Contact:* ${contactPerson}\n`;
+        msg += `• *Mobile:* ${phone}\n`;
+        if (email) msg += `• *Email:* ${email}\n`;
+        msg += `• *City/State:* ${city}\n`;
+        if (gstin) msg += `• *GSTIN:* ${gstin}\n`;
+        if (monthlyVolume) msg += `• *Expected Volume:* ${monthlyVolume}\n`;
+        if (requirements) msg += `\n*Requested SKUs & Qty:* ${requirements}\n`;
+        if (notes) msg += `\n*Notes:* ${notes}\n`;
+        msg += `\nPlease share dealer pricing, MOQs, and lead times. Thank you.`;
+
+        WhatsApp.send(msg);
+        showAlert('Your wholesale request has been sent on WhatsApp. We will respond with pricing shortly.', 'success');
+        form.reset();
     });
 }

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wholesale & Dealer Inquiries - FinGaurd RO Systems (B2B)</title>
+    <link rel="canonical" href="https://fingaurd.com/wholesale.html">
+    <meta name="description" content="Bulk orders, dealer pricing, OEM/private label and institutional supply for RO water purifiers, filters, and pumps. Request a quotation via WhatsApp.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="wholesale">
+
+    <header data-include="components/header.html"></header>
+
+    <main>
+        <section class="products-hero">
+            <div class="container">
+                <div class="products-header">
+                    <h1>B2B • Wholesale & Dealer Program</h1>
+                    <p>Bulk supply of RO systems, filters, and spares with GST invoicing, branding support, and reliable after‑sales.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="expert-advice-section">
+            <div class="advice-content">
+                <div class="advice-header">
+                    <h2>Request a Quote</h2>
+                    <p>Share your requirements and we’ll send dealer pricing and lead times. No minimum tech setup—requests go over WhatsApp.</p>
+                </div>
+                <form id="wholesale-form" class="advice-form" novalidate>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="biz-name">Business/Institution Name</label>
+                            <input id="biz-name" name="bizName" type="text" placeholder="Your company or institution" required>
+                            <div class="error-message" id="biz-name-error"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-person">Contact Person</label>
+                            <input id="contact-person" name="contactPerson" type="text" placeholder="Full name" required>
+                            <div class="error-message" id="contact-person-error"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Mobile Number</label>
+                            <input id="phone" name="phone" type="tel" placeholder="10‑digit mobile" required>
+                            <div class="error-message" id="phone-error"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email (optional)</label>
+                            <input id="email" name="email" type="email" placeholder="name@company.com">
+                            <div class="error-message" id="email-error"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="city">City / State</label>
+                            <input id="city" name="city" type="text" placeholder="e.g., Pune, Maharashtra" required>
+                            <div class="error-message" id="city-error"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="gstin">GSTIN (optional)</label>
+                            <input id="gstin" name="gstin" type="text" placeholder="e.g., 27ABCDE1234F1Z5">
+                            <div class="error-message" id="gstin-error"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="monthly-volume">Expected Monthly Volume</label>
+                            <select id="monthly-volume" name="monthlyVolume">
+                                <option value="1-10 units">1–10 units</option>
+                                <option value="11-50 units">11–50 units</option>
+                                <option value="51-200 units">51–200 units</option>
+                                <option value=">200 units">200+ units</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="requirements">Products / SKUs & Qty</label>
+                            <input id="requirements" name="requirements" type="text" placeholder="e.g., RO-12L x 20, PP Spun Filter x 200">
+                            <div class="error-message" id="requirements-error"></div>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="notes">Notes</label>
+                            <input id="notes" name="notes" type="text" placeholder="Delivery timelines, custom branding, installation, etc.">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-whatsapp-large">Request Dealer Pricing on WhatsApp</button>
+                </form>
+                <div class="cta-guarantee">
+                    <span>GST Billing • PAN India Shipping • OEM & Private Label • AMC Support</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer data-include="components/footer.html"></footer>
+
+    <script src="js/products-db.js"></script>
+    <script src="js/include.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Minimal inline init in case router isn't updated yet
+        document.addEventListener('DOMContentLoaded', function(){
+            if (window.setupWholesaleForm) { window.setupWholesaleForm(); }
+        });
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "FinGaurd",
+      "url": "https://fingaurd.com/wholesale.html",
+      "logo": "https://fingaurd.com/assets/images/hero.png",
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "telephone": "+91-9821560609",
+        "contactType": "sales",
+        "areaServed": "IN",
+        "availableLanguage": ["en", "hi"]
+      }]
+    }
+    </script>
+</body>
+</html>
