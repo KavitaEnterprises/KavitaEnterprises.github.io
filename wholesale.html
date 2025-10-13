@@ -1,123 +1,617 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wholesale & Dealer Inquiries - FinGaurd RO Systems (B2B)</title>
-    <link rel="canonical" href="https://fingaurd.com/wholesale.html">
-    <meta name="description" content="Bulk orders, dealer pricing, OEM/private label and institutional supply for RO water purifiers, filters, and pumps. Request a quotation via WhatsApp.">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-</head>
-<body class="wholesale">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Wholesale & Bulk Orders - FinGaurd Water Purifiers</title>
+		<meta name="description" content="Wholesale RO water purifiers for dealers, distributors, and bulk buyers. Direct factory prices with excellent margins." />
+		
+		<!-- Tailwind CSS CDN -->
+		<script src="https://cdn.tailwindcss.com"></script>
+		
+		<!-- Tailwind Config -->
+		<script>
+			tailwind.config = {
+				theme: {
+					extend: {
+						colors: {
+							primary: '#2563eb',
+							secondary: '#54e8e8',
+							'primary-dark': '#1e40af',
+						},
+						fontFamily: {
+							sans: ['Urbanist', 'system-ui', 'sans-serif'],
+							display: ['Bebas Neue', 'Arial', 'sans-serif'],
+						},
+					}
+				}
+			}
+		</script>
+		
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+		
+		<!-- Material Symbols -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+		
+		<link rel="stylesheet" href="/css/style.css" />
+		<script src="/js/app.js" type="module"></script>
+	</head>
+	<body class="font-sans antialiased bg-gray-50">
+		<header></header>
+		
+		<main>
+			<!-- Hero Section -->
+			<section class="relative bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 text-white pt-28 pb-20 overflow-hidden">
+				<div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxIDAgNiAyLjY5IDYgNnMtMi42OSA2LTYgNi02LTIuNjktNi02IDIuNjktNiA2LTZ6TTI0IDM2YzMuMzEgMCA2IDIuNjkgNiA2cy0yLjY5IDYtNiA2LTYtMi42OS02LTYgMi42OS02IDYtNnoiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iLjA1Ii8+PC9nPjwvc3ZnPg==')] opacity-30"></div>
+				
+				<div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+					<div class="max-w-4xl mx-auto text-center">
+						<div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/20 rounded-full text-sm font-medium mb-6">
+							<span class="material-symbols-rounded text-base">handshake</span>
+							<span>Wholesale & Distribution Partner</span>
+						</div>
+						
+						<h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+							Become a FinGaurd Partner
+						</h1>
+						
+						<p class="text-lg sm:text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
+							Partner with India's trusted RO manufacturer. Enjoy direct factory prices, exclusive margins, and comprehensive support.
+						</p>
+						
+						<div class="flex flex-wrap items-center justify-center gap-4">
+							<a href="#partner-benefits" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary font-bold rounded-lg hover:bg-gray-100 transition-all hover:shadow-lg">
+								<span>Partner Benefits</span>
+								<span class="material-symbols-rounded">arrow_forward</span>
+							</a>
+							<a href="#contact-wholesale" class="inline-flex items-center gap-2 px-8 py-4 bg-white/10 border-2 border-white text-white font-bold rounded-lg hover:bg-white/20 transition-all backdrop-blur-sm">
+								<span class="material-symbols-rounded">call</span>
+								<span>Contact Us</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
 
-    <header data-include="components/header.html"></header>
+			<!-- Stats Section -->
+			<section class="py-16 bg-white">
+				<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+					<div class="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+						<div class="text-center">
+							<div class="text-4xl font-bold text-primary mb-2">1000+</div>
+							<div class="text-sm text-gray-600">Active Partners</div>
+						</div>
+						<div class="text-center">
+							<div class="text-4xl font-bold text-primary mb-2">50K+</div>
+							<div class="text-sm text-gray-600">Units Sold</div>
+						</div>
+						<div class="text-center">
+							<div class="text-4xl font-bold text-primary mb-2">30%+</div>
+							<div class="text-sm text-gray-600">Profit Margins</div>
+						</div>
+						<div class="text-center">
+							<div class="text-4xl font-bold text-primary mb-2">24/7</div>
+							<div class="text-sm text-gray-600">Partner Support</div>
+						</div>
+					</div>
+				</div>
+			</section>
 
-    <main>
-        <section class="products-hero">
-            <div class="container">
-                <div class="products-header">
-                    <h1>B2B • Wholesale & Dealer Program</h1>
-                    <p>Bulk supply of RO systems, filters, and spares with GST invoicing, branding support, and reliable after‑sales.</p>
-                </div>
-            </div>
-        </section>
+			<!-- Partner Benefits -->
+			<section id="partner-benefits" class="py-16 bg-gray-50">
+				<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+					<div class="text-center mb-12">
+						<h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Why Partner with FinGaurd?</h2>
+						<p class="text-gray-600 max-w-2xl mx-auto">Exclusive benefits designed to help you grow your business</p>
+					</div>
 
-        <section class="expert-advice-section">
-            <div class="advice-content">
-                <div class="advice-header">
-                    <h2>Request a Quote</h2>
-                    <p>Share your requirements and we’ll send dealer pricing and lead times. No minimum tech setup—requests go over WhatsApp.</p>
-                </div>
-                <form id="wholesale-form" class="advice-form" novalidate>
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="biz-name">Business/Institution Name</label>
-                            <input id="biz-name" name="bizName" type="text" placeholder="Your company or institution" required>
-                            <div class="error-message" id="biz-name-error"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="contact-person">Contact Person</label>
-                            <input id="contact-person" name="contactPerson" type="text" placeholder="Full name" required>
-                            <div class="error-message" id="contact-person-error"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Mobile Number</label>
-                            <input id="phone" name="phone" type="tel" placeholder="10‑digit mobile" required>
-                            <div class="error-message" id="phone-error"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email (optional)</label>
-                            <input id="email" name="email" type="email" placeholder="name@company.com">
-                            <div class="error-message" id="email-error"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="city">City / State</label>
-                            <input id="city" name="city" type="text" placeholder="e.g., Pune, Maharashtra" required>
-                            <div class="error-message" id="city-error"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="gstin">GSTIN (optional)</label>
-                            <input id="gstin" name="gstin" type="text" placeholder="e.g., 27ABCDE1234F1Z5">
-                            <div class="error-message" id="gstin-error"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="monthly-volume">Expected Monthly Volume</label>
-                            <select id="monthly-volume" name="monthlyVolume">
-                                <option value="1-10 units">1–10 units</option>
-                                <option value="11-50 units">11–50 units</option>
-                                <option value="51-200 units">51–200 units</option>
-                                <option value=">200 units">200+ units</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="requirements">Products / SKUs & Qty</label>
-                            <input id="requirements" name="requirements" type="text" placeholder="e.g., RO-12L x 20, PP Spun Filter x 200">
-                            <div class="error-message" id="requirements-error"></div>
-                        </div>
-                        <div class="form-group full-width">
-                            <label for="notes">Notes</label>
-                            <input id="notes" name="notes" type="text" placeholder="Delivery timelines, custom branding, installation, etc.">
-                        </div>
-                    </div>
-                    <button type="submit" class="btn-whatsapp-large">Request Dealer Pricing on WhatsApp</button>
-                </form>
-                <div class="cta-guarantee">
-                    <span>GST Billing • PAN India Shipping • OEM & Private Label • AMC Support</span>
-                </div>
-            </div>
-        </section>
-    </main>
+					<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+						<div class="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-all hover:-translate-y-1">
+							<div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center mb-4">
+								<span class="material-symbols-rounded text-3xl text-white">trending_down</span>
+							</div>
+							<h3 class="font-bold text-gray-900 mb-2 text-lg">Factory Direct Pricing</h3>
+							<p class="text-gray-600 text-sm">Get products at manufacturer prices with no middleman markup. Enjoy margins of 30-40%.</p>
+						</div>
 
-    <footer data-include="components/footer.html"></footer>
+						<div class="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-all hover:-translate-y-1">
+							<div class="w-14 h-14 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center mb-4">
+								<span class="material-symbols-rounded text-3xl text-white">inventory</span>
+							</div>
+							<h3 class="font-bold text-gray-900 mb-2 text-lg">Wide Product Range</h3>
+							<p class="text-gray-600 text-sm">Access to 50+ products including RO systems, UV purifiers, filters, and accessories.</p>
+						</div>
 
-    <script src="js/products-db.js"></script>
-    <script src="js/include.js"></script>
-    <script src="js/main.js"></script>
-    <script>
-        // Minimal inline init in case router isn't updated yet
-        document.addEventListener('DOMContentLoaded', function(){
-            if (window.setupWholesaleForm) { window.setupWholesaleForm(); }
-        });
-    </script>
+						<div class="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-all hover:-translate-y-1">
+							<div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mb-4">
+								<span class="material-symbols-rounded text-3xl text-white">school</span>
+							</div>
+							<h3 class="font-bold text-gray-900 mb-2 text-lg">Training & Support</h3>
+							<p class="text-gray-600 text-sm">Comprehensive product training, sales materials, and dedicated support team.</p>
+						</div>
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "FinGaurd",
-      "url": "https://fingaurd.com/wholesale.html",
-      "logo": "https://fingaurd.com/assets/images/hero.png",
-      "contactPoint": [{
-        "@type": "ContactPoint",
-        "telephone": "+91-9821560609",
-        "contactType": "sales",
-        "areaServed": "IN",
-        "availableLanguage": ["en", "hi"]
-      }]
-    }
-    </script>
-</body>
+						<div class="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-all hover:-translate-y-1">
+							<div class="w-14 h-14 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center mb-4">
+								<span class="material-symbols-rounded text-3xl text-white">campaign</span>
+							</div>
+							<h3 class="font-bold text-gray-900 mb-2 text-lg">Marketing Support</h3>
+							<p class="text-gray-600 text-sm">Free marketing materials, product catalogs, and digital assets to boost your sales.</p>
+						</div>
+
+						<div class="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-all hover:-translate-y-1">
+							<div class="w-14 h-14 bg-gradient-to-br from-red-500 to-rose-600 rounded-xl flex items-center justify-center mb-4">
+								<span class="material-symbols-rounded text-3xl text-white">local_shipping</span>
+							</div>
+							<h3 class="font-bold text-gray-900 mb-2 text-lg">Fast Delivery</h3>
+							<p class="text-gray-600 text-sm">Quick dispatch and delivery across India with reliable logistics partners.</p>
+						</div>
+
+						<div class="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-all hover:-translate-y-1">
+							<div class="w-14 h-14 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center mb-4">
+								<span class="material-symbols-rounded text-3xl text-white">verified_user</span>
+							</div>
+							<h3 class="font-bold text-gray-900 mb-2 text-lg">Warranty Support</h3>
+							<p class="text-gray-600 text-sm">Comprehensive warranty on all products with hassle-free claim process.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Partnership Types -->
+			<section class="py-16 bg-white">
+				<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+					<div class="text-center mb-12">
+						<h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Partnership Programs</h2>
+						<p class="text-gray-600 max-w-2xl mx-auto">Choose the partnership model that suits your business</p>
+					</div>
+
+					<div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+						<!-- Dealer -->
+						<div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl border-2 border-blue-200 p-8 hover:shadow-xl transition-all">
+							<div class="text-center mb-6">
+								<div class="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
+									<span class="material-symbols-rounded text-3xl text-primary">store</span>
+								</div>
+								<h3 class="text-2xl font-bold text-gray-900 mb-2">Dealer</h3>
+								<p class="text-gray-600 text-sm">Perfect for retail stores</p>
+							</div>
+
+							<ul class="space-y-3 mb-8">
+								<li class="flex items-start gap-2">
+									<span class="material-symbols-rounded text-green-500 text-lg mt-0.5">check_circle</span>
+									<span class="text-sm text-gray-700">Min. order: 10 units</span>
+								</li>
+								<li class="flex items-start gap-2">
+									<span class="material-symbols-rounded text-green-500 text-lg mt-0.5">check_circle</span>
+									<span class="text-sm text-gray-700">20-25% margin</span>
+								</li>
+								<li class="flex items-start gap-2">
+									<span class="material-symbols-rounded text-green-500 text-lg mt-0.5">check_circle</span>
+									<span class="text-sm text-gray-700">Marketing support</span>
+								</li>
+								<li class="flex items-start gap-2">
+									<span class="material-symbols-rounded text-green-500 text-lg mt-0.5">check_circle</span>
+									<span class="text-sm text-gray-700">Product training</span>
+								</li>
+								<li class="flex items-start gap-2">
+									<span class="material-symbols-rounded text-green-500 text-lg mt-0.5">check_circle</span>
+									<span class="text-sm text-gray-700">Credit facility</span>
+								</li>
+							</ul>
+
+							<button onclick="requestPartnership('Dealer')" class="w-full py-3 bg-primary text-white font-bold rounded-lg hover:bg-primary-dark transition-colors">
+								Apply as Dealer
+							</button>
+						</div>
+
+						<!-- Distributor -->
+						<div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl border-2 border-purple-300 p-8 hover:shadow-xl transition-all relative">
+							<div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-1 rounded-full text-sm font-bold">
+								POPULAR
+							</div>
+							
+							<div class="text-center mb-6">
+								<div class="inline-flex items-center justify-center w-16 h-16 bg-purple-100 rounded-full mb-4">
+									<span class="material-symbols-rounded text-3xl text-purple-600">warehouse</span>
+								</div>
+								<h3 class="text-2xl font-bold text-gray-900 mb-2">Distributor</h3>
+								<p class="text-gray-600 text-sm">For established businesses</p>
+							</div>
+
+							<ul class="space-y-3 mb-8">
+								<li class="flex items-start gap-2">
+									<span class="material-symbols-rounded text-green-500 text-lg mt-0.5">check_circle</span>
+									<span class="text-sm text-gray-700"><strong>Min. order: 50 units</strong></span>
+								</li>
+								<li class="flex items-start gap-2">
+									<span class="material-symbols-rounded text-green-500 text-lg mt-0.5">check_circle</span>
+									<span class="text-sm text-gray-700"><strong>30-35% margin</strong></span>
+								</li>
+								<li class="flex items-start gap-2">
+									<span class="material-symbols-rounded text-green-500 text-lg mt-0.5">check_circle</span>
+									<span class="text-sm text-gray-700">Exclusive territory rights</span>
+								</li>
+								<li class="flex items-start gap-2">
+									<span class="material-symbols-rounded text-green-500 text-lg mt-0.5">check_circle</span>
+									<span class="text-sm text-gray-700">Dedicated support</span>
+								</li>
+								<li class="flex items-start gap-2">
+									<span class="material-symbols-rounded text-green-500 text-lg mt-0.5">check_circle</span>
+									<span class="text-sm text-gray-700">Extended credit terms</span>
+								</li>
+							</ul>
+
+							<button onclick="requestPartnership('Distributor')" class="w-full py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded-lg hover:from-purple-600 hover:to-pink-600 transition-all">
+								Apply as Distributor
+							</button>
+						</div>
+
+						<!-- Super Stockist -->
+						<div class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl border-2 border-amber-300 p-8 hover:shadow-xl transition-all">
+							<div class="text-center mb-6">
+								<div class="inline-flex items-center justify-center w-16 h-16 bg-amber-100 rounded-full mb-4">
+									<span class="material-symbols-rounded text-3xl text-amber-600">apartment</span>
+								</div>
+								<h3 class="text-2xl font-bold text-gray-900 mb-2">Super Stockist</h3>
+								<p class="text-gray-600 text-sm">Large scale operations</p>
+							</div>
+
+							<ul class="space-y-3 mb-8">
+								<li class="flex items-start gap-2">
+									<span class="material-symbols-rounded text-green-500 text-lg mt-0.5">check_circle</span>
+									<span class="text-sm text-gray-700"><strong>Min. order: 100 units</strong></span>
+								</li>
+								<li class="flex items-start gap-2">
+									<span class="material-symbols-rounded text-green-500 text-lg mt-0.5">check_circle</span>
+									<span class="text-sm text-gray-700"><strong>35-40% margin</strong></span></span>
+								</li>
+								<li class="flex items-start gap-2">
+									<span class="material-symbols-rounded text-green-500 text-lg mt-0.5">check_circle</span>
+									<span class="text-sm text-gray-700">Regional distribution</span>
+								</li>
+								<li class="flex items-start gap-2">
+									<span class="material-symbols-rounded text-green-500 text-lg mt-0.5">check_circle</span>
+									<span class="text-sm text-gray-700">Priority support</span>
+								</li>
+								<li class="flex items-start gap-2">
+									<span class="material-symbols-rounded text-green-500 text-lg mt-0.5">check_circle</span>
+									<span class="text-sm text-gray-700">Maximum credit facility</span>
+								</li>
+							</ul>
+
+							<button onclick="requestPartnership('Super Stockist')" class="w-full py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold rounded-lg hover:from-amber-600 hover:to-orange-600 transition-all">
+								Apply as Super Stockist
+							</button>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- How It Works -->
+			<section class="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
+				<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+					<div class="text-center mb-12">
+						<h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">How It Works</h2>
+						<p class="text-gray-600 max-w-2xl mx-auto">Simple steps to become a FinGaurd partner</p>
+					</div>
+
+					<div class="max-w-4xl mx-auto">
+						<div class="grid md:grid-cols-4 gap-8">
+							<div class="text-center">
+								<div class="w-16 h-16 mx-auto mb-4 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold">
+									1
+								</div>
+								<h3 class="font-bold text-gray-900 mb-2">Apply</h3>
+								<p class="text-sm text-gray-600">Fill the partnership form</p>
+							</div>
+
+							<div class="text-center">
+								<div class="w-16 h-16 mx-auto mb-4 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold">
+									2
+								</div>
+								<h3 class="font-bold text-gray-900 mb-2">Verification</h3>
+								<p class="text-sm text-gray-600">Our team verifies your details</p>
+							</div>
+
+							<div class="text-center">
+								<div class="w-16 h-16 mx-auto mb-4 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold">
+									3
+								</div>
+								<h3 class="font-bold text-gray-900 mb-2">Agreement</h3>
+								<p class="text-sm text-gray-600">Sign the partnership agreement</p>
+							</div>
+
+							<div class="text-center">
+								<div class="w-16 h-16 mx-auto mb-4 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold">
+									4
+								</div>
+								<h3 class="font-bold text-gray-900 mb-2">Start</h3>
+								<p class="text-sm text-gray-600">Begin your journey with us</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Contact Form -->
+			<section id="contact-wholesale" class="py-16 bg-white">
+				<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+					<div class="max-w-3xl mx-auto">
+						<div class="text-center mb-12">
+							<h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Become a Partner</h2>
+							<p class="text-gray-600">Fill out the form and our partnership team will contact you within 24 hours</p>
+						</div>
+
+						<div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl shadow-xl p-8 border border-blue-100">
+							<form id="wholesale-form" class="space-y-6">
+								<div class="grid md:grid-cols-2 gap-6">
+									<div>
+										<label for="wholesale-name" class="block text-sm font-semibold text-gray-700 mb-2">
+											Business Name *
+										</label>
+										<input 
+											type="text" 
+											id="wholesale-name" 
+											name="businessName" 
+											required
+											class="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
+											placeholder="Your business name"
+										/>
+									</div>
+									<div>
+										<label for="wholesale-contact" class="block text-sm font-semibold text-gray-700 mb-2">
+											Contact Person *
+										</label>
+										<input 
+											type="text" 
+											id="wholesale-contact" 
+											name="contactPerson" 
+											required
+											class="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
+											placeholder="Your name"
+										/>
+									</div>
+								</div>
+
+								<div class="grid md:grid-cols-2 gap-6">
+									<div>
+										<label for="wholesale-phone" class="block text-sm font-semibold text-gray-700 mb-2">
+											Phone Number *
+										</label>
+										<input 
+											type="tel" 
+											id="wholesale-phone" 
+											name="phone" 
+											required
+											pattern="[0-9]{10}"
+											class="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
+											placeholder="10-digit number"
+										/>
+									</div>
+									<div>
+										<label for="wholesale-email" class="block text-sm font-semibold text-gray-700 mb-2">
+											Email Address *
+										</label>
+										<input 
+											type="email" 
+											id="wholesale-email" 
+											name="email" 
+											required
+											class="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
+											placeholder="your@email.com"
+										/>
+									</div>
+								</div>
+
+								<div>
+									<label for="wholesale-address" class="block text-sm font-semibold text-gray-700 mb-2">
+										Business Address *
+									</label>
+									<textarea 
+										id="wholesale-address" 
+										name="address" 
+										required
+										rows="3"
+										class="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary resize-none"
+										placeholder="Your complete business address"
+									></textarea>
+								</div>
+
+								<div class="grid md:grid-cols-2 gap-6">
+									<div>
+										<label for="wholesale-type" class="block text-sm font-semibold text-gray-700 mb-2">
+											Partnership Type *
+										</label>
+										<select 
+											id="wholesale-type" 
+											name="partnershipType"
+											required
+											class="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
+										>
+											<option value="">Select type</option>
+											<option value="Dealer">Dealer</option>
+											<option value="Distributor">Distributor</option>
+											<option value="Super Stockist">Super Stockist</option>
+										</select>
+									</div>
+									<div>
+										<label for="wholesale-gst" class="block text-sm font-semibold text-gray-700 mb-2">
+											GST Number
+										</label>
+										<input 
+											type="text" 
+											id="wholesale-gst" 
+											name="gst"
+											class="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
+											placeholder="GST number (if available)"
+										/>
+									</div>
+								</div>
+
+								<div>
+									<label for="wholesale-experience" class="block text-sm font-semibold text-gray-700 mb-2">
+										Business Experience
+									</label>
+									<textarea 
+										id="wholesale-experience" 
+										name="experience"
+										rows="3"
+										class="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary resize-none"
+										placeholder="Tell us about your business experience and current operations"
+									></textarea>
+								</div>
+
+								<button 
+									type="submit"
+									class="w-full flex items-center justify-center gap-3 px-6 py-4 bg-gradient-to-r from-primary to-primary-dark text-white font-bold text-lg rounded-xl hover:from-primary-dark hover:to-primary hover:shadow-lg transition-all group"
+								>
+									<span class="material-symbols-rounded text-2xl">send</span>
+									<span>Submit Partnership Request</span>
+									<span class="material-symbols-rounded group-hover:translate-x-1 transition-transform">arrow_forward</span>
+								</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Testimonials -->
+			<section class="py-16 bg-gray-50">
+				<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+					<div class="text-center mb-12">
+						<h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">What Our Partners Say</h2>
+						<p class="text-gray-600 max-w-2xl mx-auto">Success stories from our distribution network</p>
+					</div>
+
+					<div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+						<div class="bg-white rounded-xl p-6 border border-gray-200">
+							<div class="flex items-center gap-1 text-yellow-500 mb-4">
+								<span class="material-symbols-rounded">star</span>
+								<span class="material-symbols-rounded">star</span>
+								<span class="material-symbols-rounded">star</span>
+								<span class="material-symbols-rounded">star</span>
+								<span class="material-symbols-rounded">star</span>
+							</div>
+							<p class="text-gray-700 text-sm mb-4 italic">
+								"Partnering with FinGaurd was the best business decision. Great margins, excellent products, and fantastic support team."
+							</p>
+							<div class="flex items-center gap-3">
+								<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+									<span class="material-symbols-rounded text-primary">person</span>
+								</div>
+								<div>
+									<div class="font-bold text-gray-900 text-sm">Rajesh Kumar</div>
+									<div class="text-xs text-gray-500">Distributor, Delhi</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="bg-white rounded-xl p-6 border border-gray-200">
+							<div class="flex items-center gap-1 text-yellow-500 mb-4">
+								<span class="material-symbols-rounded">star</span>
+								<span class="material-symbols-rounded">star</span>
+								<span class="material-symbols-rounded">star</span>
+								<span class="material-symbols-rounded">star</span>
+								<span class="material-symbols-rounded">star</span>
+							</div>
+							<p class="text-gray-700 text-sm mb-4 italic">
+								"The product quality is outstanding and customers love FinGaurd. My business has grown 3x in just 2 years."
+							</p>
+							<div class="flex items-center gap-3">
+								<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+									<span class="material-symbols-rounded text-primary">person</span>
+								</div>
+								<div>
+									<div class="font-bold text-gray-900 text-sm">Priya Sharma</div>
+									<div class="text-xs text-gray-500">Dealer, Mumbai</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="bg-white rounded-xl p-6 border border-gray-200">
+							<div class="flex items-center gap-1 text-yellow-500 mb-4">
+								<span class="material-symbols-rounded">star</span>
+								<span class="material-symbols-rounded">star</span>
+								<span class="material-symbols-rounded">star</span>
+								<span class="material-symbols-rounded">star</span>
+								<span class="material-symbols-rounded">star</span>
+							</div>
+							<p class="text-gray-700 text-sm mb-4 italic">
+								"FinGaurd's support team is always there when needed. The training and marketing materials are top-notch."
+							</p>
+							<div class="flex items-center gap-3">
+								<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+									<span class="material-symbols-rounded text-primary">person</span>
+								</div>
+								<div>
+									<div class="font-bold text-gray-900 text-sm">Amit Patel</div>
+									<div class="text-xs text-gray-500">Super Stockist, Ahmedabad</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer></footer>
+
+		<!-- Wholesale Form Handler -->
+		<script>
+			const WHATSAPP_NUMBER = '919821560609';
+
+			document.getElementById('wholesale-form').addEventListener('submit', function(e) {
+				e.preventDefault();
+				
+				const formData = new FormData(this);
+				
+				let message = `🤝 *PARTNERSHIP REQUEST*\n\n`;
+				message += `🏢 *Business Information:*\n`;
+				message += `Business Name: ${formData.get('businessName')}\n`;
+				message += `Contact Person: ${formData.get('contactPerson')}\n`;
+				message += `Phone: ${formData.get('phone')}\n`;
+				message += `Email: ${formData.get('email')}\n`;
+				message += `Address: ${formData.get('address')}\n\n`;
+				
+				message += `📋 *Partnership Details:*\n`;
+				message += `Type: ${formData.get('partnershipType')}\n`;
+				if (formData.get('gst')) message += `GST: ${formData.get('gst')}\n`;
+				message += `\n`;
+				
+				if (formData.get('experience')) {
+					message += `💼 *Experience:*\n${formData.get('experience')}\n\n`;
+				}
+				
+				message += `---\n`;
+				message += `Requested from: ${window.location.origin}\n`;
+				message += `Date: ${new Date().toLocaleString('en-IN')}`;
+
+				const encodedMessage = encodeURIComponent(message);
+				const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+				
+				window.open(whatsappUrl, '_blank');
+				
+				this.reset();
+				Alert.success('✅ Your partnership request has been sent! Our team will contact you shortly.');
+			});
+
+			function requestPartnership(type) {
+				let message = `🤝 *PARTNERSHIP INTEREST*\n\n`;
+				message += `Type: ${type}\n`;
+				message += `I am interested in becoming a ${type} partner for FinGaurd.\n\n`;
+				message += `Please share more details about the partnership program.\n\n`;
+				message += `---\n`;
+				message += `From: ${window.location.origin}`;
+
+				const encodedMessage = encodeURIComponent(message);
+				const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+				
+				window.open(whatsappUrl, '_blank');
+				Alert.info(`📋 Requesting ${type} Partnership Info. Our team will contact you shortly!`);
+			}
+		</script>
+	</body>
 </html>

@@ -1,59 +1,803 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RO Water Purifier Systems & Parts - FinGaurd Products Catalog</title>
-    <meta name="description" content="Browse FinGaurd's complete range of RO water purifier systems, carbon filters, sediment filters, and pumps. Premium quality water purification products for home use.">
-    <meta name="keywords" content="RO systems catalog, water purifier parts, carbon filters, sediment filters, booster pumps, FinGaurd products">
-    <link rel="canonical" href="https://fingaurd.com/products.html">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>All Products - FinGaurd Water Purifiers</title>
+		<meta name="description" content="Browse our complete range of RO water purifiers, filters, and accessories. Premium quality products manufactured in India." />
+		
+		<!-- Tailwind CSS CDN -->
+		<script src="https://cdn.tailwindcss.com"></script>
+		
+		<!-- Tailwind Config -->
+		<script>
+			tailwind.config = {
+				theme: {
+					extend: {
+						colors: {
+							primary: '#2563eb',
+							secondary: '#54e8e8',
+							'primary-dark': '#1e40af',
+						},
+						fontFamily: {
+							sans: ['Urbanist', 'system-ui', 'sans-serif'],
+							display: ['Bebas Neue', 'Arial', 'sans-serif'],
+						},
+					}
+				}
+			}
+		</script>
+		
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+		
+		<link rel="stylesheet" href="/css/style.css" />
+		<script src="/js/app.js" type="module"></script>
+		<style>
+			/* Mobile Filter Overlay */
+			#filters-sidebar {
+				transition: transform 0.3s ease-in-out;
+			}
+			
+			@media (max-width: 1023px) {
+				#filters-sidebar {
+					position: fixed;
+					top: 0;
+					left: 0;
+					bottom: 0;
+					z-index: 50;
+					width: 85%;
+					max-width: 400px;
+					background: white;
+					transform: translateX(-100%);
+					overflow-y: auto;
+					box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+				}
+				
+				#filters-sidebar.active {
+					transform: translateX(0);
+					box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+				}
+				
+				.filter-overlay {
+					position: fixed;
+					inset: 0;
+					background: rgba(0, 0, 0, 0.5);
+					z-index: 40;
+					opacity: 0;
+					pointer-events: none;
+					transition: opacity 0.3s ease-in-out;
+				}
+				
+				.filter-overlay.active {
+					opacity: 1;
+					pointer-events: auto;
+				}
+			}
+		</style>
+	</head>
+	<body class="font-sans antialiased bg-gray-50">
+		<header></header>
+		
+		<main>
+			<!-- Page Hero Section -->
+			<section class="relative bg-gradient-to-br from-gray-50 via-white to-blue-50 py-16 lg:py-20 overflow-hidden">
+				<!-- Background Pattern -->
+				<div class="absolute inset-0 opacity-[0.02]">
+					<div class="absolute inset-0 hero-grid"></div>
+				</div>
+				
+				<!-- Decorative Blobs -->
+				<div class="absolute -top-40 -left-40 w-96 h-96 bg-primary/10 rounded-full filter blur-3xl opacity-50"></div>
+				<div class="absolute -bottom-40 -right-40 w-96 h-96 bg-secondary/10 rounded-full filter blur-3xl opacity-50"></div>
+				
+				<div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+					<div class="max-w-5xl mx-auto">
+						<!-- Breadcrumb -->
+						<div class="flex items-center gap-2 text-sm mb-8 text-gray-600">
+							<a href="/" class="hover:text-primary flex items-center gap-1">
+								<span class="material-symbols-rounded text-base">home</span>
+								Home
+							</a>
+							<span class="material-symbols-rounded text-sm">chevron_right</span>
+							<span class="text-gray-900 font-semibold">Products</span>
+						</div>
+						
+						<!-- Header Content -->
+						<div class="text-center mb-8">
+							<!-- Badge -->
+							<div class="inline-flex items-center gap-2 px-4 py-1.5 bg-primary/10 border border-primary/20 rounded-full text-sm font-medium text-primary mb-4">
+								<span class="material-symbols-rounded text-base">water_drop</span>
+								<span>Premium Water Solutions</span>
+							</div>
+							
+							<h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
+								Explore Our <br class="hidden sm:block"/>
+								<span class="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">Premium Products</span>
+							</h1>
+							
+							<p class="text-base lg:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+								Discover our complete range of RO water purifiers, genuine filters, and accessories. 
+								<span class="font-semibold text-gray-900">Manufactured in India</span> for Indian homes.
+							</p>
+						</div>
+						
+						<!-- Quick Stats -->
+						<div class="grid grid-cols-3 gap-4 max-w-2xl mx-auto">
+							<div class="text-center p-4 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md">
+								<div class="text-2xl font-bold text-primary mb-1">50K+</div>
+								<div class="text-xs text-gray-600 font-medium">Happy Customers</div>
+							</div>
+							<div class="text-center p-4 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md">
+								<div class="text-2xl font-bold text-primary mb-1">99.9%</div>
+								<div class="text-xs text-gray-600 font-medium">Pure Water</div>
+							</div>
+							<div class="text-center p-4 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md">
+								<div class="text-2xl font-bold text-primary mb-1">15+</div>
+								<div class="text-xs text-gray-600 font-medium">Years Trust</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 
-    <header data-include="components/header.html"></header>
+			<!-- Products Section -->
+			<section class="relative py-16 lg:py-24 bg-gradient-to-b from-white to-gray-50">
+				<!-- Mobile Filter Overlay -->
+				<div class="filter-overlay lg:hidden" id="filter-overlay"></div>
+				
+				<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+					<div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
+						<!-- Sidebar Filters -->
+						<aside id="filters-sidebar" class="lg:w-96 flex-shrink-0 p-6 lg:p-0">
+							<!-- Mobile Filter Header -->
+							<div class="lg:hidden flex items-center justify-between mb-6 pb-4 border-b border-gray-200">
+								<h2 class="text-xl font-bold text-gray-900 flex items-center gap-2">
+									<span class="material-symbols-rounded text-primary">tune</span>
+									Filters
+								</h2>
+								<button id="close-filters" class="p-2 hover:bg-gray-100 rounded-lg">
+									<span class="material-symbols-rounded">close</span>
+								</button>
+							</div>
+							
+							<div class="sticky top-24 space-y-6">
+								<!-- Search Box -->
+								<div class="relative bg-white rounded-xl shadow-md p-6 border border-gray-200 hover:border-primary/30 hover:shadow-lg">
+									<div class="absolute -top-2 -right-2 w-16 h-16 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-lg transform rotate-12 -z-10"></div>
+									
+									<h3 class="text-lg font-bold text-gray-900 mb-5 flex items-center gap-2">
+										<div class="w-9 h-9 flex items-center justify-center bg-gradient-to-br from-primary to-primary-dark rounded-lg">
+											<span class="material-symbols-rounded text-white text-lg">search</span>
+										</div>
+										<span>Search Products</span>
+									</h3>
+									<div class="relative">
+										<input 
+											type="text" 
+											id="search-input"
+											placeholder="Search by name, SKU, or keyword..." 
+											class="w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary focus:bg-white text-gray-700 placeholder-gray-400"
+										/>
+										<span class="material-symbols-rounded absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</span>
+									</div>
+								</div>
 
-    <main>
-        <section class="products-hero">
-            <div class="container">
-                <div class="products-header">
-                    <h1>All Products</h1>
-                    <p>Premium RO systems and genuine parts for pure water at home</p>
-                </div>
-            </div>
-        </section>
+								<!-- Categories Filter -->
+								<div class="relative bg-white rounded-xl shadow-md p-6 border border-gray-200 hover:border-primary/30 hover:shadow-lg">
+									<div class="absolute -top-2 -left-2 w-16 h-16 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-lg transform -rotate-12 -z-10"></div>
+									
+									<h3 class="text-lg font-bold text-gray-900 mb-5 flex items-center gap-2">
+										<div class="w-9 h-9 flex items-center justify-center bg-gradient-to-br from-blue-500 to-cyan-600 rounded-lg">
+											<span class="material-symbols-rounded text-white text-lg">category</span>
+										</div>
+										<span>Categories</span>
+									</h3>
+									<div class="space-y-2" id="category-filters">
+										<label class="flex items-center gap-3 p-3 rounded-lg cursor-pointer group hover:bg-gradient-to-r hover:from-primary/5 hover:to-secondary/5 border border-transparent hover:border-primary/20">
+											<input type="radio" name="category" value="all" checked class="w-4 h-4 text-primary focus:ring-primary" />
+											<span class="text-gray-700 group-hover:text-primary font-medium flex-1">All Products</span>
+											<span class="px-2.5 py-0.5 text-xs font-bold text-white bg-gradient-to-r from-primary to-secondary rounded-full" id="count-all">0</span>
+										</label>
+										<label class="flex items-center gap-3 p-3 rounded-lg cursor-pointer group hover:bg-primary/5 border border-transparent hover:border-primary/20">
+											<input type="radio" name="category" value="RO Systems" class="w-4 h-4 text-primary focus:ring-primary" />
+											<span class="text-gray-700 group-hover:text-primary font-medium flex-1">RO Systems</span>
+											<span class="px-2.5 py-0.5 text-xs font-bold text-primary bg-primary/10 rounded-full" id="count-ro">0</span>
+										</label>
+										<label class="flex items-center gap-3 p-3 rounded-lg cursor-pointer group hover:bg-green-50 border border-transparent hover:border-green-200">
+											<input type="radio" name="category" value="Filters" class="w-4 h-4 text-green-600 focus:ring-green-500" />
+											<span class="text-gray-700 group-hover:text-green-700 font-medium flex-1">Filters</span>
+											<span class="px-2.5 py-0.5 text-xs font-bold text-green-700 bg-green-100 rounded-full" id="count-filters">0</span>
+										</label>
+										<label class="flex items-center gap-3 p-3 rounded-lg cursor-pointer group hover:bg-purple-50 border border-transparent hover:border-purple-200">
+											<input type="radio" name="category" value="Parts" class="w-4 h-4 text-purple-600 focus:ring-purple-500" />
+											<span class="text-gray-700 group-hover:text-purple-700 font-medium flex-1">Parts</span>
+											<span class="px-2.5 py-0.5 text-xs font-bold text-purple-700 bg-purple-100 rounded-full" id="count-parts">0</span>
+										</label>
+										<label class="flex items-center gap-3 p-3 rounded-lg cursor-pointer group hover:bg-orange-50 border border-transparent hover:border-orange-200">
+											<input type="radio" name="category" value="Accessories" class="w-4 h-4 text-orange-600 focus:ring-orange-500" />
+											<span class="text-gray-700 group-hover:text-orange-700 font-medium flex-1">Accessories</span>
+											<span class="px-2.5 py-0.5 text-xs font-bold text-orange-700 bg-orange-100 rounded-full" id="count-accessories">0</span>
+										</label>
+									</div>
+								</div>
 
-        <section class="products-section">
-            <div class="container">
-                <div class="products-layout">
-                    <aside class="products-filters">
-                        <div class="filter-group">
-                            <h3>Search Products</h3>
-                            <input type="text" id="search-box" placeholder="Search by name or tag..." class="search-input">
-                        </div>
-                        
-                        <div class="filter-group">
-                            <h3>Categories</h3>
-                            <nav id="category-filters" class="category-nav">
-                            </nav>
-                        </div>
-                    </aside>
-                    <section class="products-content">
-                        <div id="product-grid" class="products-grid-main">
-                        </div>
-                    </section>
-                </div>
-            </div>
-        </section>
-    </main>
+								<!-- Price Filter -->
+								<div class="relative bg-white rounded-xl shadow-md p-6 border border-gray-200 hover:border-primary/30 hover:shadow-lg">
+									<div class="absolute -top-2 -right-2 w-16 h-16 bg-gradient-to-br from-green-500/10 to-emerald-500/10 rounded-lg transform rotate-12 -z-10"></div>
+									
+									<h3 class="text-lg font-bold text-gray-900 mb-5 flex items-center gap-2">
+										<div class="w-9 h-9 flex items-center justify-center bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg">
+											<span class="material-symbols-rounded text-white text-lg">currency_rupee</span>
+										</div>
+										<span>Price Range</span>
+									</h3>
+									<div class="space-y-2">
+										<label class="flex items-center gap-3 p-3 rounded-lg cursor-pointer group hover:bg-green-50 border border-transparent hover:border-green-200">
+											<input type="radio" name="price" value="all" checked class="w-4 h-4 text-green-600 focus:ring-green-500" />
+											<span class="text-gray-700 group-hover:text-green-700 font-medium">All Prices</span>
+										</label>
+										<label class="flex items-center gap-3 p-3 rounded-lg cursor-pointer group hover:bg-green-50 border border-transparent hover:border-green-200">
+											<input type="radio" name="price" value="0-5000" class="w-4 h-4 text-green-600 focus:ring-green-500" />
+											<span class="text-gray-700 group-hover:text-green-700 font-medium">Under ₹5,000</span>
+										</label>
+										<label class="flex items-center gap-3 p-3 rounded-lg cursor-pointer group hover:bg-green-50 border border-transparent hover:border-green-200">
+											<input type="radio" name="price" value="5000-10000" class="w-4 h-4 text-green-600 focus:ring-green-500" />
+											<span class="text-gray-700 group-hover:text-green-700 font-medium">₹5,000 - ₹10,000</span>
+										</label>
+										<label class="flex items-center gap-3 p-3 rounded-lg cursor-pointer group hover:bg-green-50 border border-transparent hover:border-green-200">
+											<input type="radio" name="price" value="10000-15000" class="w-4 h-4 text-green-600 focus:ring-green-500" />
+											<span class="text-gray-700 group-hover:text-green-700 font-medium">₹10,000 - ₹15,000</span>
+										</label>
+										<label class="flex items-center gap-3 p-3 rounded-lg cursor-pointer group hover:bg-green-50 border border-transparent hover:border-green-200">
+											<input type="radio" name="price" value="15000-100000" class="w-4 h-4 text-green-600 focus:ring-green-500" />
+											<span class="text-gray-700 group-hover:text-green-700 font-medium">Above ₹15,000</span>
+										</label>
+									</div>
+								</div>
 
-    <footer data-include="components/footer.html"></footer>
+								<!-- Sort By -->
+								<div class="relative bg-white rounded-xl shadow-md p-6 border border-gray-200 hover:border-primary/30 hover:shadow-lg">
+									<div class="absolute -top-2 -left-2 w-16 h-16 bg-gradient-to-br from-orange-500/10 to-amber-500/10 rounded-lg transform -rotate-12 -z-10"></div>
+									
+									<h3 class="text-lg font-bold text-gray-900 mb-5 flex items-center gap-2">
+										<div class="w-9 h-9 flex items-center justify-center bg-gradient-to-br from-orange-500 to-amber-600 rounded-lg">
+											<span class="material-symbols-rounded text-white text-lg">sort</span>
+										</div>
+										<span>Sort By</span>
+									</h3>
+									<select id="sort-select" title="Sort products by" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 focus:bg-white text-gray-700 cursor-pointer hover:border-orange-300">
+										<option value="featured">⭐ Featured</option>
+										<option value="price-low">💰 Price: Low to High</option>
+										<option value="price-high">💎 Price: High to Low</option>
+										<option value="name">🔤 Name: A to Z</option>
+									</select>
+								</div>
 
-    <script src="js/products-db.js"></script>
-    <script src="js/include.js"></script>
-    <script src="js/main.js"></script>
-</body>
+								<!-- Clear Filters -->
+								<button id="clear-filters" class="w-full px-6 py-3 bg-gradient-to-r from-gray-100 to-gray-200 hover:from-gray-200 hover:to-gray-300 text-gray-900 font-bold rounded-lg border border-gray-300 hover:border-gray-400 shadow-md hover:shadow-lg">
+									<span class="flex items-center justify-center gap-2">
+										<span class="material-symbols-rounded text-xl">refresh</span>
+										Clear All Filters
+									</span>
+								</button>
+								
+								<!-- Apply Filters (Mobile Only) -->
+								<button id="apply-filters" class="lg:hidden w-full px-6 py-4 bg-gradient-to-r from-primary to-secondary hover:from-primary-dark hover:to-primary text-white font-bold rounded-lg shadow-lg">
+									<span class="flex items-center justify-center gap-2">
+										<span class="material-symbols-rounded">check_circle</span>
+										Apply Filters
+									</span>
+								</button>
+							</div>
+						</aside>
+
+						<!-- Products Grid -->
+						<div class="flex-1">
+							<!-- Results Header -->
+							<div class="relative bg-gradient-to-r from-white via-blue-50 to-purple-50 rounded-xl shadow-md p-6 mb-8 border border-gray-200 overflow-hidden">
+								<div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-full blur-3xl"></div>
+								<div class="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-green-500/5 to-blue-500/5 rounded-full blur-3xl"></div>
+								
+								<div class="relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+									<div>
+										<h2 class="text-2xl font-bold bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent mb-2 flex items-center gap-2">
+											<span class="inline-flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-primary to-secondary text-white rounded-lg font-bold shadow-md">
+												<span class="material-symbols-rounded text-lg">inventory_2</span>
+												<span id="results-count">0</span>
+											</span>
+											<span>Products Found</span>
+										</h2>
+										<p class="text-gray-700 text-sm font-medium" id="active-filters">Showing all products</p>
+									</div>
+									
+									<!-- Mobile Filters Toggle -->
+									<button id="mobile-filter-toggle" class="lg:hidden inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-secondary text-white font-bold rounded-lg shadow-md hover:shadow-lg">
+										<span class="material-symbols-rounded">tune</span>
+										Filters
+									</button>
+								</div>
+							</div>
+
+							<!-- Loading State -->
+							<div id="loading-state" class="flex items-center justify-center py-24">
+								<div class="text-center">
+									<div class="relative inline-block mb-6">
+										<div class="animate-spin rounded-full h-16 w-16 border-4 border-gray-200"></div>
+										<div class="absolute top-0 left-0 animate-spin rounded-full h-16 w-16 border-4 border-primary border-t-transparent"></div>
+									</div>
+									<p class="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Loading products...</p>
+									<p class="text-gray-500 mt-2">Please wait a moment</p>
+								</div>
+							</div>
+
+							<!-- Products Grid -->
+							<div id="products-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-12">
+								<!-- Products will be loaded here dynamically -->
+							</div>
+
+							<!-- No Results State -->
+							<div id="no-results" class="hidden text-center py-20">
+								<div class="max-w-md mx-auto bg-white rounded-xl shadow-lg p-10 border border-gray-200">
+									<div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center">
+										<span class="material-symbols-rounded text-4xl text-gray-400">search_off</span>
+									</div>
+									<h3 class="text-2xl font-bold text-gray-900 mb-2">No Products Found</h3>
+									<p class="text-gray-600 mb-6">Try adjusting your filters or search terms to find what you're looking for</p>
+									<button id="reset-filters" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-secondary text-white font-bold rounded-lg hover:shadow-lg shadow-md">
+										<span class="material-symbols-rounded">refresh</span>
+										Reset All Filters
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Trust Section -->
+			<section class="relative py-16 bg-gradient-to-br from-primary/5 via-secondary/5 to-primary/5">
+				<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+					<div class="max-w-5xl mx-auto">
+						<div class="grid md:grid-cols-3 gap-8">
+							<!-- Feature 1 -->
+							<div class="text-center">
+								<div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gradient-to-br from-primary to-primary-dark rounded-2xl shadow-lg">
+									<span class="material-symbols-rounded text-white text-3xl">verified</span>
+								</div>
+								<h3 class="font-bold text-lg text-gray-900 mb-2">Genuine Products</h3>
+								<p class="text-gray-600 text-sm">100% authentic FinGaurd products with warranty</p>
+							</div>
+
+							<!-- Feature 2 -->
+							<div class="text-center">
+								<div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gradient-to-br from-secondary to-primary rounded-2xl shadow-lg">
+									<span class="material-symbols-rounded text-white text-3xl">local_shipping</span>
+								</div>
+								<h3 class="font-bold text-lg text-gray-900 mb-2">Free Installation</h3>
+								<p class="text-gray-600 text-sm">Professional installation on all RO systems</p>
+							</div>
+
+							<!-- Feature 3 -->
+							<div class="text-center">
+								<div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gradient-to-br from-green-500 to-green-600 rounded-2xl shadow-lg">
+									<span class="material-symbols-rounded text-white text-3xl">support_agent</span>
+								</div>
+								<h3 class="font-bold text-lg text-gray-900 mb-2">Expert Support</h3>
+								<p class="text-gray-600 text-sm">24/7 customer service and technical assistance</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer></footer>
+
+		<!-- Products Loading Script -->
+		<script>
+			let allProducts = [];
+			let filteredProducts = [];
+			let urlCategories = []; // Store URL categories for multi-category filtering
+			let urlTags = []; // Store URL tags for tag-based filtering
+
+			// Load products from JSON
+			async function loadProducts() {
+				try {
+					const response = await fetch('/data/products.json');
+					allProducts = await response.json();
+					filteredProducts = [...allProducts];
+					
+					updateCategoryCounts();
+					displayProducts();
+					updateResultsCount();
+					
+					document.getElementById('loading-state').style.display = 'none';
+				} catch (error) {
+					console.error('Failed to load products:', error);
+					document.getElementById('loading-state').innerHTML = `
+						<div class="text-center text-red-600">
+							<span class="material-symbols-rounded text-6xl mb-4 block">error</span>
+							<p class="text-lg font-semibold">Failed to load products</p>
+							<p class="text-sm">Please refresh the page to try again</p>
+						</div>
+					`;
+				}
+			}
+
+			// Update category counts
+			function updateCategoryCounts() {
+				const counts = {
+					all: allProducts.length,
+					'RO Systems': 0,
+					'Filters': 0,
+					'Parts': 0,
+					'Accessories': 0
+				};
+
+				allProducts.forEach(product => {
+					if (counts[product.category] !== undefined) {
+						counts[product.category]++;
+					}
+				});
+
+				document.getElementById('count-all').textContent = counts.all;
+				document.getElementById('count-ro').textContent = counts['RO Systems'];
+				document.getElementById('count-filters').textContent = counts['Filters'];
+				document.getElementById('count-parts').textContent = counts['Parts'];
+				document.getElementById('count-accessories').textContent = counts['Accessories'];
+			}
+
+			// Filter products
+			function filterProducts() {
+				let results = [...allProducts];
+
+				// Category filter - support both radio button and URL multi-category
+				const selectedCategory = document.querySelector('input[name="category"]:checked')?.value;
+				
+				if (urlCategories.length > 0) {
+					// Filter by multiple categories from URL
+					results = results.filter(p => urlCategories.includes(p.category));
+				} else if (selectedCategory && selectedCategory !== 'all') {
+					// Filter by single category from radio button
+					results = results.filter(p => p.category === selectedCategory);
+				}
+
+				// Tag filter from URL (comma-separated tags)
+				if (urlTags.length > 0) {
+					results = results.filter(p => {
+						// Product must have at least one of the specified tags
+						return p.tags && urlTags.some(urlTag => 
+							p.tags.some(productTag => 
+								productTag.toLowerCase().includes(urlTag.toLowerCase())
+							)
+						);
+					});
+				}
+
+				// Price filter
+				const selectedPrice = document.querySelector('input[name="price"]:checked')?.value;
+				if (selectedPrice && selectedPrice !== 'all') {
+					const [min, max] = selectedPrice.split('-').map(Number);
+					results = results.filter(p => p.price >= min && p.price <= max);
+				}
+
+				// Search filter
+				const searchTerm = document.getElementById('search-input').value.toLowerCase().trim();
+				if (searchTerm) {
+					results = results.filter(p => 
+						p.name.toLowerCase().includes(searchTerm) ||
+						p.sku.toLowerCase().includes(searchTerm) ||
+						p.description.toLowerCase().includes(searchTerm) ||
+						(p.tags && p.tags.some(tag => tag.toLowerCase().includes(searchTerm)))
+					);
+				}
+
+				// Sort
+				const sortBy = document.getElementById('sort-select').value;
+				switch(sortBy) {
+					case 'price-low':
+						results.sort((a, b) => a.price - b.price);
+						break;
+					case 'price-high':
+						results.sort((a, b) => b.price - a.price);
+						break;
+					case 'name':
+						results.sort((a, b) => a.name.localeCompare(b.name));
+						break;
+				}
+
+				filteredProducts = results;
+				displayProducts();
+				updateResultsCount();
+				updateActiveFilters();
+			}
+
+			// Display products
+			function displayProducts() {
+				const grid = document.getElementById('products-grid');
+				const noResults = document.getElementById('no-results');
+
+				if (filteredProducts.length === 0) {
+					grid.innerHTML = '';
+					noResults.classList.remove('hidden');
+					return;
+				}
+
+				noResults.classList.add('hidden');
+				
+				grid.innerHTML = filteredProducts.map(product => `
+					<div class="group relative bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md hover:-translate-y-1 overflow-hidden flex flex-col">
+						<!-- Animated Glow Background -->
+						<div class="absolute inset-0 bg-gradient-to-br from-primary/0 via-secondary/0 to-primary/0 group-hover:from-primary/5 group-hover:via-secondary/5 group-hover:to-primary/5 opacity-0 group-hover:opacity-100"></div>
+						
+						<!-- Category Badge -->
+						<div class="absolute top-3 right-3 z-20 px-2.5 py-1 ${getCategoryBadgeColor(product.category)} text-white text-xs font-bold rounded-lg shadow-md">
+							${product.category}
+						</div>
+						
+						<!-- Image Container -->
+						<div class="relative aspect-square p-8 bg-gradient-to-br from-gray-50 via-white to-gray-50 overflow-hidden">
+							<!-- Radial Glow on Hover -->
+							<div class="absolute inset-0 bg-gradient-radial from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 blur-2xl"></div>
+							
+							<!-- Product Image -->
+							<img 
+								src="${product.image}" 
+								alt="${product.name}"
+								onerror="this.src='assets/images/placeholder.jpg'"
+								class="relative w-full h-full object-contain mix-blend-multiply group-hover:scale-110 filter group-hover:drop-shadow-2xl" />
+							
+							<!-- Shimmer Effect -->
+							<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full"></div>
+						</div>
+						
+						<!-- Content Section -->
+						<div class="relative p-6 bg-white z-10 flex flex-col flex-1">
+							<!-- SKU -->
+							<div class="text-xs text-gray-500 mb-2 font-mono">${product.sku}</div>
+							
+							<!-- Product Name -->
+							<h3 class="font-bold text-lg text-gray-900 mb-3 line-clamp-2 group-hover:text-primary">${product.name}</h3>
+							
+							<!-- Description -->
+							<p class="text-sm text-gray-600 mb-4 line-clamp-2">${product.description}</p>
+							
+							<!-- Price & Rating -->
+							<div class="flex items-center justify-between mb-4">
+								<div class="flex flex-col">
+									<span class="text-2xl font-bold bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent group-hover:scale-110 inline-block origin-left">₹${product.price.toLocaleString('en-IN')}</span>
+									${product.category === 'RO Systems' ? `
+										<span class="text-xs text-gray-500 group-hover:text-green-600">
+											<span class="material-symbols-rounded text-xs align-middle">check_circle</span> 
+											Free Installation
+										</span>
+									` : ''}
+								</div>
+								<div class="flex items-center gap-1 px-2.5 py-1 bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg group-hover:shadow-md">
+									<span class="material-symbols-rounded text-yellow-500 text-sm">star</span>
+									<span class="text-sm font-bold text-green-700">4.8</span>
+								</div>
+							</div>
+							
+							<!-- Tags -->
+							${product.tags && product.tags.length > 0 ? `
+								<div class="flex flex-wrap gap-2 mb-4">
+									${product.tags.slice(0, 2).map(tag => `
+										<span class="text-xs font-medium text-gray-700 bg-gradient-to-r from-blue-50 to-cyan-50 px-2.5 py-1 rounded-full border border-blue-100">
+											${tag}
+										</span>
+									`).join('')}
+								</div>
+							` : ''}
+							
+							<!-- CTA Button -->
+							<a href="/product.html?id=${product.id}" class="relative w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white font-bold rounded-lg overflow-hidden group/btn hover:shadow-lg hover:shadow-primary/30 mt-auto">
+								<!-- Button Shine Effect -->
+								<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full group-hover/btn:translate-x-full"></div>
+								<span class="relative">View Details</span>
+								<span class="material-symbols-rounded text-lg relative group-hover/btn:translate-x-2">arrow_forward</span>
+							</a>
+						</div>
+					</div>
+				`).join('');
+			}
+
+			// Get category badge color
+			function getCategoryBadgeColor(category) {
+				const colors = {
+					'RO Systems': 'bg-gradient-to-r from-blue-500 to-blue-600',
+					'Filters': 'bg-gradient-to-r from-green-500 to-green-600',
+					'Parts': 'bg-gradient-to-r from-purple-500 to-purple-600',
+					'Accessories': 'bg-gradient-to-r from-orange-500 to-orange-600'
+				};
+				return colors[category] || 'bg-gradient-to-r from-gray-500 to-gray-600';
+			}
+
+			// Update results count
+			function updateResultsCount() {
+				document.getElementById('results-count').textContent = filteredProducts.length;
+			}
+
+			// Update active filters text
+			function updateActiveFilters() {
+				const selectedCategory = document.querySelector('input[name="category"]:checked')?.value;
+				const selectedPrice = document.querySelector('input[name="price"]:checked')?.value;
+				const searchTerm = document.getElementById('search-input').value.trim();
+				
+				let filters = [];
+				
+				// Show multiple categories if from URL
+				if (urlCategories.length > 0) {
+					filters.push(`Categories: ${urlCategories.join(', ')}`);
+				} else if (selectedCategory && selectedCategory !== 'all') {
+					filters.push(`Category: ${selectedCategory}`);
+				}
+				
+				// Show tags if from URL
+				if (urlTags.length > 0) {
+					filters.push(`Tags: ${urlTags.join(', ')}`);
+				}
+				
+				if (selectedPrice && selectedPrice !== 'all') {
+					const [min, max] = selectedPrice.split('-').map(Number);
+					filters.push(`Price: ₹${min.toLocaleString('en-IN')} - ₹${max.toLocaleString('en-IN')}`);
+				}
+				
+				if (searchTerm) {
+					filters.push(`Search: "${searchTerm}"`);
+				}
+				
+				const text = filters.length > 0 ? filters.join(' • ') : 'Showing all products';
+				document.getElementById('active-filters').textContent = text;
+			}
+
+			// Clear all filters
+			function clearAllFilters() {
+				// Clear URL-based filters
+				urlCategories = [];
+				urlTags = [];
+				
+				// Clear form filters
+				document.querySelector('input[name="category"][value="all"]').checked = true;
+				document.querySelector('input[name="price"][value="all"]').checked = true;
+				document.getElementById('search-input').value = '';
+				document.getElementById('sort-select').value = 'featured';
+				
+				// Clear URL parameters
+				window.history.replaceState({}, '', window.location.pathname);
+				
+				filterProducts();
+			}
+
+			// Handle URL parameters
+			function applyURLFilters() {
+				const urlParams = new URLSearchParams(window.location.search);
+				
+				// Reset URL-based filters
+				urlCategories = [];
+				urlTags = [];
+				
+				// Apply category filter from URL (supports comma-separated values)
+				const category = urlParams.get('category');
+				if (category) {
+					// Split by comma and decode each category
+					const categories = category.split(',').map(c => decodeURIComponent(c.trim())).filter(c => c);
+					
+					if (categories.length === 1) {
+						// Single category - check the radio button if it exists
+						const categoryInput = document.querySelector(`input[name="category"][value="${categories[0]}"]`);
+						if (categoryInput) {
+							categoryInput.checked = true;
+						}
+					} else if (categories.length > 1) {
+						// Multiple categories - store for filtering, uncheck "all" radio
+						urlCategories = categories;
+						// Uncheck the "all" option since we have specific categories
+						const allInput = document.querySelector('input[name="category"][value="all"]');
+						if (allInput) {
+							allInput.checked = false;
+						}
+					}
+				}
+				
+				// Apply tags filter from URL (supports comma-separated values)
+				const tags = urlParams.get('tags');
+				if (tags) {
+					// Split by comma and decode each tag
+					urlTags = tags.split(',').map(t => decodeURIComponent(t.trim())).filter(t => t);
+				}
+				
+				// Apply price filter from URL
+				const priceRange = urlParams.get('price');
+				if (priceRange) {
+					const priceInput = document.querySelector(`input[name="price"][value="${priceRange}"]`);
+					if (priceInput) {
+						priceInput.checked = true;
+					}
+				}
+				
+				// Apply search query from URL
+				const search = urlParams.get('search');
+				if (search) {
+					const searchInput = document.getElementById('search-input');
+					if (searchInput) {
+						searchInput.value = decodeURIComponent(search);
+					}
+				}
+				
+				// Apply sort from URL
+				const sort = urlParams.get('sort');
+				if (sort) {
+					const sortSelect = document.getElementById('sort-select');
+					if (sortSelect) {
+						sortSelect.value = sort;
+					}
+				}
+			}
+
+			// Event listeners
+			document.addEventListener('DOMContentLoaded', async () => {
+				await loadProducts();
+				
+				// Apply filters from URL parameters
+				applyURLFilters();
+				
+				// Trigger filtering if URL parameters were applied
+				if (window.location.search) {
+					filterProducts();
+				}
+
+				// Category filter change
+				document.querySelectorAll('input[name="category"]').forEach(input => {
+					input.addEventListener('change', filterProducts);
+				});
+
+				// Price filter change
+				document.querySelectorAll('input[name="price"]').forEach(input => {
+					input.addEventListener('change', filterProducts);
+				});
+
+				// Search input
+				let searchTimeout;
+				document.getElementById('search-input').addEventListener('input', () => {
+					clearTimeout(searchTimeout);
+					searchTimeout = setTimeout(filterProducts, 300);
+				});
+
+				// Sort change
+				document.getElementById('sort-select').addEventListener('change', filterProducts);
+
+				// Clear filters button
+				document.getElementById('clear-filters').addEventListener('click', clearAllFilters);
+				document.getElementById('reset-filters')?.addEventListener('click', clearAllFilters);
+
+				// Mobile filter toggle
+				const mobileFilterToggle = document.getElementById('mobile-filter-toggle');
+				const closeFilters = document.getElementById('close-filters');
+				const applyFilters = document.getElementById('apply-filters');
+				const sidebar = document.getElementById('filters-sidebar');
+				const overlay = document.getElementById('filter-overlay');
+				
+				function openFilters() {
+					sidebar?.classList.add('active');
+					overlay?.classList.add('active');
+					document.body.style.overflow = 'hidden';
+				}
+				
+				function closeFiltersPanel() {
+					sidebar?.classList.remove('active');
+					overlay?.classList.remove('active');
+					document.body.style.overflow = '';
+				}
+				
+				mobileFilterToggle?.addEventListener('click', openFilters);
+				closeFilters?.addEventListener('click', closeFiltersPanel);
+				applyFilters?.addEventListener('click', closeFiltersPanel);
+				overlay?.addEventListener('click', closeFiltersPanel);
+			});
+		</script>
+	</body>
 </html>

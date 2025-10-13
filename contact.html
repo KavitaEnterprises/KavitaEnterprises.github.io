@@ -1,76 +1,528 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us - FinGaurd RO Water Purifiers</title>
-  <meta name="description" content="Get support, warranty help, service requests, or general inquiries for FinGaurd RO systems.">
-  <link rel="canonical" href="https://fingaurd.com/contact.html">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <header data-include="components/header.html"></header>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Contact Us - FinGaurd Water Purifiers</title>
+		<meta name="description" content="Get in touch with FinGaurd. Contact us for product inquiries, service support, or partnership opportunities. We're here to help!" />
+		
+		<!-- Tailwind CSS CDN -->
+		<script src="https://cdn.tailwindcss.com"></script>
+		
+		<!-- Tailwind Config -->
+		<script>
+			tailwind.config = {
+				theme: {
+					extend: {
+						colors: {
+							primary: '#2563eb',
+							secondary: '#54e8e8',
+							'primary-dark': '#1e40af',
+						},
+						fontFamily: {
+							sans: ['Urbanist', 'system-ui', 'sans-serif'],
+							display: ['Bebas Neue', 'Arial', 'sans-serif'],
+						},
+					}
+				}
+			}
+		</script>
+		
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+		
+		<!-- Material Symbols -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+		
+		<link rel="stylesheet" href="/css/style.css" />
+		<script src="/js/app.js" type="module"></script>
+	</head>
+	<body class="font-sans antialiased bg-gray-50">
+		<header></header>
+		
+		<main>
+			<!-- Hero Section -->
+			<section class="relative bg-gradient-to-br from-blue-600 via-primary to-indigo-600 text-white pt-28 pb-20 overflow-hidden">
+				<div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxIDAgNiAyLjY5IDYgNnMtMi42OSA2LTYgNi02LTIuNjktNi02IDIuNjktNiA2LTZ6TTI0IDM2YzMuMzEgMCA2IDIuNjkgNiA2cy0yLjY5IDYtNiA2LTYtMi42OS02LTYgMi42OS02IDYtNnoiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iLjA1Ii8+PC9nPjwvc3ZnPg==')] opacity-30"></div>
+				
+				<div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+					<div class="max-w-4xl mx-auto text-center">
+						<div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/20 rounded-full text-sm font-medium mb-6">
+							<span class="material-symbols-rounded text-base">support_agent</span>
+							<span>We're Here to Help</span>
+						</div>
+						
+						<h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+							Get in Touch with Us
+						</h1>
+						
+						<p class="text-lg sm:text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+							Have questions about our products or services? Our team is ready to assist you with expert advice and support.
+						</p>
+					</div>
+				</div>
+			</section>
 
-  <main>
-    <section class="products-hero">
-      <div class="container">
-        <div class="products-header">
-          <h1>Contact & Support</h1>
-          <p>Service, warranty, installation and general queries. We respond quickly on WhatsApp.</p>
-        </div>
-      </div>
-    </section>
+			<!-- Contact Cards -->
+			<section class="py-16 bg-white">
+				<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+					<div class="max-w-6xl mx-auto">
+						<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 -mt-24 mb-12 relative z-10">
+							<!-- Phone -->
+							<div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+								<div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+									<span class="material-symbols-rounded text-3xl text-primary">call</span>
+								</div>
+								<h3 class="font-bold text-gray-900 mb-2">Phone</h3>
+								<p class="text-sm text-gray-600 mb-3">Mon-Sat, 9AM-7PM</p>
+								<a href="tel:+919821560609" class="text-primary hover:text-primary-dark font-medium text-sm">
+									+91 98215 60609
+								</a>
+							</div>
 
-    <section class="expert-advice-section">
-      <div class="advice-content">
-        <form id="contact-form" class="advice-form" novalidate>
-          <div class="form-grid">
-            <div class="form-group">
-              <label for="cname">Full Name</label>
-              <input id="cname" name="name" type="text" placeholder="Your name" required>
-              <div class="error-message" id="cname-error"></div>
-            </div>
-            <div class="form-group">
-              <label for="cphone">Mobile Number</label>
-              <input id="cphone" name="phone" type="tel" placeholder="10‑digit mobile" required>
-              <div class="error-message" id="cphone-error"></div>
-            </div>
-            <div class="form-group full-width">
-              <label for="cmsg">Message</label>
-              <input id="cmsg" name="message" type="text" placeholder="How can we help?" required>
-              <div class="error-message" id="cmsg-error"></div>
-            </div>
-          </div>
-          <button type="submit" class="btn-whatsapp-large">Send on WhatsApp</button>
-        </form>
-      </div>
-    </section>
-  </main>
+							<!-- Email -->
+							<div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+								<div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mb-4">
+									<span class="material-symbols-rounded text-3xl text-green-600">mail</span>
+								</div>
+								<h3 class="font-bold text-gray-900 mb-2">Email</h3>
+								<p class="text-sm text-gray-600 mb-3">24/7 Email Support</p>
+								<a href="mailto:info@fingaurd.com" class="text-primary hover:text-primary-dark font-medium text-sm">
+									info@fingaurd.com
+								</a>
+							</div>
 
-  <footer data-include="components/footer.html"></footer>
+							<!-- WhatsApp -->
+							<div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+								<div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mb-4">
+									<svg class="w-8 h-8 fill-current text-green-600" viewBox="0 0 24 24">
+										<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+									</svg>
+								</div>
+								<h3 class="font-bold text-gray-900 mb-2">WhatsApp</h3>
+								<p class="text-sm text-gray-600 mb-3">Instant Support</p>
+								<a href="https://wa.me/919821560609" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-primary-dark font-medium text-sm">
+									Chat with Us
+								</a>
+							</div>
 
-  <script src="js/products-db.js"></script>
-  <script src="js/include.js"></script>
-  <script src="js/main.js"></script>
-  <script>
-    document.getElementById('contact-form').addEventListener('submit', function(e){
-      e.preventDefault();
-      const name = document.getElementById('cname').value.trim();
-      const phone = document.getElementById('cphone').value.trim();
-      const message = document.getElementById('cmsg').value.trim();
-      let ok = true;
-      document.getElementById('cname-error').textContent = '';
-      document.getElementById('cphone-error').textContent = '';
-      document.getElementById('cmsg-error').textContent = '';
-      if (name.length < 2) { document.getElementById('cname-error').textContent = 'Please enter your name'; ok = false; }
-      if (!/^[6-9]\d{9}$/.test(phone)) { document.getElementById('cphone-error').textContent = 'Enter a valid 10‑digit Indian mobile number'; ok = false; }
-      if (message.length < 3) { document.getElementById('cmsg-error').textContent = 'Please add a short message'; ok = false; }
-      if (!ok) return;
-      const msg = `👋 *Contact Request*\n\n• *Name:* ${name}\n• *Mobile:* ${phone}\n\n*Message:* ${message}`;
-      WhatsApp.send(msg);
-      showAlert('Thanks! Your message has been sent on WhatsApp. We will reply soon.', 'success');
-      this.reset();
-    });
-  </script>
-</body>
+							<!-- Location -->
+							<div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+								<div class="w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+									<span class="material-symbols-rounded text-3xl text-purple-600">location_on</span>
+								</div>
+								<h3 class="font-bold text-gray-900 mb-2">Office</h3>
+								<p class="text-sm text-gray-600 mb-3">Visit Us</p>
+								<p class="text-primary hover:text-primary-dark font-medium text-sm">
+									Industrial Area, Phase 2<br>New Delhi, India
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Contact Form & Map Section -->
+			<section class="py-16 bg-gray-50">
+				<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+					<div class="max-w-6xl mx-auto">
+						<div class="grid lg:grid-cols-2 gap-12">
+							<!-- Contact Form -->
+							<div>
+								<div class="mb-8">
+									<h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Send Us a Message</h2>
+									<p class="text-gray-600">Fill out the form below and we'll get back to you as soon as possible.</p>
+								</div>
+
+								<form id="contact-form" class="space-y-6">
+									<!-- Name -->
+									<div>
+										<label for="name" class="block text-sm font-medium text-gray-700 mb-2">
+											Full Name <span class="text-red-500">*</span>
+										</label>
+										<div class="relative">
+											<span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-rounded text-gray-400">person</span>
+											<input 
+												type="text" 
+												id="name" 
+												name="name" 
+												required
+												class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+												placeholder="Enter your full name"
+											/>
+										</div>
+									</div>
+
+									<!-- Email -->
+									<div>
+										<label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+											Email Address <span class="text-red-500">*</span>
+										</label>
+										<div class="relative">
+											<span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-rounded text-gray-400">mail</span>
+											<input 
+												type="email" 
+												id="email" 
+												name="email" 
+												required
+												class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+												placeholder="your.email@example.com"
+											/>
+										</div>
+									</div>
+
+									<!-- Phone -->
+									<div>
+										<label for="phone" class="block text-sm font-medium text-gray-700 mb-2">
+											Phone Number <span class="text-red-500">*</span>
+										</label>
+										<div class="relative">
+											<span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-rounded text-gray-400">call</span>
+											<input 
+												type="tel" 
+												id="phone" 
+												name="phone" 
+												required
+												pattern="[0-9]{10}"
+												class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+												placeholder="9876543210"
+											/>
+										</div>
+									</div>
+
+									<!-- Subject -->
+									<div>
+										<label for="subject" class="block text-sm font-medium text-gray-700 mb-2">
+											Subject <span class="text-red-500">*</span>
+										</label>
+										<div class="relative">
+											<span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-rounded text-gray-400">subject</span>
+											<select 
+												id="subject" 
+												name="subject" 
+												required
+												class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all appearance-none bg-white"
+											>
+												<option value="">Select a subject</option>
+												<option value="Product Inquiry">Product Inquiry</option>
+												<option value="Service Request">Service Request</option>
+												<option value="AMC Plan">AMC Plan</option>
+												<option value="Wholesale Partnership">Wholesale Partnership</option>
+												<option value="Installation Support">Installation Support</option>
+												<option value="Technical Issue">Technical Issue</option>
+												<option value="Warranty Claim">Warranty Claim</option>
+												<option value="Feedback">Feedback</option>
+												<option value="Other">Other</option>
+											</select>
+										</div>
+									</div>
+
+									<!-- Message -->
+									<div>
+										<label for="message" class="block text-sm font-medium text-gray-700 mb-2">
+											Message <span class="text-red-500">*</span>
+										</label>
+										<div class="relative">
+											<span class="absolute left-4 top-4 material-symbols-rounded text-gray-400">chat</span>
+											<textarea 
+												id="message" 
+												name="message" 
+												required
+												rows="5"
+												class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all resize-none"
+												placeholder="Tell us more about your inquiry..."
+											></textarea>
+										</div>
+									</div>
+
+									<!-- Submit Button -->
+									<button 
+										type="submit"
+										class="w-full bg-primary hover:bg-primary-dark text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 hover:shadow-lg flex items-center justify-center gap-2"
+									>
+										<span>Send Message</span>
+										<span class="material-symbols-rounded">send</span>
+									</button>
+
+									<p class="text-sm text-gray-500 text-center">
+										We typically respond within 24 hours
+									</p>
+								</form>
+							</div>
+
+							<!-- Right Column - Info & Map -->
+							<div class="space-y-8">
+								<!-- Why Contact Us -->
+								<div class="bg-white rounded-xl p-8 border border-gray-200">
+									<h3 class="text-2xl font-bold text-gray-900 mb-6">Why Contact Us?</h3>
+									<div class="space-y-4">
+										<div class="flex items-start gap-3">
+											<div class="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+												<span class="material-symbols-rounded text-primary text-xl">support_agent</span>
+											</div>
+											<div>
+												<h4 class="font-bold text-gray-900 mb-1">Expert Advice</h4>
+												<p class="text-sm text-gray-600">Get personalized recommendations from our water purification experts</p>
+											</div>
+										</div>
+
+										<div class="flex items-start gap-3">
+											<div class="flex-shrink-0 w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+												<span class="material-symbols-rounded text-green-600 text-xl">speed</span>
+											</div>
+											<div>
+												<h4 class="font-bold text-gray-900 mb-1">Quick Response</h4>
+												<p class="text-sm text-gray-600">We respond to all inquiries within 24 hours</p>
+											</div>
+										</div>
+
+										<div class="flex items-start gap-3">
+											<div class="flex-shrink-0 w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
+												<span class="material-symbols-rounded text-purple-600 text-xl">handyman</span>
+											</div>
+											<div>
+												<h4 class="font-bold text-gray-900 mb-1">After-Sales Support</h4>
+												<p class="text-sm text-gray-600">Comprehensive service and maintenance assistance</p>
+											</div>
+										</div>
+
+										<div class="flex items-start gap-3">
+											<div class="flex-shrink-0 w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center">
+												<span class="material-symbols-rounded text-amber-600 text-xl">security</span>
+											</div>
+											<div>
+												<h4 class="font-bold text-gray-900 mb-1">Warranty Support</h4>
+												<p class="text-sm text-gray-600">Easy warranty claims and replacement process</p>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Office Hours -->
+								<div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-8 border-2 border-blue-200">
+									<h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+										<span class="material-symbols-rounded text-primary">schedule</span>
+										<span>Office Hours</span>
+									</h3>
+									<div class="space-y-3">
+										<div class="flex justify-between items-center">
+											<span class="text-gray-700 font-medium">Monday - Friday</span>
+											<span class="text-primary font-bold">9:00 AM - 7:00 PM</span>
+										</div>
+										<div class="flex justify-between items-center">
+											<span class="text-gray-700 font-medium">Saturday</span>
+											<span class="text-primary font-bold">9:00 AM - 5:00 PM</span>
+										</div>
+										<div class="flex justify-between items-center">
+											<span class="text-gray-700 font-medium">Sunday</span>
+											<span class="text-red-600 font-bold">Closed</span>
+										</div>
+									</div>
+									<div class="mt-6 pt-6 border-t border-blue-300">
+										<p class="text-sm text-gray-700 flex items-start gap-2">
+											<span class="material-symbols-rounded text-green-600 text-base mt-0.5">info</span>
+											<span>Emergency service requests available 24/7 via WhatsApp</span>
+										</p>
+									</div>
+								</div>
+
+								<!-- Map -->
+								<div class="bg-white rounded-xl p-2 border border-gray-200 overflow-hidden">
+									<div id="map-container" class="aspect-video bg-gray-100 rounded-lg overflow-hidden relative">
+										<!-- Map will load here -->
+										<iframe 
+											id="location-map"
+											title="FinGaurd Office Location Map"
+											src="https://www.openstreetmap.org/export/embed.html?bbox=77.0%2C28.5%2C77.3%2C28.7&layer=mapnik&marker=28.6139%2C77.2090"
+											style="border: 0; width: 100%; height: 100%;"
+											allowfullscreen
+											loading="lazy"
+											referrerpolicy="no-referrer-when-downgrade"
+											onload="handleMapLoad()"
+											onerror="handleMapError()"
+										></iframe>
+										
+										<!-- Fallback placeholder (hidden by default) -->
+										<div id="map-fallback" class="hidden absolute inset-0 flex items-center justify-center bg-gray-100">
+											<div class="text-center p-4">
+												<span class="material-symbols-rounded text-6xl text-gray-300 mb-2">map</span>
+												<p class="text-sm text-gray-500">Map View</p>
+												<p class="text-xs text-gray-400 mt-1">Industrial Area, Phase 2, New Delhi</p>
+												<a href="https://www.google.com/maps/search/Industrial+Area+Phase+2+New+Delhi" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 mt-3 text-primary hover:text-primary-dark text-sm font-medium">
+													<span class="material-symbols-rounded text-sm">open_in_new</span>
+													<span>Open in Google Maps</span>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- FAQ Section -->
+			<section class="py-16 bg-white">
+				<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+					<div class="max-w-4xl mx-auto">
+						<div class="text-center mb-12">
+							<h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+							<p class="text-gray-600">Quick answers to common questions</p>
+						</div>
+
+						<div class="space-y-4">
+							<!-- FAQ Item 1 -->
+							<details class="group bg-gray-50 rounded-xl border border-gray-200 overflow-hidden">
+								<summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-100 transition-colors">
+									<h3 class="font-bold text-gray-900 pr-8">How do I schedule an installation?</h3>
+									<span class="material-symbols-rounded text-primary group-open:rotate-180 transition-transform">expand_more</span>
+								</summary>
+								<div class="px-6 pb-6 text-gray-700 text-sm leading-relaxed">
+									After placing your order, our team will contact you within 24 hours to schedule a convenient installation time. You can also reach out via WhatsApp at +91 98215 60609 for immediate scheduling.
+								</div>
+							</details>
+
+							<!-- FAQ Item 2 -->
+							<details class="group bg-gray-50 rounded-xl border border-gray-200 overflow-hidden">
+								<summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-100 transition-colors">
+									<h3 class="font-bold text-gray-900 pr-8">What areas do you provide service in?</h3>
+									<span class="material-symbols-rounded text-primary group-open:rotate-180 transition-transform">expand_more</span>
+								</summary>
+								<div class="px-6 pb-6 text-gray-700 text-sm leading-relaxed">
+									We provide installation and service across all major cities in India. For specific area coverage, please contact our customer support team with your location details.
+								</div>
+							</details>
+
+							<!-- FAQ Item 3 -->
+							<details class="group bg-gray-50 rounded-xl border border-gray-200 overflow-hidden">
+								<summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-100 transition-colors">
+									<h3 class="font-bold text-gray-900 pr-8">How long does delivery take?</h3>
+									<span class="material-symbols-rounded text-primary group-open:rotate-180 transition-transform">expand_more</span>
+								</summary>
+								<div class="px-6 pb-6 text-gray-700 text-sm leading-relaxed">
+									Delivery typically takes 3-7 business days depending on your location. Metro cities receive faster delivery (2-4 days). You'll receive tracking details once your order is dispatched.
+								</div>
+							</details>
+
+							<!-- FAQ Item 4 -->
+							<details class="group bg-gray-50 rounded-xl border border-gray-200 overflow-hidden">
+								<summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-100 transition-colors">
+									<h3 class="font-bold text-gray-900 pr-8">Do you offer bulk discounts for apartments/societies?</h3>
+									<span class="material-symbols-rounded text-primary group-open:rotate-180 transition-transform">expand_more</span>
+								</summary>
+								<div class="px-6 pb-6 text-gray-700 text-sm leading-relaxed">
+									Yes! We offer special pricing for bulk orders and housing societies. Please contact our wholesale team via the wholesale page or email us at info@fingaurd.com for custom quotations.
+								</div>
+							</details>
+
+							<!-- FAQ Item 5 -->
+							<details class="group bg-gray-50 rounded-xl border border-gray-200 overflow-hidden">
+								<summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-100 transition-colors">
+									<h3 class="font-bold text-gray-900 pr-8">What payment methods do you accept?</h3>
+									<span class="material-symbols-rounded text-primary group-open:rotate-180 transition-transform">expand_more</span>
+								</summary>
+								<div class="px-6 pb-6 text-gray-700 text-sm leading-relaxed">
+									We accept Cash on Delivery, UPI, Bank Transfer, Credit/Debit Cards, and Net Banking. Payment must be made in full before delivery.
+								</div>
+							</details>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- CTA Section -->
+			<section class="py-16 bg-gradient-to-r from-primary to-primary-dark text-white">
+				<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+					<div class="max-w-4xl mx-auto text-center">
+						<h2 class="text-3xl sm:text-4xl font-bold mb-4">Prefer to Talk Directly?</h2>
+						<p class="text-lg text-blue-100 mb-8">Our team is available to answer all your questions</p>
+						
+						<div class="flex flex-wrap items-center justify-center gap-4">
+							<a href="tel:+919821560609" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary font-bold rounded-lg hover:bg-gray-100 transition-all hover:shadow-lg">
+								<span class="material-symbols-rounded">call</span>
+								<span>Call Now</span>
+							</a>
+							<a href="https://wa.me/919821560609" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 bg-green-600 hover:bg-green-700 text-white font-bold rounded-lg transition-all hover:shadow-lg">
+								<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+									<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+								</svg>
+								<span>WhatsApp Us</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer></footer>
+
+		<script>
+			// Map Load Handler
+			let mapLoadTimeout;
+			
+			function handleMapLoad() {
+				// Map loaded successfully, clear timeout
+				clearTimeout(mapLoadTimeout);
+				console.log('Map loaded successfully');
+			}
+			
+			function handleMapError() {
+				// Map failed to load, show fallback
+				showMapFallback();
+			}
+			
+			function showMapFallback() {
+				const mapIframe = document.getElementById('location-map');
+				const mapFallback = document.getElementById('map-fallback');
+				
+				if (mapIframe && mapFallback) {
+					mapIframe.style.display = 'none';
+					mapFallback.classList.remove('hidden');
+				}
+			}
+			
+			// Set timeout for map loading (5 seconds)
+			mapLoadTimeout = setTimeout(() => {
+				// If map hasn't loaded in 5 seconds, show fallback
+				const mapIframe = document.getElementById('location-map');
+				if (mapIframe && mapIframe.style.display !== 'none') {
+					console.warn('Map loading timeout, showing fallback');
+					showMapFallback();
+				}
+			}, 5000);
+
+			// Contact Form Handler
+			document.getElementById('contact-form').addEventListener('submit', function(e) {
+				e.preventDefault();
+
+				const name = document.getElementById('name').value;
+				const email = document.getElementById('email').value;
+				const phone = document.getElementById('phone').value;
+				const subject = document.getElementById('subject').value;
+				const message = document.getElementById('message').value;
+
+				// Format WhatsApp message
+				const whatsappMessage = `*New Contact Form Inquiry*%0A%0A` +
+					`*Name:* ${encodeURIComponent(name)}%0A` +
+					`*Email:* ${encodeURIComponent(email)}%0A` +
+					`*Phone:* ${phone}%0A` +
+					`*Subject:* ${encodeURIComponent(subject)}%0A%0A` +
+					`*Message:*%0A${encodeURIComponent(message)}`;
+
+				// Show success alert
+				if (typeof Alert !== 'undefined') {
+					Alert.success('✅ Thank you for contacting us! We will get back to you soon.', 8000);
+				}
+
+				// Open WhatsApp
+				window.open(`https://wa.me/919821560609?text=${whatsappMessage}`, '_blank');
+
+				// Reset form
+				this.reset();
+			});
+		</script>
+	</body>
 </html>

@@ -1,301 +1,1142 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FinGaurd - Premium RO Water Purifier Systems & Parts Manufacturer</title>
-    <meta name="description" content="FinGaurd manufactures and supplies premium RO water purifier systems, carbon filters, sediment filters, and pumps for home and personal use. Quality assured water purification solutions.">
-    <meta name="keywords" content="RO water purifier, reverse osmosis systems, water filters, carbon filters, sediment filters, water pumps, FinGaurd, water purification">
-    <meta name="author" content="FinGaurd">
-    <meta property="og:title" content="FinGaurd - Premium RO Water Purifier Systems & Parts">
-    <meta property="og:description" content="Manufacturer of premium RO water purification systems and parts for home use. Quality assured water solutions.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://fingaurd.com">
-    <link rel="canonical" href="https://fingaurd.com">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>FinGaurd - Premium RO Water Purifiers | Pure Water, Pure Life</title>
+		<meta name="description" content="India's trusted RO manufacturer. Experience pure water with FinGaurd's premium water purification systems. 50K+ happy families, 15+ years experience." />
+		
+		<!-- Tailwind CSS CDN -->
+		<script src="https://cdn.tailwindcss.com"></script>
+		
+		<!-- Tailwind Config -->
+		<script>
+			tailwind.config = {
+				theme: {
+					extend: {
+						colors: {
+							primary: '#2563eb',
+							secondary: '#54e8e8',
+							'primary-dark': '#1e40af',
+						},
+						fontFamily: {
+							sans: ['Urbanist', 'system-ui', 'sans-serif'],
+							display: ['Bebas Neue', 'Arial', 'sans-serif'],
+						},
+					}
+				}
+			}
+		</script>
+		
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+		
+		<!-- GSAP CDN -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+		
+		<link rel="stylesheet" href="/css/style.css" />
+		<script src="/js/app.js" type="module"></script>
+	</head>
+	<body class="font-sans antialiased">
+		<header></header>
+		<main>
+			<!-- Hero Section -->
+			<section class="hero-bg-gradient relative min-h-screen flex items-center overflow-hidden pt-16 lg:pt-20">
+				<!-- Background decorations -->
+				<div class="hero-shape hero-shape-1"></div>
+				<div class="hero-shape hero-shape-2"></div>
+				<div class="hero-shape hero-shape-3"></div>
+				<div class="hero-grid absolute inset-0 -z-10"></div>
 
-    <header data-include="components/header.html"></header>
-    <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <span class="hero-badge">India's Trusted RO Manufacturer</span>
-                    <h1>Pure Water.<br>Pure Life.</h1>
-                    <p>Experience the difference with FinGaurd's premium RO water purification systems. Manufactured in India for Indian homes.</p>
-                    <div class="hero-stats">
-                        <div class="stat">
-                            <span class="stat-number">50K+</span>
-                            <span class="stat-label">Happy Families</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">15+</span>
-                            <span class="stat-label">Years Experience</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">99.9%</span>
-                            <span class="stat-label">Pure Water</span>
-                        </div>
-                    </div>
-                    <div class="hero-actions">
-                        <a href="products.html" class="btn-primary">Shop Now</a>
-                        <a href="#learn-more" class="btn-secondary">Learn More</a>
-                    </div>
-                </div>
-                <div class="hero-visual">
-                    <div class="hero-image-wrapper">
-                        <img src="assets/images/hero.png" alt="FinGaurd Premium RO System">
-                        <div class="hero-floating-card">
-                            <div class="card-icon">💧</div>
-                            <div class="card-text">
-                                <span class="card-title">7-Stage Purification</span>
-                                <span class="card-subtitle">99.9% Pure Water</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+				<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+					<div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+						<!-- Left content -->
+						<div class="text-center lg:text-left space-y-6 lg:space-y-8">
+							<!-- Badge -->
+							<div id="hero-badge" class="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm font-medium text-primary">
+								<span class="material-symbols-rounded text-base">verified</span>
+								<span>India's Trusted RO Manufacturer</span>
+							</div>
+							
+							<!-- Title -->
+							<h1 id="hero-title" class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight">
+								Pure Water.<br />
+								<span class="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">Pure Life.</span>
+							</h1>
+							
+							<!-- Description -->
+							<p id="hero-description" class="text-base sm:text-lg text-gray-600 leading-relaxed max-w-xl mx-auto lg:mx-0">
+								Experience the difference with FinGaurd's premium RO water purification systems. Advanced 7-stage filtration technology manufactured in India, designed specifically for Indian homes.
+							</p>
 
-        <!-- Problem Statement Section -->
-        <section class="problem-section">
-            <div class="container">
-                <div class="problem-content">
-                    <div class="problem-text">
-                        <h2>Water Crisis in India</h2>
-                        <p>70% of India's water supply is contaminated with harmful chemicals, bacteria, and heavy metals that pose serious health risks to your family.</p>
-                        <div class="problem-stats">
-                            <div class="problem-stat">
-                                <span class="problem-number">37M</span>
-                                <span class="problem-label">Indians affected by waterborne diseases</span>
-                            </div>
-                            <div class="problem-stat">
-                                <span class="problem-number">21%</span>
-                                <span class="problem-label">Communicable diseases due to unsafe water</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="problem-visual">
-                        <div class="contamination-grid">
-                            <div class="contamination-item">
-                                <span class="contamination-icon">🦠</span>
-                                <span class="contamination-name">Bacteria</span>
-                            </div>
-                            <div class="contamination-item">
-                                <span class="contamination-icon">⚡</span>
-                                <span class="contamination-name">Heavy Metals</span>
-                            </div>
-                            <div class="contamination-item">
-                                <span class="contamination-icon">🧪</span>
-                                <span class="contamination-name">Chemicals</span>
-                            </div>
-                            <div class="contamination-item">
-                                <span class="contamination-icon">🪨</span>
-                                <span class="contamination-name">Sediments</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+							<!-- Stats row -->
+							<div id="hero-stats" class="grid grid-cols-3 gap-4 max-w-xl mx-auto lg:mx-0">
+								<!-- Stat 1 -->
+								<div class="stat-card flex flex-col items-center lg:items-start gap-2 p-4 bg-white/60 backdrop-blur-sm border border-primary/10 rounded-xl hover:bg-white/90 hover:border-primary/20 hover:-translate-y-1">
+									<div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-lg">
+										<span class="material-symbols-rounded text-primary text-xl">groups</span>
+									</div>
+									<div class="text-center lg:text-left">
+										<div class="text-2xl font-bold text-gray-900">50K+</div>
+										<div class="text-xs text-gray-600">Happy Families</div>
+									</div>
+								</div>
 
-        <!-- Solution Section -->
-        <section class="solution-section">
-            <div class="container">
-                <div class="solution-header">
-                    <h2>The FinGaurd Solution</h2>
-                    <p>Advanced 7-stage purification technology that removes 99.9% of contaminants</p>
-                </div>
-                <div class="purification-process">
-                    <div class="process-step">
-                        <div class="step-number">01</div>
-                        <div class="step-content">
-                            <h3>Pre-Filtration</h3>
-                            <p>Removes large particles, sediment, and rust</p>
-                        </div>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">02</div>
-                        <div class="step-content">
-                            <h3>Carbon Filtration</h3>
-                            <p>Eliminates chlorine, bad taste, and odor</p>
-                        </div>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">03</div>
-                        <div class="step-content">
-                            <h3>RO Membrane</h3>
-                            <p>Removes dissolved salts and heavy metals</p>
-                        </div>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">04</div>
-                        <div class="step-content">
-                            <h3>UV Sterilization</h3>
-                            <p>Kills bacteria, viruses, and microorganisms</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+								<!-- Stat 2 -->
+								<div class="stat-card flex flex-col items-center lg:items-start gap-2 p-4 bg-white/60 backdrop-blur-sm border border-primary/10 rounded-xl hover:bg-white/90 hover:border-primary/20 hover:-translate-y-1">
+									<div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-lg">
+										<span class="material-symbols-rounded text-primary text-xl">workspace_premium</span>
+									</div>
+									<div class="text-center lg:text-left">
+										<div class="text-2xl font-bold text-gray-900">15+</div>
+										<div class="text-xs text-gray-600">Years Experience</div>
+									</div>
+								</div>
 
-        <!-- Featured Products Section -->
-        <section class="featured-products">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Best Selling Products</h2>
-                    <p>Trusted by 50,000+ Indian families</p>
-                </div>
-                <div class="products-grid" id="featured-products-grid">
-                    <!-- Products will be loaded here -->
-                </div>
-                <div class="section-footer">
-                    <a href="products.html" class="btn-outline">View All Products</a>
-                </div>
-            </div>
-        </section>
+								<!-- Stat 3 -->
+								<div class="stat-card flex flex-col items-center lg:items-start gap-2 p-4 bg-white/60 backdrop-blur-sm border border-primary/10 rounded-xl hover:bg-white/90 hover:border-primary/20 hover:-translate-y-1">
+									<div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-lg">
+										<span class="material-symbols-rounded text-primary text-xl">water_drop</span>
+									</div>
+									<div class="text-center lg:text-left">
+										<div class="text-2xl font-bold text-gray-900">99.9%</div>
+										<div class="text-xs text-gray-600">Pure Water</div>
+									</div>
+								</div>
+							</div>
 
-        <!-- Why Choose FinGaurd Section -->
-        <section class="why-choose" id="learn-more">
-            <div class="container">
-                <div class="why-choose-content">
-                    <div class="why-choose-text">
-                        <h2>Why 50,000+ Families Trust FinGaurd</h2>
-                        <div class="benefits-list">
-                            <div class="benefit-item">
-                                <div class="benefit-icon" aria-hidden="true"><span class="material-symbols-outlined">apartment</span></div>
-                                <div class="benefit-content">
-                                    <h3>Manufactured in India</h3>
-                                    <p>Built specifically for Indian water conditions with local manufacturing excellence</p>
-                                </div>
-                            </div>
-                            <div class="benefit-item">
-                                <div class="benefit-icon" aria-hidden="true"><span class="material-symbols-outlined">biotech</span></div>
-                                <div class="benefit-content">
-                                    <h3>Laboratory Tested</h3>
-                                    <p>Every product undergoes rigorous testing to ensure 99.9% purification efficiency</p>
-                                </div>
-                            </div>
-                            <div class="benefit-item">
-                                <div class="benefit-icon" aria-hidden="true"><span class="material-symbols-outlined">build</span></div>
-                                <div class="benefit-content">
-                                    <h3>Expert Installation</h3>
-                                    <p>Professional installation and maintenance support across India</p>
-                                </div>
-                            </div>
-                            <div class="benefit-item">
-                                <div class="benefit-icon" aria-hidden="true"><span class="material-symbols-outlined">currency_rupee</span></div>
-                                <div class="benefit-content">
-                                    <h3>Direct Factory Pricing</h3>
-                                    <p>No middleman markup - get premium quality at manufacturer prices</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="why-choose-visual">
-                        <div class="certification-badges">
-                            <div class="cert-badge">
-                                <span class="cert-text">ISO 9001</span>
-                                <span class="cert-sub">Certified</span>
-                            </div>
-                            <div class="cert-badge">
-                                <span class="cert-text">BIS</span>
-                                <span class="cert-sub">Approved</span>
-                            </div>
-                            <div class="cert-badge">
-                                <span class="cert-text">NSF</span>
-                                <span class="cert-sub">Tested</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+							<!-- CTA Buttons -->
+							<div id="hero-actions" class="flex flex-col sm:flex-row gap-4 items-center justify-center lg:justify-start">
+								<a href="/products.html" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary hover:bg-primary-dark text-white font-semibold rounded-full border-2 border-primary hover:border-primary-dark hover:shadow-lg hover:scale-105 w-full sm:w-auto">
+									<span class="material-symbols-rounded text-xl">shopping_bag</span>
+									<span>Shop Now</span>
+								</a>
+								<a href="/service.html" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white hover:bg-gray-50 text-primary border-2 border-primary font-semibold rounded-full hover:shadow-lg hover:scale-105 w-full sm:w-auto">
+									<span class="material-symbols-rounded text-xl">support_agent</span>
+									<span>Get Service</span>
+								</a>
+							</div>
 
-        <!-- CTA Section -->
-        <section class="cta-section">
-            <div class="container">
-                <div class="cta-content">
-                    <h2>Ready to Experience Pure Water?</h2>
-                    <p>Join 50,000+ satisfied customers who trust FinGaurd for their family's health</p>
-                    <div class="cta-actions">
-                        <a href="products.html" class="btn-primary-large">Shop RO Systems</a>
-                        <a href="#expert-advice" class="btn-whatsapp-large">
-                            Get Expert Advice
-                        </a>
-                    </div>
-                    <div class="cta-guarantee">
-                        <span>• 1-Year Warranty on RO Systems</span>
-                        <span>• Free Installation on RO Systems</span>
-                        <span>• 14-Day Money Back Guarantee</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+							<!-- Trust indicators -->
+							<div id="hero-trust" class="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-sm text-gray-600">
+								<span class="flex items-center gap-1.5">
+									<span class="material-symbols-rounded text-base text-primary">verified</span>
+									ISI Certified
+								</span>
+								<span class="text-gray-300">•</span>
+								<span class="flex items-center gap-1.5">
+									<span class="material-symbols-rounded text-base text-primary">star</span>
+									Made in India
+								</span>
+								<span class="text-gray-300">•</span>
+								<span class="flex items-center gap-1.5">
+									<span class="material-symbols-rounded text-base text-primary">workspace_premium</span>
+									ISO 9001:2015
+								</span>
+							</div>
+						</div>
 
-        <!-- Expert Advice Form Section -->
-        <section class="expert-advice-section" id="expert-advice">
-            <div class="container">
-                <div class="advice-content">
-                    <div class="advice-header">
-                        <h2>Get Expert Advice</h2>
-                        <p>Our water purification experts will help you choose the perfect RO system for your home based on your specific needs.</p>
-                    </div>
-                    <form class="advice-form" id="expert-advice-form">
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <label for="user-name">Full Name *</label>
-                                <input type="text" id="user-name" name="name" required>
-                                <span class="error-message" id="name-error"></span>
-                            </div>
-                            <div class="form-group">
-                                <label for="user-phone">Phone Number *</label>
-                                <input type="tel" id="user-phone" name="phone" pattern="[0-9]{10}" required>
-                                <span class="error-message" id="phone-error"></span>
-                            </div>
-                            <div class="form-group full-width">
-                                <label for="user-address">Address/Locality *</label>
-                                <input type="text" id="user-address" name="address" required>
-                                <span class="error-message" id="address-error"></span>
-                            </div>
-                            <div class="form-group">
-                                <label for="family-size">Family Size</label>
-                                <select id="family-size" name="familySize">
-                                    <option value="">Select family size</option>
-                                    <option value="1-2">1-2 members</option>
-                                    <option value="3-4">3-4 members</option>
-                                    <option value="5-6">5-6 members</option>
-                                    <option value="7+">7+ members</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="water-source">Water Source</label>
-                                <select id="water-source" name="waterSource">
-                                    <option value="">Select water source</option>
-                                    <option value="Municipal">Municipal/Corporation</option>
-                                    <option value="Borewell">Borewell</option>
-                                    <option value="Tank">Tank Water</option>
-                                    <option value="Mixed">Mixed Sources</option>
-                                </select>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn-whatsapp-large">
-                            Get Expert Consultation
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </main>
+						<!-- Right visual -->
+						<div id="hero-visual" class="relative">
+							<!-- Main product image container -->
+							<div class="relative flex flex-col items-center gap-6 lg:block">
+								<div class="relative max-w-md mx-auto lg:max-w-none z-0">
+									<div class="image-glow"></div>
+									<img
+										src="assets/images/hero.png"
+										alt="FinGaurd Premium RO Water Purifier"
+										class="hero-product float-product w-full h-auto relative rounded-3xl" />
+								</div>
 
-    <footer data-include="components/footer.html"></footer>
-    <script src="js/products-db.js"></script>
-    <script src="js/include.js"></script>
-    <script src="js/main.js"></script>
-</body>
+								<!-- Floating feature cards -->
+								<!-- Card 1 - Left -->
+								<div id="card-1" class="floating-card-item hidden lg:flex absolute -left-8 top-[8%] items-center gap-3 p-4 bg-white/90 backdrop-blur-xl border border-primary/20 rounded-2xl shadow-xl float-card max-w-[220px] z-20">
+									<div class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-primary/10 rounded-xl">
+										<span class="material-symbols-rounded text-primary text-2xl">filter_alt</span>
+									</div>
+									<div>
+										<div class="font-semibold text-gray-900 text-sm">7-Stage Purification</div>
+										<div class="text-xs text-gray-600">Advanced RO + UV</div>
+									</div>
+								</div>
+
+								<!-- Card 2 - Right -->
+								<div id="card-2" class="floating-card-item hidden lg:flex absolute -right-8 top-[40%] items-center gap-3 p-4 bg-white/90 backdrop-blur-xl border border-primary/20 rounded-2xl shadow-xl float-card max-w-[200px] z-20">
+									<div class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-secondary/10 rounded-xl">
+										<span class="material-symbols-rounded text-primary text-2xl">speed</span>
+									</div>
+									<div>
+										<div class="font-semibold text-gray-900 text-sm">Fast Flow</div>
+										<div class="text-xs text-gray-600">15L/Hour</div>
+									</div>
+								</div>
+
+								<!-- Card 3 - Bottom Left -->
+								<div id="card-3" class="floating-card-item hidden lg:flex absolute left-4 bottom-[12%] items-center gap-3 p-4 bg-white/90 backdrop-blur-xl border border-primary/20 rounded-2xl shadow-xl float-card max-w-[200px] z-20">
+									<div class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-green-100 rounded-xl">
+										<span class="material-symbols-rounded text-green-600 text-2xl">eco</span>
+									</div>
+									<div>
+										<div class="font-semibold text-gray-900 text-sm">Eco-Friendly</div>
+										<div class="text-xs text-gray-600">Low Power</div>
+									</div>
+								</div>
+
+								<!-- Mobile cards (stacked below image) -->
+								<div class="lg:hidden flex flex-col gap-4 w-full max-w-md">
+									<div class="mobile-card flex items-center gap-3 p-4 bg-white/90 backdrop-blur-xl border border-primary/20 rounded-2xl shadow-lg">
+										<div class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-primary/10 rounded-xl">
+											<span class="material-symbols-rounded text-primary text-2xl">filter_alt</span>
+										</div>
+										<div>
+											<div class="font-semibold text-gray-900">7-Stage Purification</div>
+											<div class="text-sm text-gray-600">Advanced RO + UV</div>
+										</div>
+									</div>
+
+									<div class="mobile-card flex items-center gap-3 p-4 bg-white/90 backdrop-blur-xl border border-primary/20 rounded-2xl shadow-lg">
+										<div class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-secondary/10 rounded-xl">
+											<span class="material-symbols-rounded text-primary text-2xl">speed</span>
+										</div>
+										<div>
+											<div class="font-semibold text-gray-900">Fast Flow</div>
+											<div class="text-sm text-gray-600">15L/Hour</div>
+										</div>
+									</div>
+
+									<div class="mobile-card flex items-center gap-3 p-4 bg-white/90 backdrop-blur-xl border border-primary/20 rounded-2xl shadow-lg">
+										<div class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-green-100 rounded-xl">
+											<span class="material-symbols-rounded text-green-600 text-2xl">eco</span>
+										</div>
+										<div>
+											<div class="font-semibold text-gray-900">Eco-Friendly</div>
+											<div class="text-sm text-gray-600">Low Power</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Water Crisis Section -->
+			<section class="relative py-16 lg:py-24 bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50 overflow-hidden">
+				<!-- Background decorations -->
+				<div class="absolute inset-0 -z-10 opacity-30">
+					<div class="absolute top-20 left-10 w-64 h-64 bg-red-300 rounded-full filter blur-3xl"></div>
+					<div class="absolute bottom-20 right-10 w-80 h-80 bg-orange-300 rounded-full filter blur-3xl"></div>
+				</div>
+
+				<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+					<!-- Section Header -->
+					<div class="max-w-4xl mx-auto text-center mb-12 lg:mb-16">
+						<div class="inline-flex items-center gap-2 px-4 py-2 bg-red-100 border border-red-200 rounded-full text-sm font-medium text-red-700 mb-6">
+							<span class="material-symbols-rounded text-base">warning</span>
+							<span>Critical Alert</span>
+						</div>
+						<h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-6">
+							India's Water <span class="bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">Crisis</span>
+						</h2>
+						<p class="text-lg lg:text-xl text-gray-700 leading-relaxed">
+							70% of India's water supply is contaminated with harmful chemicals, bacteria, and heavy metals that pose serious health risks to your family.
+						</p>
+					</div>
+
+					<!-- Statistics Cards -->
+					<div class="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto mb-12 lg:mb-16">
+						<div class="group relative bg-white/80 backdrop-blur-sm p-8 lg:p-10 rounded-3xl border border-red-100 hover:border-red-200 hover:shadow-2xl hover:-translate-y-2">
+							<div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-red-100 to-transparent rounded-bl-3xl opacity-50"></div>
+							<div class="relative">
+								<div class="flex items-center gap-4 mb-4">
+									<div class="w-14 h-14 flex items-center justify-center bg-red-100 rounded-2xl group-hover:scale-110">
+										<span class="material-symbols-rounded text-red-600 text-3xl">sick</span>
+									</div>
+									<div class="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">37M</div>
+								</div>
+								<div class="text-gray-700 font-medium text-lg">Indians affected by waterborne diseases annually</div>
+							</div>
+						</div>
+						
+						<div class="group relative bg-white/80 backdrop-blur-sm p-8 lg:p-10 rounded-3xl border border-orange-100 hover:border-orange-200 hover:shadow-2xl hover:-translate-y-2">
+							<div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-100 to-transparent rounded-bl-3xl opacity-50"></div>
+							<div class="relative">
+								<div class="flex items-center gap-4 mb-4">
+									<div class="w-14 h-14 flex items-center justify-center bg-orange-100 rounded-2xl group-hover:scale-110">
+										<span class="material-symbols-rounded text-orange-600 text-3xl">coronavirus</span>
+									</div>
+									<div class="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">21%</div>
+								</div>
+								<div class="text-gray-700 font-medium text-lg">Communicable diseases due to unsafe water</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Threat Cards -->
+					<div class="max-w-6xl mx-auto">
+						<h3 class="text-2xl lg:text-3xl font-bold text-gray-900 text-center mb-8">Common Water Contaminants</h3>
+						<div class="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6">
+							<!-- Bacteria -->
+							<div class="group relative bg-white/90 backdrop-blur-sm p-6 lg:p-8 rounded-2xl border border-gray-200 hover:border-red-400 hover:shadow-xl hover:-translate-y-1">
+								<div class="text-center">
+									<div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-purple-100 rounded-2xl group-hover:scale-110 group-hover:rotate-6">
+										<span class="material-symbols-rounded text-purple-600 text-4xl">coronavirus</span>
+									</div>
+									<div class="font-bold text-gray-900 text-lg mb-1">Bacteria</div>
+									<div class="text-sm text-gray-600">E.coli, Salmonella</div>
+								</div>
+							</div>
+
+							<!-- Heavy Metals -->
+							<div class="group relative bg-white/90 backdrop-blur-sm p-6 lg:p-8 rounded-2xl border border-gray-200 hover:border-red-400 hover:shadow-xl hover:-translate-y-1">
+								<div class="text-center">
+									<div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-orange-100 rounded-2xl group-hover:scale-110 group-hover:rotate-6">
+										<span class="material-symbols-rounded text-orange-600 text-4xl">science</span>
+									</div>
+									<div class="font-bold text-gray-900 text-lg mb-1">Heavy Metals</div>
+									<div class="text-sm text-gray-600">Lead, Arsenic</div>
+								</div>
+							</div>
+
+							<!-- Chemicals -->
+							<div class="group relative bg-white/90 backdrop-blur-sm p-6 lg:p-8 rounded-2xl border border-gray-200 hover:border-red-400 hover:shadow-xl hover:-translate-y-1">
+								<div class="text-center">
+									<div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-blue-100 rounded-2xl group-hover:scale-110 group-hover:rotate-6">
+										<span class="material-symbols-rounded text-blue-600 text-4xl">labs</span>
+									</div>
+									<div class="font-bold text-gray-900 text-lg mb-1">Chemicals</div>
+									<div class="text-sm text-gray-600">Chlorine, Pesticides</div>
+								</div>
+							</div>
+
+							<!-- Sediments -->
+							<div class="group relative bg-white/90 backdrop-blur-sm p-6 lg:p-8 rounded-2xl border border-gray-200 hover:border-red-400 hover:shadow-xl hover:-translate-y-1">
+								<div class="text-center">
+									<div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-amber-100 rounded-2xl group-hover:scale-110 group-hover:rotate-6">
+										<span class="material-symbols-rounded text-amber-700 text-4xl">water_damage</span>
+									</div>
+									<div class="font-bold text-gray-900 text-lg mb-1">Sediments</div>
+									<div class="text-sm text-gray-600">Dirt, Rust, Sand</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- The FinGaurd Solution Section -->
+			<section class="relative py-16 lg:py-24 bg-gradient-to-br from-white via-blue-50/30 to-white overflow-hidden">
+				<!-- Background Grid -->
+				<div class="absolute inset-0 -z-10 opacity-20">
+					<div class="absolute inset-0" style="background-image: linear-gradient(rgba(37, 99, 235, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(37, 99, 235, 0.03) 1px, transparent 1px); background-size: 30px 30px;"></div>
+				</div>
+				
+				<!-- Floating Shapes -->
+				<div class="absolute top-20 -left-20 w-72 h-72 bg-primary/5 rounded-full filter blur-3xl"></div>
+				<div class="absolute bottom-20 -right-20 w-96 h-96 bg-secondary/10 rounded-full filter blur-3xl"></div>
+
+				<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+					<!-- Section Header -->
+					<div class="max-w-4xl mx-auto text-center mb-16 lg:mb-20">
+						<div class="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm font-medium text-primary mb-6">
+							<span class="material-symbols-rounded text-base">tips_and_updates</span>
+							<span>Our Technology</span>
+						</div>
+						<h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-6">
+							The FinGaurd <span class="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">Solution</span>
+						</h2>
+						<p class="text-lg lg:text-xl text-gray-600 leading-relaxed">
+							Advanced 7-stage purification technology that removes 99.9% of contaminants, ensuring every drop is pure and safe for your family.
+						</p>
+					</div>
+
+					<!-- Process Steps -->
+					<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-7xl mx-auto relative">
+						<!-- Connection Lines (Desktop Only) -->
+						<div class="hidden lg:block absolute top-1/4 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/20 via-primary to-primary/20 -z-10"></div>
+
+						<!-- Stage 1 -->
+						<div class="group relative">
+							<div class="relative bg-white/80 backdrop-blur-sm p-6 lg:p-8 rounded-3xl border-2 border-primary/20 hover:border-primary hover:shadow-2xl hover:-translate-y-2">
+								<!-- Stage Number Badge -->
+								<div class="absolute -top-4 -left-4 flex items-center justify-center w-14 h-14 bg-gradient-to-br from-primary to-primary-dark text-white rounded-2xl text-xl font-bold shadow-lg group-hover:scale-110">
+									01
+								</div>
+								
+								<!-- Icon -->
+								<div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl group-hover:scale-110 group-hover:rotate-6">
+									<span class="material-symbols-rounded text-primary text-4xl">filter_alt</span>
+								</div>
+								
+								<!-- Content -->
+								<h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-3 text-center">Pre-Filtration</h3>
+								<p class="text-gray-600 text-center leading-relaxed">Removes large particles, sediment, rust, and suspended solids</p>
+								
+								<!-- Progress Indicator -->
+								<div class="mt-6 h-1.5 bg-gray-100 rounded-full overflow-hidden">
+									<div class="h-full w-1/4 bg-gradient-to-r from-primary to-primary-dark rounded-full"></div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Stage 2 -->
+						<div class="group relative">
+							<div class="relative bg-white/80 backdrop-blur-sm p-6 lg:p-8 rounded-3xl border-2 border-primary/20 hover:border-primary hover:shadow-2xl hover:-translate-y-2">
+								<!-- Stage Number Badge -->
+								<div class="absolute -top-4 -left-4 flex items-center justify-center w-14 h-14 bg-gradient-to-br from-primary to-primary-dark text-white rounded-2xl text-xl font-bold shadow-lg group-hover:scale-110">
+									02
+								</div>
+								
+								<!-- Icon -->
+								<div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center bg-gradient-to-br from-blue-500/10 to-blue-500/5 rounded-2xl group-hover:scale-110 group-hover:rotate-6">
+									<span class="material-symbols-rounded text-blue-600 text-4xl">science</span>
+								</div>
+								
+								<!-- Content -->
+								<h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-3 text-center">Carbon Filtration</h3>
+								<p class="text-gray-600 text-center leading-relaxed">Eliminates chlorine, organic compounds, and improves taste</p>
+								
+								<!-- Progress Indicator -->
+								<div class="mt-6 h-1.5 bg-gray-100 rounded-full overflow-hidden">
+									<div class="h-full w-2/4 bg-gradient-to-r from-blue-500 to-primary rounded-full"></div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Stage 3 -->
+						<div class="group relative">
+							<div class="relative bg-white/80 backdrop-blur-sm p-6 lg:p-8 rounded-3xl border-2 border-primary/20 hover:border-primary hover:shadow-2xl hover:-translate-y-2">
+								<!-- Stage Number Badge -->
+								<div class="absolute -top-4 -left-4 flex items-center justify-center w-14 h-14 bg-gradient-to-br from-primary to-primary-dark text-white rounded-2xl text-xl font-bold shadow-lg group-hover:scale-110">
+									03
+								</div>
+								
+								<!-- Icon -->
+								<div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center bg-gradient-to-br from-secondary/20 to-secondary/10 rounded-2xl group-hover:scale-110 group-hover:rotate-6">
+									<span class="material-symbols-rounded text-secondary text-4xl">filter_list</span>
+								</div>
+								
+								<!-- Content -->
+								<h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-3 text-center">RO Membrane</h3>
+								<p class="text-gray-600 text-center leading-relaxed">Removes 99.9% of dissolved salts, heavy metals, and contaminants</p>
+								
+								<!-- Progress Indicator -->
+								<div class="mt-6 h-1.5 bg-gray-100 rounded-full overflow-hidden">
+									<div class="h-full w-3/4 bg-gradient-to-r from-secondary to-primary rounded-full"></div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Stage 4 -->
+						<div class="group relative">
+							<div class="relative bg-white/80 backdrop-blur-sm p-6 lg:p-8 rounded-3xl border-2 border-secondary/30 hover:border-secondary hover:shadow-2xl hover:-translate-y-2">
+								<!-- Stage Number Badge -->
+								<div class="absolute -top-4 -left-4 flex items-center justify-center w-14 h-14 bg-gradient-to-br from-secondary to-primary text-gray-900 rounded-2xl text-xl font-bold shadow-lg group-hover:scale-110">
+									04
+								</div>
+								
+								<!-- Icon -->
+								<div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center bg-gradient-to-br from-green-500/10 to-green-500/5 rounded-2xl group-hover:scale-110 group-hover:rotate-6">
+									<span class="material-symbols-rounded text-green-600 text-4xl">light_mode</span>
+								</div>
+								
+								<!-- Content -->
+								<h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-3 text-center">UV Sterilization</h3>
+								<p class="text-gray-600 text-center leading-relaxed">Kills 99.99% of bacteria, viruses, and microorganisms</p>
+								
+								<!-- Progress Indicator -->
+								<div class="mt-6 h-1.5 bg-gray-100 rounded-full overflow-hidden">
+									<div class="h-full w-full bg-gradient-to-r from-green-500 to-secondary rounded-full"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Additional Stages Badge -->
+					<div class="mt-12 text-center">
+						<div class="inline-flex flex-wrap items-center justify-center gap-3 px-6 py-4 bg-white/80 backdrop-blur-sm border border-primary/20 rounded-2xl shadow-lg">
+							<span class="material-symbols-rounded text-primary text-2xl flex-shrink-0">add_circle</span>
+							<span class="text-gray-900 font-semibold whitespace-nowrap">Plus 3 More Advanced Stages</span>
+							<span class="px-3 py-1.5 bg-gradient-to-r from-primary to-secondary text-white text-sm font-bold rounded-full flex-shrink-0">7 Total</span>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Featured Products Section -->
+			<section class="relative py-16 lg:py-24 bg-gradient-to-br from-gray-50 via-white to-gray-50 overflow-hidden">
+				<!-- Background Elements -->
+				<div class="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full filter blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+				<div class="absolute bottom-0 right-0 w-96 h-96 bg-secondary/10 rounded-full filter blur-3xl translate-x-1/2 translate-y-1/2"></div>
+
+				<div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+					<!-- Section Header -->
+					<div class="max-w-4xl mx-auto text-center mb-16 lg:mb-20">
+						<div class="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm font-medium text-primary mb-6">
+							<span class="material-symbols-rounded text-base">star</span>
+							<span>Best Sellers</span>
+						</div>
+						<h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-6">
+							Premium <span class="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">RO Systems</span>
+						</h2>
+						<p class="text-lg lg:text-xl text-gray-600 leading-relaxed">
+							Trusted by <span class="font-bold text-primary">50,000+</span> Indian families for pure, safe drinking water
+						</p>
+					</div>
+
+					<!-- Products Grid -->
+					<div id="featured-products-grid" class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-7xl mx-auto mb-12 lg:mb-16">
+						<!-- Products will be loaded here dynamically -->
+					</div>
+
+					<!-- CTA Button -->
+					<div class="text-center">
+						<a href="/products.html" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-gray-50 text-primary border-2 border-primary font-bold rounded-full hover:shadow-2xl hover:scale-105 group">
+							<span>View All Products</span>
+							<span class="material-symbols-rounded text-xl group-hover:translate-x-1">arrow_forward</span>
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<!-- Why Choose FinGaurd Section -->
+			<section class="relative py-16 lg:py-24 bg-white overflow-hidden">
+				<!-- Background Grid Pattern -->
+				<div class="absolute inset-0 -z-10 opacity-20">
+					<div class="absolute inset-0 hero-grid"></div>
+				</div>
+				
+				<!-- Floating Shapes -->
+				<div class="absolute -top-20 -left-20 w-80 h-80 bg-primary/10 rounded-full filter blur-3xl"></div>
+				<div class="absolute -bottom-20 -right-20 w-96 h-96 bg-secondary/10 rounded-full filter blur-3xl"></div>
+
+				<div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+					<!-- Section Header -->
+					<div class="max-w-4xl mx-auto text-center mb-16 lg:mb-20">
+						<div class="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm font-medium text-primary mb-6">
+							<span class="material-symbols-rounded text-base">thumb_up</span>
+							<span>Why Trust Us</span>
+						</div>
+						<h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-6">
+							Why <span class="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">50,000+ Families</span> Trust FinGaurd
+						</h2>
+						<p class="text-lg lg:text-xl text-gray-600 leading-relaxed">
+							Industry-leading technology, unmatched quality, and customer-first approach
+						</p>
+					</div>
+
+					<!-- Benefits Grid -->
+					<div class="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto mb-16 lg:mb-20">
+						<!-- Benefit 1 -->
+						<div class="group relative bg-gradient-to-br from-white via-primary/5 to-white p-8 lg:p-10 rounded-3xl border-2 border-primary/20 hover:border-primary hover:shadow-2xl hover:-translate-y-2">
+							<div class="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-primary/10 to-transparent rounded-bl-3xl"></div>
+							<div class="relative flex gap-6">
+								<div class="flex-shrink-0 w-16 h-16 lg:w-20 lg:h-20 flex items-center justify-center bg-gradient-to-br from-primary to-primary-dark rounded-2xl shadow-lg group-hover:scale-110 group-hover:rotate-6">
+									<span class="material-symbols-rounded text-white text-3xl lg:text-4xl">apartment</span>
+								</div>
+								<div class="flex-1">
+									<h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-3">Manufactured in India</h3>
+									<p class="text-gray-600 leading-relaxed mb-4">Built specifically for Indian water conditions with local manufacturing excellence and quality control</p>
+									<div class="flex items-center gap-2 text-primary font-semibold">
+										<span class="material-symbols-rounded text-base">verified</span>
+										<span class="text-sm">Make in India Certified</span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Benefit 2 -->
+						<div class="group relative bg-gradient-to-br from-white via-blue-50/50 to-white p-8 lg:p-10 rounded-3xl border-2 border-blue-200 hover:border-blue-400 hover:shadow-2xl hover:-translate-y-2">
+							<div class="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-blue-100 to-transparent rounded-bl-3xl"></div>
+							<div class="relative flex gap-6">
+								<div class="flex-shrink-0 w-16 h-16 lg:w-20 lg:h-20 flex items-center justify-center bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl shadow-lg group-hover:scale-110 group-hover:rotate-6">
+									<span class="material-symbols-rounded text-white text-3xl lg:text-4xl">science</span>
+								</div>
+								<div class="flex-1">
+									<h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-3">Laboratory Tested</h3>
+									<p class="text-gray-600 leading-relaxed mb-4">Every product undergoes rigorous testing to ensure 99.9% purification efficiency and safety standards</p>
+									<div class="flex items-center gap-2 text-blue-600 font-semibold">
+										<span class="material-symbols-rounded text-base">verified</span>
+										<span class="text-sm">ISO 9001:2015 Certified</span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Benefit 3 -->
+						<div class="group relative bg-gradient-to-br from-white via-green-50/50 to-white p-8 lg:p-10 rounded-3xl border-2 border-green-200 hover:border-green-400 hover:shadow-2xl hover:-translate-y-2">
+							<div class="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-green-100 to-transparent rounded-bl-3xl"></div>
+							<div class="relative flex gap-6">
+								<div class="flex-shrink-0 w-16 h-16 lg:w-20 lg:h-20 flex items-center justify-center bg-gradient-to-br from-green-500 to-green-600 rounded-2xl shadow-lg group-hover:scale-110 group-hover:rotate-6">
+									<span class="material-symbols-rounded text-white text-3xl lg:text-4xl">construction</span>
+								</div>
+								<div class="flex-1">
+									<h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-3">Expert Installation</h3>
+									<p class="text-gray-600 leading-relaxed mb-4">Professional installation and maintenance support across India with trained technicians</p>
+									<div class="flex items-center gap-2 text-green-600 font-semibold">
+										<span class="material-symbols-rounded text-base">verified</span>
+										<span class="text-sm">Free Installation Included</span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Benefit 4 -->
+						<div class="group relative bg-gradient-to-br from-white via-orange-50/50 to-white p-8 lg:p-10 rounded-3xl border-2 border-orange-200 hover:border-orange-400 hover:shadow-2xl hover:-translate-y-2">
+							<div class="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-orange-100 to-transparent rounded-bl-3xl"></div>
+							<div class="relative flex gap-6">
+								<div class="flex-shrink-0 w-16 h-16 lg:w-20 lg:h-20 flex items-center justify-center bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl shadow-lg group-hover:scale-110 group-hover:rotate-6">
+									<span class="material-symbols-rounded text-white text-3xl lg:text-4xl">payments</span>
+								</div>
+								<div class="flex-1">
+									<h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-3">Direct Factory Pricing</h3>
+									<p class="text-gray-600 leading-relaxed mb-4">No middleman markup - get premium quality at manufacturer prices with best value</p>
+									<div class="flex items-center gap-2 text-orange-600 font-semibold">
+										<span class="material-symbols-rounded text-base">verified</span>
+										<span class="text-sm">Up to 30% Savings</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Certifications Bar -->
+					<div class="max-w-5xl mx-auto">
+						<div class="relative bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 p-8 lg:p-10 rounded-3xl border border-primary/20 backdrop-blur-sm">
+							<div class="absolute inset-0 bg-white/50 rounded-3xl"></div>
+							<div class="relative">
+								<h3 class="text-center text-xl font-bold text-gray-900 mb-8">Certified & Trusted By</h3>
+								<div class="flex flex-wrap justify-start md:justify-center items-center gap-8 lg:gap-12">
+									<!-- ISO 9001 -->
+									<div class="flex items-center gap-4 group cursor-pointer">
+										<div class="w-16 h-16 flex items-center justify-center bg-white rounded-2xl shadow-md group-hover:shadow-xl group-hover:scale-110">
+											<span class="material-symbols-rounded text-4xl" style="background: linear-gradient(135deg, #2563eb 0%, #54e8e8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">verified</span>
+										</div>
+										<div class="text-left">
+											<div class="font-bold text-gray-900 text-lg">ISO 9001</div>
+											<div class="text-sm text-gray-600">Quality Certified</div>
+										</div>
+									</div>
+									
+									<!-- BIS -->
+									<div class="flex items-center gap-4 group cursor-pointer">
+										<div class="w-16 h-16 flex items-center justify-center bg-white rounded-2xl shadow-md group-hover:shadow-xl group-hover:scale-110">
+											<span class="material-symbols-rounded text-4xl" style="background: linear-gradient(135deg, #2563eb 0%, #54e8e8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">verified</span>
+										</div>
+										<div class="text-left">
+											<div class="font-bold text-gray-900 text-lg">BIS</div>
+											<div class="text-sm text-gray-600">Approved</div>
+										</div>
+									</div>
+									
+									<!-- NSF -->
+									<div class="flex items-center gap-4 group cursor-pointer">
+										<div class="w-16 h-16 flex items-center justify-center bg-white rounded-2xl shadow-md group-hover:shadow-xl group-hover:scale-110">
+											<span class="material-symbols-rounded text-4xl" style="background: linear-gradient(135deg, #2563eb 0%, #54e8e8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">verified</span>
+										</div>
+										<div class="text-left">
+											<div class="font-bold text-gray-900 text-lg">NSF</div>
+											<div class="text-sm text-gray-600">Tested</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- CTA Section -->
+			<section class="relative py-16 lg:py-24 bg-gradient-to-br from-primary via-primary-dark to-primary text-white overflow-hidden">
+				<!-- Background Pattern -->
+				<div class="absolute inset-0 -z-10 opacity-10">
+					<div class="absolute inset-0 hero-grid"></div>
+				</div>
+				
+				<!-- Animated Shapes -->
+				<div class="absolute top-10 left-10 w-64 h-64 bg-secondary/20 rounded-full filter blur-3xl animate-pulse"></div>
+				<div class="absolute bottom-10 right-10 w-80 h-80 bg-white/10 rounded-full filter blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+
+				<div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+					<div class="max-w-5xl mx-auto text-center">
+						<!-- Badge -->
+						<div class="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-sm font-medium text-white mb-6 hover:bg-white/30 hover:scale-105">
+							<span class="material-symbols-rounded text-base">campaign</span>
+							<span>Special Offer</span>
+						</div>
+
+						<!-- Heading -->
+						<h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 leading-tight">
+							Ready to Experience<br />
+			<span class="inline-block mt-2 px-6 py-2 bg-white/20 backdrop-blur-sm rounded-2xl hover:bg-white/30 hover:scale-105">Pure Water?</span>
+						</h2>
+						
+						<!-- Description -->
+						<p class="text-lg lg:text-2xl mb-10 lg:mb-12 text-white/90 max-w-3xl mx-auto leading-relaxed">
+							Join <span class="font-bold text-secondary">50,000+</span> satisfied customers who trust FinGaurd for their family's health and well-being
+						</p>
+
+						<!-- CTA Buttons -->
+						<div class="flex flex-col sm:flex-row gap-4 justify-center mb-12 lg:mb-16">
+							<a href="/products.html" class="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-gray-100 text-primary font-bold rounded-full hover:shadow-2xl hover:scale-105">
+								<span>Shop RO Systems</span>
+								<span class="material-symbols-rounded text-xl group-hover:translate-x-1">arrow_forward</span>
+							</a>
+							<a href="#expert-advice" class="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-secondary hover:bg-secondary/90 text-gray-900 font-bold rounded-full hover:shadow-2xl hover:scale-105">
+								<span class="material-symbols-rounded text-xl">support_agent</span>
+								<span>Get Expert Advice</span>
+							</a>
+						</div>
+
+						<!-- Guarantees -->
+						<div class="max-w-4xl mx-auto">
+							<div class="grid md:grid-cols-3 gap-6">
+								<!-- Warranty -->
+								<div class="group relative bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 hover:bg-white/20 hover:border-white/40 hover:-translate-y-1">
+									<div class="w-14 h-14 mx-auto mb-4 flex items-center justify-center bg-secondary/20 rounded-xl group-hover:scale-110">
+										<span class="material-symbols-rounded text-secondary text-3xl">verified_user</span>
+									</div>
+									<div class="font-bold text-lg mb-1">1-Year Warranty</div>
+									<div class="text-sm text-white/80">On all RO systems</div>
+								</div>
+
+								<!-- Installation -->
+								<div class="group relative bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 hover:bg-white/20 hover:border-white/40 hover:-translate-y-1">
+									<div class="w-14 h-14 mx-auto mb-4 flex items-center justify-center bg-secondary/20 rounded-xl group-hover:scale-110">
+										<span class="material-symbols-rounded text-secondary text-3xl">handyman</span>
+									</div>
+									<div class="font-bold text-lg mb-1">Free Installation</div>
+									<div class="text-sm text-white/80">By certified technicians</div>
+								</div>
+
+								<!-- Money Back -->
+								<div class="group relative bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 hover:bg-white/20 hover:border-white/40 hover:-translate-y-1">
+									<div class="w-14 h-14 mx-auto mb-4 flex items-center justify-center bg-secondary/20 rounded-xl group-hover:scale-110">
+										<span class="material-symbols-rounded text-secondary text-3xl">currency_rupee</span>
+									</div>
+									<div class="font-bold text-lg mb-1">14-Day Money Back</div>
+									<div class="text-sm text-white/80">100% satisfaction guarantee</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Expert Advice Form Section -->
+			<section id="expert-advice" class="relative py-16 lg:py-24 bg-gradient-to-br from-gray-50 via-white to-gray-50 overflow-hidden">
+				<!-- Background Elements -->
+				<div class="absolute inset-0 -z-10 opacity-20">
+					<div class="absolute inset-0 hero-grid"></div>
+				</div>
+				<div class="absolute -top-20 left-0 w-80 h-80 bg-primary/10 rounded-full filter blur-3xl"></div>
+				<div class="absolute -bottom-20 right-0 w-96 h-96 bg-secondary/10 rounded-full filter blur-3xl"></div>
+
+				<div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+					<div class="max-w-4xl mx-auto">
+						<!-- Section Header -->
+						<div class="text-center mb-12 lg:mb-16">
+							<div class="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm font-medium text-primary mb-6 hover:bg-primary/20 hover:scale-105">
+								<span class="material-symbols-rounded text-base">forum</span>
+								<span>Free Consultation</span>
+							</div>
+							<h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-6">
+								Get <span class="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">Expert Advice</span>
+							</h2>
+							<p class="text-lg lg:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
+								Our water purification experts will help you choose the perfect RO system for your home based on your specific needs and water conditions.
+							</p>
+						</div>
+
+						<!-- Form Container -->
+						<div class="relative">
+							<!-- Decorative Elements -->
+							<div class="absolute -top-6 -right-6 w-24 h-24 bg-primary/10 rounded-2xl -z-10 transform rotate-12"></div>
+							<div class="absolute -bottom-6 -left-6 w-32 h-32 bg-secondary/10 rounded-2xl -z-10 transform -rotate-12"></div>
+
+							<form id="expert-advice-form" class="relative bg-white/80 backdrop-blur-sm p-8 lg:p-12 rounded-3xl shadow-2xl border-2 border-gray-200 hover:border-primary/30">
+								<!-- Form Grid -->
+								<div class="grid md:grid-cols-2 gap-6 mb-6">
+									<!-- Full Name -->
+									<div class="group">
+										<label for="fullname" class="flex items-center gap-2 text-sm font-bold text-gray-700 mb-3">
+											<span class="material-symbols-rounded text-primary text-lg">person</span>
+											Full Name *
+										</label>
+										<input 
+											type="text" 
+											id="fullname" 
+											name="fullname" 
+											required
+											class="w-full px-5 py-4 bg-gray-50 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-primary focus:border-primary focus:bg-white placeholder:text-gray-400 hover:border-primary/50"
+											placeholder="Enter your name"
+										/>
+									</div>
+									
+									<!-- Phone Number -->
+									<div class="group">
+										<label for="phone" class="flex items-center gap-2 text-sm font-bold text-gray-700 mb-3">
+											<span class="material-symbols-rounded text-primary text-lg">phone</span>
+											Phone Number *
+										</label>
+										<input 
+											type="tel" 
+											id="phone" 
+											name="phone" 
+											required
+											pattern="[0-9]{10}"
+											class="w-full px-5 py-4 bg-gray-50 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-primary focus:border-primary focus:bg-white placeholder:text-gray-400 hover:border-primary/50"
+											placeholder="10-digit mobile number"
+										/>
+									</div>
+								</div>
+
+								<!-- Address -->
+								<div class="mb-6 group">
+									<label for="address" class="flex items-center gap-2 text-sm font-bold text-gray-700 mb-3">
+										<span class="material-symbols-rounded text-primary text-lg">location_on</span>
+										Address/Locality *
+									</label>
+									<input 
+										type="text" 
+										id="address" 
+										name="address" 
+										required
+										class="w-full px-5 py-4 bg-gray-50 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-primary focus:border-primary focus:bg-white placeholder:text-gray-400"
+										placeholder="Your area or locality"
+									/>
+								</div>
+
+								<!-- Family Size & Water Source -->
+								<div class="grid md:grid-cols-2 gap-6 mb-8">
+									<!-- Family Size -->
+									<div class="group">
+										<label for="familysize" class="flex items-center gap-2 text-sm font-bold text-gray-700 mb-3">
+											<span class="material-symbols-rounded text-primary text-lg">groups</span>
+											Family Size
+										</label>
+										<select 
+											id="familysize" 
+											name="familysize"
+											class="w-full px-5 py-4 bg-gray-50 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-primary focus:border-primary focus:bg-white appearance-none cursor-pointer"
+										>
+											<option value="">Select family size</option>
+											<option value="1-2">1-2 members</option>
+											<option value="3-4">3-4 members</option>
+											<option value="5-6">5-6 members</option>
+											<option value="7+">7+ members</option>
+										</select>
+									</div>
+									
+									<!-- Water Source -->
+									<div class="group">
+										<label for="watersource" class="flex items-center gap-2 text-sm font-bold text-gray-700 mb-3">
+											<span class="material-symbols-rounded text-primary text-lg">water_drop</span>
+											Water Source
+										</label>
+										<select 
+											id="watersource" 
+											name="watersource"
+											class="w-full px-5 py-4 bg-gray-50 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-primary focus:border-primary focus:bg-white appearance-none cursor-pointer"
+										>
+											<option value="">Select water source</option>
+											<option value="Municipal">Municipal Supply</option>
+											<option value="Borewell">Borewell</option>
+											<option value="Tanker">Tanker Water</option>
+											<option value="Other">Other</option>
+										</select>
+									</div>
+								</div>
+
+								<!-- Submit Button -->
+								<button 
+									type="submit" 
+									class="w-full inline-flex items-center justify-center gap-3 px-8 py-5 bg-gradient-to-r from-secondary to-secondary/90 hover:from-secondary/90 hover:to-secondary text-gray-900 font-bold text-lg rounded-2xl hover:shadow-2xl hover:scale-105 group"
+								>
+									<span class="material-symbols-rounded text-2xl group-hover:rotate-12">send</span>
+									<span>Get Free Expert Consultation</span>
+								</button>
+
+								<!-- Privacy Note -->
+								<div class="mt-6 p-4 bg-primary/5 border border-primary/10 rounded-xl">
+									<p class="text-sm text-gray-600 text-center flex items-center justify-center gap-2">
+										<span class="material-symbols-rounded text-primary text-base">lock</span>
+										<span>We respect your privacy. Your information will only be used to assist you.</span>
+									</p>
+								</div>
+							</form>
+						</div>
+
+						<!-- Trust Indicators -->
+						<div class="mt-12 grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+							<div class="text-center">
+								<div class="w-16 h-16 mx-auto mb-3 flex items-center justify-center bg-green-100 rounded-2xl">
+									<span class="material-symbols-rounded text-green-600 text-3xl">schedule</span>
+								</div>
+								<div class="font-bold text-gray-900">Quick Response</div>
+								<div class="text-sm text-gray-600">Within 2 hours</div>
+							</div>
+							<div class="text-center">
+								<div class="w-16 h-16 mx-auto mb-3 flex items-center justify-center bg-blue-100 rounded-2xl">
+									<span class="material-symbols-rounded text-blue-600 text-3xl">verified_user</span>
+								</div>
+								<div class="font-bold text-gray-900">Expert Advice</div>
+								<div class="text-sm text-gray-600">From certified professionals</div>
+							</div>
+							<div class="text-center">
+								<div class="w-16 h-16 mx-auto mb-3 flex items-center justify-center bg-purple-100 rounded-2xl">
+									<span class="material-symbols-rounded text-purple-600 text-3xl">verified</span>
+								</div>
+								<div class="font-bold text-gray-900">100% Free</div>
+								<div class="text-sm text-gray-600">No obligation to buy</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer></footer>
+
+		<!-- Load app.js for header/footer -->
+		<script src="/js/app.js" type="module"></script>
+
+		<!-- GSAP Animations -->
+		<script>
+			// Set initial states for all animated elements
+			gsap.set("#hero-badge", { opacity: 0, y: -30 });
+			gsap.set("#hero-title", { opacity: 0, y: 30 });
+			gsap.set("#hero-description", { opacity: 0, y: 30 });
+			gsap.set(".stat-card", { opacity: 0, y: 30 });
+			gsap.set("#hero-actions", { opacity: 0, y: 30 });
+			gsap.set("#hero-trust", { opacity: 0 });
+			gsap.set("#hero-visual", { opacity: 0, x: 50 });
+			gsap.set(".floating-card-item", { opacity: 0, scale: 0 });
+			gsap.set(".mobile-card", { opacity: 0, y: 30 });
+
+			// Create timeline
+			const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+			// Animate on load
+			window.addEventListener('DOMContentLoaded', () => {
+				tl.to("#hero-badge", { 
+					opacity: 1, 
+					y: 0, 
+					duration: 0.8 
+				})
+				.to("#hero-title", { 
+					opacity: 1, 
+					y: 0, 
+					duration: 0.8 
+				}, "-=0.6")
+				.to("#hero-description", { 
+					opacity: 1, 
+					y: 0, 
+					duration: 0.8 
+				}, "-=0.6")
+				.to(".stat-card", { 
+					opacity: 1, 
+					y: 0, 
+					duration: 0.6,
+					stagger: 0.1
+				}, "-=0.4")
+				.to("#hero-actions", { 
+					opacity: 1, 
+					y: 0, 
+					duration: 0.8 
+				}, "-=0.4")
+				.to("#hero-trust", { 
+					opacity: 1, 
+					duration: 0.6 
+				}, "-=0.4")
+				.to("#hero-visual", { 
+					opacity: 1, 
+					x: 0, 
+					duration: 1 
+				}, "-=1")
+				.to(".floating-card-item", { 
+					opacity: 1, 
+					scale: 1, 
+					duration: 0.6,
+					stagger: 0.2,
+					ease: "back.out(1.7)"
+				}, "-=0.4")
+				.to(".mobile-card", { 
+					opacity: 1, 
+					y: 0, 
+					duration: 0.6,
+					stagger: 0.15
+				}, "-=0.8");
+			});
+		</script>
+
+		<!-- Featured Products Loader -->
+		<script>
+			// Load featured products dynamically
+			async function loadFeaturedProducts() {
+				try {
+					const response = await fetch('/data/products.json');
+					const products = await response.json();
+					
+					const grid = document.getElementById('featured-products-grid');
+					if (!grid) return;
+
+					// Show first 4 products
+					const featuredProducts = products.slice(0, 4);
+					
+					grid.innerHTML = featuredProducts.map(product => `
+						<div class="group relative bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md hover:-translate-y-1 overflow-hidden flex flex-col">
+							<!-- Animated Glow Background -->
+							<div class="absolute inset-0 bg-gradient-to-br from-primary/0 via-secondary/0 to-primary/0 group-hover:from-primary/5 group-hover:via-secondary/5 group-hover:to-primary/5 opacity-0 group-hover:opacity-100"></div>
+							
+							<!-- Bestseller Badge with Pulse -->
+							<div class="absolute top-3 right-3 z-20 px-2.5 py-1 bg-gradient-to-r from-amber-400 via-orange-500 to-amber-400 bg-size-200 text-white text-xs font-bold rounded-lg shadow-md">
+								<span class="flex items-center gap-1">
+									<span class="material-symbols-rounded text-xs">star</span>
+									BESTSELLER
+								</span>
+							</div>
+							
+							<!-- Image Container with Enhanced Effects -->
+							<div class="relative aspect-square p-8 bg-gradient-to-br from-gray-50 via-white to-gray-50 overflow-hidden">
+								<!-- Radial Glow on Hover -->
+								<div class="absolute inset-0 bg-gradient-radial from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 blur-2xl"></div>
+								
+								<!-- Product Image with Advanced Hover -->
+								<img 
+									src="${product.image}" 
+									alt="${product.name}"
+									class="relative w-full h-full object-contain mix-blend-multiply group-hover:scale-110 filter group-hover:drop-shadow-lg" />
+								
+								<!-- Shimmer Effect -->
+								<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full"></div>
+							</div>
+							
+							<!-- Content Section -->
+							<div class="relative p-6 bg-white z-10 flex flex-col flex-1">
+								<!-- Product Name -->
+								<h3 class="font-bold text-lg text-gray-900 mb-3 line-clamp-2 group-hover:text-primary">${product.name}</h3>
+								
+								<!-- Price & Rating -->
+								<div class="flex items-center justify-between mb-4">
+									<div class="flex flex-col">
+										<span class="text-2xl font-bold bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent group-hover:scale-110 inline-block origin-left">₹${product.price.toLocaleString('en-IN')}</span>
+										<span class="text-xs text-gray-500 group-hover:text-green-600">
+											<span class="material-symbols-rounded text-xs align-middle">check_circle</span> 
+											Free Installation
+										</span>
+									</div>
+									<div class="flex items-center gap-1 px-2.5 py-1 bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg group-hover:shadow-md">
+										<span class="material-symbols-rounded text-yellow-500 text-sm">star</span>
+										<span class="text-sm font-bold text-green-700">4.8</span>
+									</div>
+								</div>
+								
+								<!-- Features with Icons -->
+								<div class="flex flex-wrap gap-2 mb-4">
+									<span class="flex items-center gap-1 text-xs font-medium text-gray-700 bg-gradient-to-r from-blue-50 to-cyan-50 px-2.5 py-1 rounded-full border border-blue-100">
+										<span class="material-symbols-rounded text-sm text-primary">filter_alt</span>
+										7-Stage Filtration
+									</span>
+									<span class="flex items-center gap-1 text-xs font-medium text-gray-700 bg-gradient-to-r from-purple-50 to-pink-50 px-2.5 py-1 rounded-full border border-purple-100">
+										<span class="material-symbols-rounded text-sm text-secondary">workspace_premium</span>
+										1 Year Warranty
+									</span>
+								</div>
+								
+								<!-- CTA Button with Enhanced Interaction -->
+								<a href="/product.html?id=${product.id}" class="relative w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white font-bold rounded-lg overflow-hidden group/btn hover:shadow-lg hover:shadow-primary/30 mt-auto">
+									<!-- Button Shine Effect -->
+									<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full group-hover/btn:translate-x-full"></div>
+									<span class="relative">View Details</span>
+									<span class="material-symbols-rounded text-lg relative group-hover/btn:translate-x-2">arrow_forward</span>
+								</a>
+							</div>
+						</div>
+					`).join('');
+				} catch (error) {
+					console.error('Failed to load products:', error);
+				}
+			}
+
+			// Load products when DOM is ready
+			if (document.readyState === 'loading') {
+				document.addEventListener('DOMContentLoaded', loadFeaturedProducts);
+			} else {
+				loadFeaturedProducts();
+			}
+		</script>
+
+		<!-- Expert Advice Form Handler -->
+		<script>
+			// WhatsApp Business Number
+			const WHATSAPP_NUMBER = '919821560609';
+
+			const form = document.getElementById('expert-advice-form');
+			if (form) {
+				form.addEventListener('submit', function(e) {
+					e.preventDefault();
+					
+					const formData = new FormData(form);
+					
+					// Build WhatsApp message with better formatting
+					let message = `💧 *EXPERT CONSULTATION REQUEST*\n\n`;
+					message += `👤 *Customer Details:*\n`;
+					message += `Name: ${formData.get('fullname')}\n`;
+					message += `Phone: ${formData.get('phone')}\n`;
+					message += `Address: ${formData.get('address')}\n\n`;
+					
+					const familySize = formData.get('familysize');
+					const waterSource = formData.get('watersource');
+					
+					if (familySize || waterSource) {
+						message += `ℹ️ *Additional Information:*\n`;
+						if (familySize) message += `Family Size: ${familySize}\n`;
+						if (waterSource) message += `Water Source: ${waterSource}\n`;
+						message += `\n`;
+					}
+					
+					message += `🎯 *Request:*\n`;
+					message += `Customer needs expert advice for choosing the right RO water purification system based on their requirements.\n\n`;
+					message += `---\n`;
+					message += `Submitted from: ${window.location.origin}\n`;
+					message += `Date: ${new Date().toLocaleString('en-IN')}`;
+
+					// Encode message for WhatsApp
+					const encodedMessage = encodeURIComponent(message);
+					const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+					
+					// Open WhatsApp
+					window.open(whatsappUrl, '_blank');
+					
+					// Reset form and show success message
+					form.reset();
+					
+					// Show modern alert notification
+					Alert.success('✅ Your expert consultation request has been sent! Our team will contact you shortly on WhatsApp.');
+					
+					// Show success notification
+					const submitBtn = form.querySelector('button[type="submit"]');
+					const originalHTML = submitBtn.innerHTML;
+					submitBtn.innerHTML = `
+						<span class="material-symbols-rounded text-2xl">check_circle</span>
+						<span>Request Sent Successfully!</span>
+					`;
+					submitBtn.classList.add('from-green-600', 'to-green-500');
+					submitBtn.classList.remove('from-secondary', 'to-secondary/90');
+					
+					setTimeout(() => {
+						submitBtn.innerHTML = originalHTML;
+						submitBtn.classList.remove('from-green-600', 'to-green-500');
+						submitBtn.classList.add('from-secondary', 'to-secondary/90');
+					}, 3000);
+				});
+			}
+		</script>
+	</body>
 </html>
+

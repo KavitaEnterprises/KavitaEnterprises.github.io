@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>404 - Page Not Found | FinGaurd</title>
+		<link rel="stylesheet" href="/css/style.css">
+		
+		<!-- Tailwind CSS CDN -->
+		<script src="https://cdn.tailwindcss.com"></script>
+		
+		<!-- Tailwind Config -->
+		<script>
+			tailwind.config = {
+				theme: {
+					extend: {
+						colors: {
+							primary: '#2563eb',
+							secondary: '#54e8e8',
+							'primary-dark': '#1e40af',
+						},
+						fontFamily: {
+							sans: ['Urbanist', 'system-ui', 'sans-serif'],
+							display: ['Bebas Neue', 'Arial', 'sans-serif'],
+						},
+					}
+				}
+			}
+		</script>
+		
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+		
+		<!-- GSAP CDN -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+		
+		<style>
+			/* Glitch animation */
+			@keyframes glitch {
+				0%, 80%, 100% { 
+					transform: translate(0, 0) skew(0deg) scale(1); 
+					filter: blur(0);
+				}
+				82% { 
+					transform: translate(-4px, 3px) skew(1deg) scale(1.01); 
+					filter: blur(0.5px);
+				}
+				84% { 
+					transform: translate(4px, -3px) skew(-1deg) scale(0.99); 
+				}
+				86% { 
+					transform: translate(-3px, -4px) skew(0.8deg) scale(1.01); 
+				}
+				88% { 
+					transform: translate(3px, 4px) skew(-0.8deg) scale(0.99); 
+				}
+				90% { 
+					transform: translate(-4px, 2px) skew(0.5deg) scale(1); 
+				}
+			}
+			
+			.glitch {
+				animation: glitch 4s ease-in-out infinite;
+			}
+			
+			/* Bounce animation */
+			@keyframes bounce-icon {
+				0%, 100% { transform: translateY(0); }
+				50% { transform: translateY(-10px); }
+			}
+			
+			.bounce-icon {
+				animation: bounce-icon 2s infinite;
+			}
+		</style>
+	</head>
+	<body class="font-sans antialiased">
+		<header></header>
+		<main>
+			<!-- 404 Section -->
+			<section class="relative min-h-screen flex items-center justify-center overflow-hidden px-4 py-16 pt-16 lg:pt-20">
+				<!-- Background decorations (same as home page hero) -->
+				<div class="hero-shape hero-shape-1"></div>
+				<div class="hero-shape hero-shape-2"></div>
+				<div class="hero-shape hero-shape-3"></div>
+				<div class="hero-grid absolute inset-0 -z-10"></div>
+
+				<!-- Error content card -->
+				<div id="error-card" class="relative backdrop-blur-xl bg-white/80 border border-white/30 rounded-2xl shadow-2xl max-w-2xl w-full p-8 md:p-12 text-center z-10">
+					<!-- Icon -->
+					<span id="error-icon" class="material-symbols-rounded text-primary text-7xl md:text-8xl mb-6 inline-block bounce-icon">
+						search_off
+					</span>
+					
+					<!-- 404 Number -->
+					<h1 id="error-number" class="text-8xl md:text-9xl font-black font-display bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent leading-none mb-6 glitch">
+						404
+					</h1>
+					
+					<!-- Title -->
+					<h2 id="error-title" class="text-2xl md:text-4xl font-bold text-gray-800 mb-4">
+						Oops! Page Not Found
+					</h2>
+					
+					<!-- Message -->
+					<p id="error-message" class="text-base md:text-lg text-gray-600 leading-relaxed mb-8 max-w-md mx-auto">
+						The page you're looking for seems to have wandered off. 
+						Don't worry though, we'll help you find your way back!
+					</p>
+
+					<!-- CTA Buttons -->
+					<div id="error-actions" class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+						<a href="/index.html" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary hover:bg-primary-dark text-white font-semibold rounded-full border-2 border-primary hover:border-primary-dark transition-all duration-300 hover:shadow-lg hover:scale-105 w-full sm:w-auto">
+							<span class="material-symbols-rounded text-xl">home</span>
+							<span>Back to Home</span>
+						</a>
+						<a href="/products.html" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white hover:bg-gray-50 text-primary border-2 border-primary font-semibold rounded-full transition-all duration-300 hover:shadow-lg hover:scale-105 w-full sm:w-auto">
+							<span class="material-symbols-rounded text-xl">shopping_bag</span>
+							<span>Browse Products</span>
+						</a>
+					</div>
+
+					<!-- Quick links -->
+					<div id="quick-links" class="flex flex-wrap items-center justify-center gap-3 pt-6 border-t border-gray-200">
+						<a href="/contact.html" class="text-sm md:text-base text-gray-600 hover:text-primary transition-all duration-200 hover:-translate-y-0.5">
+							Contact Us
+						</a>
+						<span class="text-gray-300 text-sm">•</span>
+						<a href="/about.html" class="text-sm md:text-base text-gray-600 hover:text-primary transition-all duration-200 hover:-translate-y-0.5">
+							About
+						</a>
+						<span class="text-gray-300 text-sm">•</span>
+						<a href="/service.html" class="text-sm md:text-base text-gray-600 hover:text-primary transition-all duration-200 hover:-translate-y-0.5">
+							Service
+						</a>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer></footer>
+
+		<!-- Load app.js for header/footer -->
+		<script src="/js/app.js" type="module"></script>
+
+		<!-- GSAP Animations -->
+		<script>
+			// Set initial states
+			gsap.set("#error-card", { opacity: 0, y: 50 });
+			gsap.set("#error-icon", { opacity: 0, scale: 0 });
+			gsap.set("#error-number", { opacity: 0, y: 30 });
+			gsap.set("#error-title", { opacity: 0, y: 30 });
+			gsap.set("#error-message", { opacity: 0, y: 30 });
+			gsap.set("#error-actions", { opacity: 0, x: -50 });
+			gsap.set("#quick-links", { opacity: 0, x: 50 });
+
+			// Create timeline
+			const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+			// Animate on load
+			window.addEventListener('DOMContentLoaded', () => {
+				tl.to("#error-card", { 
+					opacity: 1, 
+					y: 0, 
+					duration: 0.8 
+				})
+				.to("#error-icon", { 
+					opacity: 1, 
+					scale: 1, 
+					duration: 0.6,
+					ease: "back.out(1.7)"
+				}, "-=0.4")
+				.to("#error-number", { 
+					opacity: 1, 
+					y: 0, 
+					duration: 0.8 
+				}, "-=0.4")
+				.to("#error-title", { 
+					opacity: 1, 
+					y: 0, 
+					duration: 0.6 
+				}, "-=0.5")
+				.to("#error-message", { 
+					opacity: 1, 
+					y: 0, 
+					duration: 0.6 
+				}, "-=0.4")
+				.to("#error-actions", { 
+					opacity: 1, 
+					x: 0, 
+					duration: 0.8 
+				}, "-=0.4")
+				.to("#quick-links", { 
+					opacity: 1, 
+					x: 0, 
+					duration: 0.8 
+				}, "-=0.6");
+			});
+		</script>
+	</body>
+</html>

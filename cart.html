@@ -1,62 +1,593 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart - FinGaurd RO Water Purifier Systems</title>
-    <meta name="description" content="Review your selected FinGaurd RO water purifier systems and parts before checkout. Premium quality water purification products.">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Shopping Cart - FinGaurd Water Purifiers</title>
 
-    <header data-include="components/header.html"></header>
+		<!-- Tailwind CSS -->
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script>
+			tailwind.config = {
+				theme: {
+					extend: {
+						colors: {
+							primary: '#1e40af',
+							'primary-dark': '#1e3a8a',
+							secondary: '#3b82f6'
+						},
+						fontFamily: {
+							display: ['Inter', 'sans-serif'],
+							body: ['Inter', 'sans-serif']
+						}
+					}
+				}
+			}
+		</script>
 
-    <main>
-        <section class="cart-hero">
-            <div class="container">
-                <div class="cart-header">
-                    <h1>Shopping Cart</h1>
-                    <p id="cart-subtitle">Review your selected products before checkout</p>
-                </div>
-            </div>
-        </section>
+		<!-- Google Material Icons -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
-        <section class="cart-section">
-            <div class="container">
-                <div class="cart-content">
-                    <div class="cart-items">
-                        <div id="cart-items-container">
-                        </div>
-                    </div>
-                    <div class="cart-sidebar">
-                        <div id="cart-summary" class="cart-summary-card">
-                            <h3>Order Summary</h3>
-                            <div class="summary-row">
-                                <span id="total-items">0 Items</span>
-                                <span id="total-price" class="total-amount">₹0</span>
-                            </div>
-                            <button id="checkout-whatsapp" class="whatsapp-checkout" aria-label="Checkout on WhatsApp">
-                                Checkout on WhatsApp
-                            </button>
-                            <div class="checkout-benefits">
-                                <span>• Free Installation on RO Systems</span>
-                                <span>• 1-Year Warranty on RO Systems</span>
-                                <span>• 14-Day Money Back Guarantee</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+		<!-- Custom CSS -->
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	<body class="font-body text-gray-900 bg-gray-50">
+		<header></header>
 
-    <footer data-include="components/footer.html"></footer>
+		<main class="pt-20">
+			<!-- Breadcrumb -->
+			<section class="bg-white border-b border-gray-200">
+				<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+					<nav class="flex items-center gap-2 text-sm">
+						<a href="/index.html" class="text-gray-500 hover:text-primary transition-colors">Home</a>
+						<span class="material-symbols-rounded text-gray-400 text-sm">chevron_right</span>
+						<span class="text-gray-700 font-medium">Shopping Cart</span>
+					</nav>
+				</div>
+			</section>
 
-    <script src="js/products-db.js"></script>
-    <script src="js/include.js"></script>
-    <script src="js/main.js"></script>
-</body>
+			<!-- Cart Content -->
+			<section class="py-8 lg:py-12">
+				<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+					<!-- Page Header -->
+					<div class="mb-8">
+						<h1 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-2">Shopping Cart</h1>
+						<p class="text-gray-600">Review your items and proceed to checkout</p>
+					</div>
+
+					<!-- Empty Cart State -->
+					<div id="empty-cart" class="hidden text-center py-16">
+						<span class="material-symbols-rounded text-9xl text-gray-300 mb-4 block">shopping_cart</span>
+						<h2 class="text-2xl font-bold text-gray-900 mb-4">Your cart is empty</h2>
+						<p class="text-gray-600 mb-8">Add some products to get started!</p>
+						<a href="/products.html" class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors">
+							<span class="material-symbols-rounded">arrow_back</span>
+							Continue Shopping
+						</a>
+					</div>
+
+					<!-- Cart Items -->
+					<div id="cart-items" class="grid lg:grid-cols-3 gap-8">
+						<!-- Cart Items List -->
+						<div class="lg:col-span-2 space-y-4">
+							<div class="bg-white rounded-xl border border-gray-200 shadow-sm">
+								<div class="p-4 border-b border-gray-200">
+									<h2 class="font-bold text-lg flex items-center gap-2">
+										<span class="material-symbols-rounded text-primary">inventory_2</span>
+										Cart Items (<span id="total-items">0</span>)
+									</h2>
+								</div>
+								<div id="cart-items-list" class="divide-y divide-gray-200">
+									<!-- Dynamic cart items -->
+								</div>
+							</div>
+						</div>
+
+						<!-- Order Summary -->
+						<div class="lg:col-span-1">
+							<div class="bg-white rounded-xl border border-gray-200 shadow-sm sticky top-24">
+								<div class="p-6 border-b border-gray-200">
+									<h2 class="font-bold text-lg flex items-center gap-2">
+										<span class="material-symbols-rounded text-primary">receipt</span>
+										Order Summary
+									</h2>
+								</div>
+								
+								<div class="p-6 space-y-4">
+									<!-- Subtotal -->
+									<div class="flex justify-between text-gray-600">
+										<span>Subtotal</span>
+										<span>₹<span id="subtotal">0</span></span>
+									</div>
+									
+									<!-- Delivery -->
+									<div class="flex justify-between text-gray-600">
+										<span>Delivery</span>
+										<span class="text-green-600 font-semibold">FREE</span>
+									</div>
+									
+									<!-- Installation -->
+									<div class="flex justify-between text-gray-600">
+										<span>Installation</span>
+										<span class="text-green-600 font-semibold">FREE</span>
+									</div>
+									
+									<div class="border-t border-gray-200 pt-4">
+										<div class="flex justify-between text-lg font-bold text-gray-900">
+											<span>Total</span>
+											<span>₹<span id="total">0</span></span>
+										</div>
+										<p class="text-xs text-gray-500 mt-1">Inclusive of all taxes</p>
+									</div>
+
+									<!-- Checkout Button -->
+									<button 
+										id="checkout-btn"
+										class="w-full flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white font-bold rounded-lg transition-all hover:shadow-lg group"
+									>
+										<span class="material-symbols-rounded">check_circle</span>
+										<span>Proceed to Checkout</span>
+										<span class="material-symbols-rounded group-hover:translate-x-1 transition-transform">arrow_forward</span>
+									</button>
+
+									<!-- Continue Shopping -->
+									<a 
+										href="/products.html"
+										class="w-full flex items-center justify-center gap-2 px-6 py-3 bg-white border-2 border-gray-300 text-gray-700 font-semibold rounded-lg hover:border-primary hover:text-primary transition-colors"
+									>
+										<span class="material-symbols-rounded">arrow_back</span>
+										<span>Continue Shopping</span>
+									</a>
+								</div>
+
+								<!-- Trust Badges -->
+								<div class="p-6 bg-gray-50 border-t border-gray-200 rounded-b-xl">
+									<div class="space-y-3">
+										<div class="flex items-center gap-3 text-sm text-gray-700">
+											<span class="material-symbols-rounded text-green-600">verified</span>
+											<span>1 Year Warranty</span>
+										</div>
+										<div class="flex items-center gap-3 text-sm text-gray-700">
+											<span class="material-symbols-rounded text-green-600">local_shipping</span>
+											<span>Free Delivery & Installation</span>
+										</div>
+										<div class="flex items-center gap-3 text-sm text-gray-700">
+											<span class="material-symbols-rounded text-green-600">support_agent</span>
+											<span>24/7 Customer Support</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Checkout Modal -->
+			<div id="checkout-modal" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+				<div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+					<!-- Modal Header -->
+					<div class="sticky top-0 bg-white border-b border-gray-200 p-6 rounded-t-2xl">
+						<div class="flex items-center justify-between">
+							<h2 class="text-2xl font-bold text-gray-900 flex items-center gap-2">
+								<span class="material-symbols-rounded text-primary">shopping_bag</span>
+								Complete Your Order
+							</h2>
+							<button id="close-modal" class="p-2 hover:bg-gray-100 rounded-lg transition-colors">
+								<span class="material-symbols-rounded text-gray-600">close</span>
+							</button>
+						</div>
+					</div>
+
+					<!-- Modal Content -->
+					<div class="p-6">
+						<form id="checkout-form" class="space-y-6">
+							<!-- Contact Information -->
+							<div>
+								<h3 class="font-bold text-lg mb-4 flex items-center gap-2">
+									<span class="material-symbols-rounded text-primary">person</span>
+									Contact Information
+								</h3>
+								<div class="grid md:grid-cols-2 gap-4">
+									<div>
+										<label for="checkout-name" class="block text-sm font-semibold text-gray-700 mb-2">
+											Full Name *
+										</label>
+										<input 
+											type="text" 
+											id="checkout-name" 
+											name="name" 
+											required
+											class="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary focus:bg-white"
+											placeholder="Enter your name"
+										/>
+									</div>
+									<div>
+										<label for="checkout-phone" class="block text-sm font-semibold text-gray-700 mb-2">
+											Phone Number *
+										</label>
+										<input 
+											type="tel" 
+											id="checkout-phone" 
+											name="phone" 
+											required
+											pattern="[0-9]{10}"
+											class="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary focus:bg-white"
+											placeholder="10-digit number"
+										/>
+									</div>
+								</div>
+							</div>
+
+							<!-- Delivery Address -->
+							<div>
+								<h3 class="font-bold text-lg mb-4 flex items-center gap-2">
+									<span class="material-symbols-rounded text-primary">location_on</span>
+									Delivery Address
+								</h3>
+								<div class="space-y-4">
+									<div>
+										<label for="checkout-address" class="block text-sm font-semibold text-gray-700 mb-2">
+											Complete Address *
+										</label>
+										<textarea 
+											id="checkout-address" 
+											name="address" 
+											required
+											rows="3"
+											class="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary focus:bg-white resize-none"
+											placeholder="House/Flat No, Street, Area, Landmark"
+										></textarea>
+									</div>
+									<div class="grid md:grid-cols-3 gap-4">
+										<div>
+											<label for="checkout-city" class="block text-sm font-semibold text-gray-700 mb-2">
+												City *
+											</label>
+											<input 
+												type="text" 
+												id="checkout-city" 
+												name="city" 
+												required
+												class="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary focus:bg-white"
+												placeholder="City"
+											/>
+										</div>
+										<div>
+											<label for="checkout-state" class="block text-sm font-semibold text-gray-700 mb-2">
+												State *
+											</label>
+											<input 
+												type="text" 
+												id="checkout-state" 
+												name="state" 
+												required
+												class="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary focus:bg-white"
+												placeholder="State"
+											/>
+										</div>
+										<div>
+											<label for="checkout-pincode" class="block text-sm font-semibold text-gray-700 mb-2">
+												Pincode *
+											</label>
+											<input 
+												type="text" 
+												id="checkout-pincode" 
+												name="pincode" 
+												required
+												pattern="[0-9]{6}"
+												class="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary focus:bg-white"
+												placeholder="6-digit"
+											/>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Additional Information -->
+							<div>
+								<h3 class="font-bold text-lg mb-4 flex items-center gap-2">
+									<span class="material-symbols-rounded text-primary">info</span>
+									Additional Information
+								</h3>
+								<div class="grid md:grid-cols-2 gap-4">
+									<div>
+										<label for="checkout-family" class="block text-sm font-semibold text-gray-700 mb-2">
+											Family Size
+										</label>
+										<select 
+											id="checkout-family" 
+											name="family"
+											class="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary focus:bg-white"
+										>
+											<option value="">Select family size</option>
+											<option value="1-2">1-2 members</option>
+											<option value="3-4">3-4 members</option>
+											<option value="5-6">5-6 members</option>
+											<option value="7+">7+ members</option>
+										</select>
+									</div>
+									<div>
+										<label for="checkout-water" class="block text-sm font-semibold text-gray-700 mb-2">
+											Water Source
+										</label>
+										<select 
+											id="checkout-water" 
+											name="water"
+											class="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary focus:bg-white"
+										>
+											<option value="">Select water source</option>
+											<option value="Municipal">Municipal Supply</option>
+											<option value="Borewell">Borewell</option>
+											<option value="Tanker">Tanker Water</option>
+											<option value="Other">Other</option>
+										</select>
+									</div>
+								</div>
+								<div class="mt-4">
+									<label for="checkout-notes" class="block text-sm font-semibold text-gray-700 mb-2">
+										Order Notes (Optional)
+									</label>
+									<textarea 
+										id="checkout-notes" 
+										name="notes"
+										rows="2"
+										class="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary focus:bg-white resize-none"
+										placeholder="Any special instructions or preferences?"
+									></textarea>
+								</div>
+							</div>
+
+							<!-- Order Summary in Modal -->
+							<div class="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-xl p-6">
+								<h3 class="font-bold text-lg mb-4 flex items-center gap-2">
+									<span class="material-symbols-rounded text-primary">receipt_long</span>
+									Order Summary
+								</h3>
+								<div id="modal-order-items" class="space-y-2 mb-4 max-h-40 overflow-y-auto">
+									<!-- Dynamic order items -->
+								</div>
+								<div class="pt-4 border-t-2 border-blue-200">
+									<div class="flex justify-between text-2xl font-bold text-primary">
+										<span>Total Amount:</span>
+										<span>₹<span id="modal-total">0</span></span>
+									</div>
+									<p class="text-xs text-gray-600 mt-1">Free delivery • Free installation • 1 Year warranty</p>
+								</div>
+							</div>
+
+							<!-- Submit Button -->
+							<button 
+								type="submit"
+								class="w-full flex items-center justify-center gap-3 px-6 py-4 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white font-bold text-lg rounded-xl hover:shadow-lg transition-all group"
+							>
+								<span class="material-symbols-rounded text-2xl">send</span>
+								<span>Place Order via WhatsApp</span>
+								<span class="material-symbols-rounded group-hover:translate-x-1 transition-transform">arrow_forward</span>
+							</button>
+
+							<div class="bg-green-50 border border-green-200 rounded-lg p-4">
+								<p class="text-sm text-gray-700 flex items-start gap-2">
+									<span class="material-symbols-rounded text-green-600 text-base mt-0.5">info</span>
+									<span>Your order will be sent via WhatsApp for confirmation. Our team will contact you within 2 hours to finalize the order.</span>
+								</p>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<footer></footer>
+
+		<!-- Cart JavaScript -->
+		<script src="js/cart.js"></script>
+		<script>
+			// Load and display cart
+			function loadCart() {
+				const cart = Cart.getCart();
+				
+				if (cart.length === 0) {
+					document.getElementById('empty-cart').classList.remove('hidden');
+					document.getElementById('cart-items').classList.add('hidden');
+					return;
+				}
+
+				document.getElementById('empty-cart').classList.add('hidden');
+				document.getElementById('cart-items').classList.remove('hidden');
+
+				displayCartItems(cart);
+				updateCartSummary(cart);
+			}
+
+			// Display cart items
+			function displayCartItems(cart) {
+				const container = document.getElementById('cart-items-list');
+				
+				container.innerHTML = cart.map((item, index) => `
+					<div class="p-6 flex flex-col sm:flex-row gap-4 hover:bg-gray-50 transition-colors">
+						<div class="flex-shrink-0">
+							<img src="${item.image}" alt="${item.name}" class="w-24 h-24 object-contain rounded-lg border border-gray-200" />
+						</div>
+						<div class="flex-1 min-w-0">
+							<h3 class="font-bold text-gray-900 mb-1 line-clamp-2">${item.name}</h3>
+							<p class="text-sm text-gray-500 mb-2">SKU: ${item.sku}</p>
+							<div class="flex items-center gap-4">
+								<span class="text-xl font-bold text-primary">₹${item.price.toLocaleString('en-IN')}</span>
+								<span class="text-sm text-gray-500">per unit</span>
+							</div>
+						</div>
+						<div class="flex sm:flex-col items-center sm:items-end justify-between sm:justify-start gap-4">
+							<div class="flex items-center gap-3 bg-gray-100 rounded-lg p-1">
+								<button 
+									onclick="updateQuantity(${item.id}, ${item.quantity - 1})"
+									class="w-8 h-8 flex items-center justify-center bg-white rounded hover:bg-primary hover:text-white transition-colors"
+								>
+									<span class="material-symbols-rounded text-lg">remove</span>
+								</button>
+								<span class="w-8 text-center font-bold">${item.quantity}</span>
+								<button 
+									onclick="updateQuantity(${item.id}, ${item.quantity + 1})"
+									class="w-8 h-8 flex items-center justify-center bg-white rounded hover:bg-primary hover:text-white transition-colors"
+								>
+									<span class="material-symbols-rounded text-lg">add</span>
+								</button>
+							</div>
+							<button 
+								onclick="removeItem(${item.id})"
+								class="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+								title="Remove item"
+							>
+								<span class="material-symbols-rounded">delete</span>
+							</button>
+						</div>
+					</div>
+				`).join('');
+
+				const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+				document.getElementById('total-items').textContent = totalItems;
+			}
+
+			// Update cart summary
+			function updateCartSummary(cart) {
+				const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+				
+				document.getElementById('subtotal').textContent = subtotal.toLocaleString('en-IN');
+				document.getElementById('total').textContent = subtotal.toLocaleString('en-IN');
+			}
+
+			// Update quantity
+			function updateQuantity(id, newQuantity) {
+				Cart.updateItemQuantity(id, newQuantity);
+				loadCart();
+			}
+
+			// Remove item
+			function removeItem(id) {
+				Cart.removeItem(id);
+				loadCart();
+			}
+
+			// Open checkout modal
+			function openCheckoutModal() {
+				const cart = Cart.getCart();
+				
+				if (cart.length === 0) {
+					Alert.warning('Your cart is empty! Please add some products before checking out.');
+					return;
+				}
+
+				// Populate order items in modal
+				const modalItems = document.getElementById('modal-order-items');
+				modalItems.innerHTML = cart.map(item => `
+					<div class="flex justify-between text-sm">
+						<span class="text-gray-700">${item.name} × ${item.quantity}</span>
+						<span class="font-semibold text-gray-900">₹${(item.price * item.quantity).toLocaleString('en-IN')}</span>
+					</div>
+				`).join('');
+
+				const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+				document.getElementById('modal-total').textContent = total.toLocaleString('en-IN');
+
+				document.getElementById('checkout-modal').classList.remove('hidden');
+				document.body.style.overflow = 'hidden';
+			}
+
+			// Close checkout modal
+			function closeCheckoutModal() {
+				document.getElementById('checkout-modal').classList.add('hidden');
+				document.body.style.overflow = '';
+			}
+
+			// Handle checkout form submission
+			async function handleCheckout(e) {
+				e.preventDefault();
+
+				const cart = Cart.getCart();
+				const formData = new FormData(e.target);
+
+				// Build WhatsApp message
+				let message = `🛒 *NEW ORDER FROM FINGAURD WEBSITE*\n\n`;
+				message += `👤 *Customer Details:*\n`;
+				message += `Name: ${formData.get('name')}\n`;
+				message += `Phone: ${formData.get('phone')}\n\n`;
+				
+				message += `📍 *Delivery Address:*\n`;
+				message += `${formData.get('address')}\n`;
+				message += `${formData.get('city')}, ${formData.get('state')} - ${formData.get('pincode')}\n\n`;
+				
+				if (formData.get('family') || formData.get('water')) {
+					message += `ℹ️ *Additional Info:*\n`;
+					if (formData.get('family')) message += `Family Size: ${formData.get('family')}\n`;
+					if (formData.get('water')) message += `Water Source: ${formData.get('water')}\n`;
+					message += `\n`;
+				}
+				
+				message += `🛍️ *Order Items:*\n`;
+				cart.forEach((item, index) => {
+					message += `${index + 1}. ${item.name}\n`;
+					message += `   SKU: ${item.sku}\n`;
+					message += `   Qty: ${item.quantity} × ₹${item.price.toLocaleString('en-IN')} = ₹${(item.price * item.quantity).toLocaleString('en-IN')}\n\n`;
+				});
+				
+				const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+				message += `💰 *Total Amount: ₹${total.toLocaleString('en-IN')}*\n`;
+				message += `✅ Free Delivery • Free Installation • 1 Year Warranty\n\n`;
+				
+				if (formData.get('notes')) {
+					message += `📝 *Order Notes:*\n${formData.get('notes')}\n\n`;
+				}
+				
+				message += `---\n`;
+				message += `Order placed from: ${window.location.origin}\n`;
+				message += `Date: ${new Date().toLocaleString('en-IN')}`;
+
+				// Send via WhatsApp
+				WhatsApp.send(encodeURIComponent(message));
+
+				// Show success message
+				Alert.success('🎉 Your order has been sent via WhatsApp! Our team will contact you shortly to confirm your order.');
+
+				// Clear cart and close modal
+				Cart.clearCart();
+				closeCheckoutModal();
+				loadCart();
+			}
+
+			// Event listeners
+			document.addEventListener('DOMContentLoaded', () => {
+				loadCart();
+
+				document.getElementById('checkout-btn').addEventListener('click', openCheckoutModal);
+				document.getElementById('close-modal').addEventListener('click', closeCheckoutModal);
+				document.getElementById('checkout-form').addEventListener('submit', handleCheckout);
+
+				// Close modal on outside click
+				document.getElementById('checkout-modal').addEventListener('click', (e) => {
+					if (e.target.id === 'checkout-modal') {
+						closeCheckoutModal();
+					}
+				});
+			});
+		</script>
+
+		<!-- Load Header and Footer -->
+		<script src="js/jquery.js"></script>
+		<script>
+			$(function() {
+				$('header').load('components/header.html', function() {
+					// Re-initialize mobile menu after header is loaded
+					const menuBtn = document.getElementById('menu-btn');
+					const mobileNav = document.getElementById('mobile-nav');
+					
+					if (menuBtn && mobileNav) {
+						menuBtn.addEventListener('click', () => {
+							mobileNav.classList.toggle('hidden');
+						});
+					}
+				});
+				$('footer').load('components/footer.html');
+			});
+		</script>
+	</body>
 </html>
