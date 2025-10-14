@@ -6,7 +6,11 @@
     "price": 14500,
     "category": "RO Systems",
     "description": "Premium 7-stage purification system with RO, UV sterilization, and TDS controller. Manufactured by FinGaurd for Indian households. Ideal for families of 4-6 members with storage tank and advanced purification technology.",
-    "image": "assets/images/ro_system_1.jpg",
+    "images": [
+      "assets/images/ro_system_1.jpg",
+      "assets/images/ro_system_2.jpg",
+      "assets/images/hero.png"
+    ],
     "tags": ["12L storage", "RO+UV", "TDS control", "home use", "7-stage", "family"],
     "specifications": {
       "storageCapacity": "12 Liters",
@@ -47,7 +51,11 @@
     "price": 11500,
     "category": "RO Systems",
     "description": "Space-saving 8-liter RO water purifier perfect for small kitchens and apartments. Features 6-stage purification including pre-filters, RO membrane, and post-carbon filter for pure, healthy water.",
-    "image": "assets/images/ro_system_2.jpg",
+    "images": [
+      "assets/images/ro_system_2.jpg",
+      "assets/images/ro_system_1.jpg",
+      "assets/images/hero.png"
+    ],
     "tags": ["8L compact", "space-saving", "RO system", "apartment", "6-stage", "small family"],
     "specifications": {
       "storageCapacity": "8 Liters",
@@ -88,7 +96,10 @@
     "price": 280,
     "category": "Filters",
     "description": "Genuine FinGaurd 10-inch spun polypropylene sediment filter. Removes sand, silt, dirt, rust, and other suspended particles. Compatible with all FinGaurd RO systems and most standard housings.",
-    "image": "assets/images/filter_1.jpg",
+    "images": [
+      "assets/images/filter_1.jpg",
+      "assets/images/ro_system_1.jpg"
+    ],
     "tags": ["sediment filter", "10 inch", "PP spun", "genuine part", "pre-filter", "replacement"],
     "specifications": {
       "filterType": "Spun Polypropylene",
@@ -120,7 +131,10 @@
     "price": 380,
     "category": "Filters",
     "description": "High-quality activated carbon block filter that removes chlorine, bad taste, odor, and organic compounds. Essential for maintaining water quality and protecting RO membrane life.",
-    "image": "assets/images/filter_1.jpg",
+    "images": [
+      "assets/images/filter_1.jpg",
+      "assets/images/hero.png"
+    ],
     "tags": ["carbon filter", "10 inch", "taste & odor", "chlorine removal", "genuine part", "pre-filter"],
     "specifications": {
       "filterType": "Compressed Carbon Block",
@@ -152,7 +166,10 @@
     "price": 1850,
     "category": "Spares",
     "description": "Reliable 75 GPD booster pump designed for home RO systems. Increases input water pressure for optimal RO membrane performance. Energy-efficient and long-lasting motor with automatic pressure switch.",
-    "image": "assets/images/pump_1.jpg",
+    "images": [
+      "assets/images/pump_1.jpg",
+      "assets/images/ro_system_2.jpg"
+    ],
     "tags": ["booster pump", "75 GPD", "home use", "pressure pump", "energy efficient", "auto switch"],
     "specifications": {
       "pumpType": "Diaphragm Booster Pump",
@@ -186,7 +203,10 @@
     "price": 1200,
     "category": "Spares",
     "description": "Premium Thin Film Composite (TFC) RO membrane with 75 GPD capacity. Removes dissolved salts, heavy metals, bacteria, and viruses. Compatible with most domestic RO systems.",
-    "image": "assets/images/filter_1.jpg",
+    "images": [
+      "assets/images/filter_1.jpg",
+      "assets/images/hero.png"
+    ],
     "tags": ["RO membrane", "75 GPD", "TFC technology", "genuine part", "replacement", "purification"],
     "specifications": {
       "membraneType": "Thin Film Composite (TFC)",

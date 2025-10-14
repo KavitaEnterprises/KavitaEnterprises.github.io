@@ -1,158 +1,151 @@
-<div id="header" class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-lg z-50">
-	<div class="container mx-auto px-4 sm:px-6 lg:px-8">
-		<div class="flex items-center justify-between h-16 lg:h-20">
+<div id="header" class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-lg border-b border-gray-100 z-50">
+	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+		<div class="flex items-center justify-between h-16 lg:h-20 gap-4">
 			<!-- Brand Logo -->
-			<div class="brand flex-shrink-0">
-				<a href="/index.html" class="font-display text-2xl lg:text-3xl font-bold text-primary hover:text-primary-dark transition-colors duration-200 uppercase tracking-wide">
+			<div class="flex items-center flex-1 lg:flex-none min-w-0">
+				<a href="/index.html" class="font-display text-3xl md:text-4xl font-bold text-primary tracking-wide whitespace-nowrap">
 					FinGaurd
 				</a>
 			</div>
 
 			<!-- Desktop Navigation -->
-			<nav id="nav" class="hidden lg:flex items-center space-x-8">
-				<a href="/products.html" class="flex items-center gap-2 text-gray-700 hover:text-primary font-medium transition-colors duration-200 group">
-					<span class="material-symbols-rounded text-xl group-hover:scale-110 transition-transform">inventory_2</span>
+			<nav class="hidden lg:flex flex-1 min-w-0 items-center justify-center gap-6 xl:gap-8 text-sm font-medium text-gray-700">
+				<a href="/index.html" class="flex items-center gap-2 hover:text-primary transition-colors">
+					<span class="material-symbols-rounded text-xl">home</span>
+					<span>Home</span>
+				</a>
+				<a href="/products.html" class="flex items-center gap-2 hover:text-primary transition-colors">
+					<span class="material-symbols-rounded text-xl">inventory_2</span>
 					<span>Products</span>
 				</a>
-				<a href="/service.html" class="flex items-center gap-2 text-gray-700 hover:text-primary font-medium transition-colors duration-200 group">
-					<span class="material-symbols-rounded text-xl group-hover:scale-110 transition-transform">handyman</span>
-					<span>Service & AMC</span>
+				<a href="/service.html" class="flex items-center gap-2 hover:text-primary transition-colors">
+					<span class="material-symbols-rounded text-xl">build_circle</span>
+					<span>Service &amp; AMC</span>
 				</a>
-				<a href="/wholesale.html" class="flex items-center gap-2 text-gray-700 hover:text-primary font-medium transition-colors duration-200 group">
-					<span class="material-symbols-rounded text-xl group-hover:scale-110 transition-transform">warehouse</span>
+				<a href="/wholesale.html" class="flex items-center gap-2 hover:text-primary transition-colors">
+					<span class="material-symbols-rounded text-xl">storefront</span>
 					<span>Wholesale</span>
 				</a>
-				<a href="/contact.html" class="flex items-center gap-2 text-gray-700 hover:text-primary font-medium transition-colors duration-200 group">
-					<span class="material-symbols-rounded text-xl group-hover:scale-110 transition-transform">mail</span>
-					<span>Contact</span>
+				<a href="/about.html" class="flex items-center gap-2 hover:text-primary transition-colors">
+					<span class="material-symbols-rounded text-xl">info</span>
+					<span>About Us</span>
+				</a>
+				<a href="/contact.html" class="flex items-center gap-2 hover:text-primary transition-colors">
+					<span class="material-symbols-rounded text-xl">mail</span>
+					<span>Contact Us</span>
 				</a>
 			</nav>
 
 			<!-- Right Actions -->
-			<div id="menu-group" class="flex items-center gap-4">
-				<!-- Cart Button -->
-				<a id="cart-btn" href="/cart.html" class="relative p-2 text-gray-700 hover:text-primary transition-colors duration-200 group">
-					<span class="material-symbols-rounded text-2xl group-hover:scale-110 transition-transform">
-						local_mall
-					</span>
-					<span class="cart-count absolute -top-1 -right-1 bg-primary text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">0</span>
+			<div class="flex items-center justify-end flex-1 lg:flex-none gap-4">
+				<a id="cart-btn" href="/cart.html" class="relative flex items-center justify-center p-2 text-gray-700 hover:text-primary transition-colors" aria-label="View cart">
+					<span class="material-symbols-rounded text-2xl">shopping_cart</span>
+					<span class="cart-count absolute -top-1 -right-1 hidden inline-flex items-center justify-center bg-primary text-white text-xs font-bold rounded-xl w-5 h-5">0</span>
 				</a>
-				
-				<!-- Mobile Menu Button -->
-				<button id="menu-btn" class="lg:hidden p-2 text-gray-700 hover:text-primary transition-colors duration-200">
+				<button id="menu-btn" class="lg:hidden p-2 text-gray-700 hover:text-primary transition-colors" aria-label="Toggle navigation">
 					<span class="material-symbols-rounded text-2xl">menu</span>
 				</button>
 			</div>
 		</div>
 	</div>
 
-	<!-- Mobile Navigation Menu (Hidden by default) -->
+	<!-- Mobile Navigation Menu -->
 	<nav id="mobile-nav" class="lg:hidden hidden bg-white border-t border-gray-200 shadow-lg">
-		<div class="container mx-auto px-4 py-4 max-h-[calc(100vh-4rem)] overflow-y-auto">
-			<ul class="space-y-1">
-				<!-- Products Section -->
+		<div class="mx-auto max-w-7xl px-4 py-4 max-h-[calc(100vh-4rem)] overflow-y-auto">
+			<ul class="space-y-1 text-gray-900">
 				<li>
-					<a href="/products.html" class="flex items-center gap-3 px-4 py-3 text-gray-900 hover:bg-primary/10 hover:text-primary rounded-lg font-medium transition-all duration-200">
+					<a href="/index.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-primary/10 hover:text-primary transition-all">
+						<span class="material-symbols-rounded text-xl">home</span>
+						<span>Home</span>
+					</a>
+				</li>
+				<li>
+					<a href="/products.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-primary/10 hover:text-primary transition-all">
 						<span class="material-symbols-rounded text-xl">inventory_2</span>
 						<span>Products</span>
 					</a>
 				</li>
 				<li class="pl-4">
-					<a href="/products.html?category=RO%20Systems" class="flex items-center gap-3 px-4 py-2 text-sm text-gray-600 hover:bg-primary/5 hover:text-primary rounded-lg transition-all duration-200">
+					<a href="/products.html?category=RO%20Systems" class="flex items-center gap-3 px-4 py-2 text-sm rounded-xl text-gray-600 hover:bg-primary/5 hover:text-primary transition-all">
 						<span class="material-symbols-rounded text-base">water_drop</span>
 						<span>Water Purifiers</span>
 					</a>
 				</li>
 				<li class="pl-4">
-					<a href="/products.html?category=Filters" class="flex items-center gap-3 px-4 py-2 text-sm text-gray-600 hover:bg-primary/5 hover:text-primary rounded-lg transition-all duration-200">
+					<a href="/products.html?category=Filters" class="flex items-center gap-3 px-4 py-2 text-sm rounded-xl text-gray-600 hover:bg-primary/5 hover:text-primary transition-all">
 						<span class="material-symbols-rounded text-base">filter_alt</span>
-						<span>Filters & Membrane</span>
+						<span>Filters &amp; Membrane</span>
 					</a>
 				</li>
 				<li class="pl-4">
-					<a href="/products.html?category=Accessories" class="flex items-center gap-3 px-4 py-2 text-sm text-gray-600 hover:bg-primary/5 hover:text-primary rounded-lg transition-all duration-200">
+					<a href="/products.html?category=Accessories" class="flex items-center gap-3 px-4 py-2 text-sm rounded-xl text-gray-600 hover:bg-primary/5 hover:text-primary transition-all">
 						<span class="material-symbols-rounded text-base">category</span>
 						<span>Accessories</span>
 					</a>
 				</li>
-
-				<!-- Service -->
 				<li>
-					<a href="/service.html" class="flex items-center gap-3 px-4 py-3 text-gray-900 hover:bg-primary/10 hover:text-primary rounded-lg font-medium transition-all duration-200">
-						<span class="material-symbols-rounded text-xl">handyman</span>
-						<span>Service & AMC</span>
+					<a href="/service.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-primary/10 hover:text-primary transition-all">
+						<span class="material-symbols-rounded text-xl">build_circle</span>
+						<span>Service &amp; AMC</span>
 					</a>
 				</li>
-
-				<!-- Wholesale -->
 				<li>
-					<a href="/wholesale.html" class="flex items-center gap-3 px-4 py-3 text-gray-900 hover:bg-primary/10 hover:text-primary rounded-lg font-medium transition-all duration-200">
-						<span class="material-symbols-rounded text-xl">warehouse</span>
+					<a href="/wholesale.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-primary/10 hover:text-primary transition-all">
+						<span class="material-symbols-rounded text-xl">storefront</span>
 						<span>Wholesale</span>
 					</a>
 				</li>
-
-				<!-- About Section -->
 				<li>
-					<a href="/about.html" class="flex items-center gap-3 px-4 py-3 text-gray-900 hover:bg-primary/10 hover:text-primary rounded-lg font-medium transition-all duration-200">
+					<a href="/about.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-primary/10 hover:text-primary transition-all">
 						<span class="material-symbols-rounded text-xl">info</span>
-						<span>About</span>
+						<span>About Us</span>
 					</a>
 				</li>
 				<li class="pl-4">
-					<a href="/about.html#warranty" class="flex items-center gap-3 px-4 py-2 text-sm text-gray-600 hover:bg-primary/5 hover:text-primary rounded-lg transition-all duration-200">
+					<a href="/about.html#warranty" class="flex items-center gap-3 px-4 py-2 text-sm rounded-xl text-gray-600 hover:bg-primary/5 hover:text-primary transition-all">
 						<span class="material-symbols-rounded text-base">verified</span>
 						<span>Warranty</span>
 					</a>
 				</li>
 				<li class="pl-4">
-					<a href="/about.html#shipping" class="flex items-center gap-3 px-4 py-2 text-sm text-gray-600 hover:bg-primary/5 hover:text-primary rounded-lg transition-all duration-200">
+					<a href="/about.html#shipping" class="flex items-center gap-3 px-4 py-2 text-sm rounded-xl text-gray-600 hover:bg-primary/5 hover:text-primary transition-all">
 						<span class="material-symbols-rounded text-base">local_shipping</span>
-						<span>Shipping & Returns</span>
+						<span>Shipping &amp; Returns</span>
 					</a>
 				</li>
 				<li class="pl-4">
-					<a href="/about.html#terms" class="flex items-center gap-3 px-4 py-2 text-sm text-gray-600 hover:bg-primary/5 hover:text-primary rounded-lg transition-all duration-200">
+					<a href="/about.html#terms" class="flex items-center gap-3 px-4 py-2 text-sm rounded-xl text-gray-600 hover:bg-primary/5 hover:text-primary transition-all">
 						<span class="material-symbols-rounded text-base">description</span>
-						<span>Terms & Conditions</span>
+						<span>Terms &amp; Conditions</span>
 					</a>
 				</li>
-
-				<!-- Contact -->
 				<li>
-					<a href="/contact.html" class="flex items-center gap-3 px-4 py-3 text-gray-900 hover:bg-primary/10 hover:text-primary rounded-lg font-medium transition-all duration-200">
+					<a href="/contact.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-primary/10 hover:text-primary transition-all">
 						<span class="material-symbols-rounded text-xl">mail</span>
-						<span>Contact</span>
+						<span>Contact Us</span>
 					</a>
 				</li>
-
-				<!-- Contact Info -->
 				<li class="mt-4 pt-4 border-t border-gray-200">
-					<div class="px-4 py-2 space-y-3">
-						<div class="flex items-center gap-3 text-gray-600">
+					<div class="space-y-3 px-4 py-2 text-sm text-gray-600">
+						<div class="flex items-center gap-3">
 							<span class="material-symbols-rounded text-primary text-xl">call</span>
-							<span class="text-sm">+91 98215 60609</span>
+							<span>+91 98215 60609</span>
 						</div>
-						<div class="flex items-center gap-3 text-gray-600">
-							<span class="material-symbols-rounded text-primary text-xl">email</span>
-							<span class="text-sm">info@fingaurd.com</span>
+						<div class="flex items-center gap-3">
+							<span class="material-symbols-rounded text-primary text-xl">mail</span>
+							<span>info@fingaurd.com</span>
 						</div>
-						<div class="flex items-center gap-3 text-gray-600">
+						<div class="flex items-center gap-3">
 							<span class="material-symbols-rounded text-primary text-xl">schedule</span>
-							<span class="text-sm">Mon-Sat: 9AM-7PM</span>
+							<span>Mon-Sat: 9AM-7PM</span>
 						</div>
-						<div class="flex items-center gap-3 text-gray-600">
-			<span class="material-symbols-rounded text-primary text-xl">location_on</span>
-			<span class="text-sm">123 Water Street, Delhi</span>
-		</div>
-	</div>
-</li>
+						<div class="flex items-center gap-3">
+							<span class="material-symbols-rounded text-primary text-xl">location_on</span>
+							<span>123 Water Street, Delhi</span>
+						</div>
+					</div>
+				</li>
 			</ul>
 		</div>
 	</nav>
 </div>
-
-<!-- Load alert.js for modern notifications -->
-<script src="/js/alert.js"></script>
-<!-- Load cart.js for cart count functionality -->
-<script src="/js/cart.js"></script>

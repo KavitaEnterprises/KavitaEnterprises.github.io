@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Website Test Lab - FinGaurd</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            primary: '#2563eb',
+                            secondary: '#54e8e8',
+                            'primary-dark': '#1e40af'
+                        },
+                        fontFamily: {
+                            sans: ['Urbanist', 'system-ui', 'sans-serif'],
+                            display: ['Bebas Neue', 'Arial', 'sans-serif']
+                        }
+                    }
+                }
+            };
+        </script>
+        <link rel="stylesheet" href="/css/style.css" />
+        <style>
+            .test-card {
+                background: #ffffff;
+                border: 1px solid rgba(148, 163, 184, 0.28);
+                border-radius: 1.5rem;
+                box-shadow: 0 18px 36px rgba(15, 23, 42, 0.08);
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 2rem;
+                position: relative;
+            }
+
+            .test-card h2 {
+                font-size: 1.375rem;
+                font-weight: 700;
+                color: #111827;
+                display: flex;
+                align-items: center;
+                gap: 0.65rem;
+            }
+
+            .test-pre {
+                background: #111827;
+                border-radius: 1rem;
+                color: #d1fae5;
+                font-family: 'JetBrains Mono', 'Courier New', monospace;
+                font-size: 0.85rem;
+                line-height: 1.55;
+                margin: 0;
+                max-height: 260px;
+                overflow: auto;
+                padding: 1.1rem 1.25rem;
+                white-space: pre-wrap;
+                word-break: break-word;
+            }
+
+            .test-pre::-webkit-scrollbar {
+                width: 6px;
+            }
+
+            .test-pre::-webkit-scrollbar-thumb {
+                background: rgba(148, 163, 184, 0.5);
+                border-radius: 9999px;
+            }
+
+            .btn-test {
+                align-items: center;
+                border: none;
+                border-radius: 0.9rem;
+                cursor: pointer;
+                display: inline-flex;
+                font-weight: 600;
+                gap: 0.55rem;
+                padding: 0.7rem 1.4rem;
+                text-decoration: none;
+                transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+            }
+
+            .btn-test:focus-visible {
+                outline: 2px solid rgba(37, 99, 235, 0.35);
+                outline-offset: 3px;
+            }
+
+            .btn-test-primary {
+                background: linear-gradient(135deg, var(--color-primary) 0%, var(--hover-primary) 100%);
+                box-shadow: var(--shadow-sm);
+                color: #ffffff;
+            }
+
+            .btn-test-primary:hover {
+                box-shadow: var(--shadow-md);
+                transform: translateY(-1px);
+            }
+
+            .btn-test-outline {
+                background: #ffffff;
+                border: 1px solid rgba(37, 99, 235, 0.3);
+                color: var(--color-primary);
+            }
+
+            .btn-test-outline:hover {
+                border-color: var(--hover-primary);
+                color: var(--hover-primary);
+                transform: translateY(-1px);
+            }
+
+            .btn-test-soft {
+                background: rgba(37, 99, 235, 0.08);
+                color: var(--color-primary);
+            }
+
+            .btn-test-soft:hover {
+                background: rgba(37, 99, 235, 0.14);
+            }
+
+            .btn-test-danger {
+                background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+                box-shadow: 0 16px 32px rgba(220, 38, 38, 0.25);
+                color: #ffffff;
+            }
+
+            .btn-test-danger:hover {
+                transform: translateY(-1px);
+            }
+
+            .btn-test-ghost {
+                background: rgba(255, 255, 255, 0.08);
+                border: 1px solid rgba(255, 255, 255, 0.35);
+                color: #ffffff;
+            }
+
+            .btn-test-ghost:hover {
+                background: rgba(255, 255, 255, 0.16);
+            }
+        </style>
+    </head>
+    <body class="font-sans antialiased bg-gray-50">
+        <header></header>
+        <main class="pt-16 lg:pt-20 pb-16">
+            <section class="relative overflow-hidden bg-gradient-to-br from-primary via-primary-dark to-indigo-900 text-white">
+                <div class="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-secondary/50 blur-3xl opacity-70"></div>
+                <div class="absolute -left-32 bottom-0 h-80 w-80 rounded-full bg-primary/40 blur-3xl opacity-60"></div>
+                <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+                    <div class="max-w-3xl space-y-6">
+                        <div class="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-2 text-sm font-semibold uppercase tracking-wider text-white/90">
+                            <span class="material-symbols-rounded text-base">experiment</span>
+                            <span>Internal Utilities</span>
+                        </div>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">Website Experience Test Lab</h1>
+                        <p class="text-base sm:text-lg text-blue-100 leading-relaxed">
+                            Use this sandbox to validate live site behaviour in a safe environment. Quickly test the shared cart logic, alert banners, WhatsApp order messaging, and confirm external services such as CDNs and fonts are healthy without touching production content.
+                        </p>
+                        <div class="flex flex-wrap items-center gap-3 pt-2">
+                            <button id="hero-run-diagnostics" class="btn-test btn-test-primary">
+                                <span class="material-symbols-rounded text-lg">play_arrow</span>
+                                <span>Run Diagnostics</span>
+                            </button>
+                            <button id="hero-show-cart" class="btn-test btn-test-ghost">
+                                <span class="material-symbols-rounded text-lg">shopping_cart</span>
+                                <span>View Cart Snapshot</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="bg-white py-12 border-b border-gray-100">
+                <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <div class="mb-10">
+                        <h2 class="text-2xl font-bold text-gray-900 flex items-center gap-2">
+                            <span class="material-symbols-rounded text-primary">health_and_safety</span>
+                            <span>System Health Checks</span>
+                        </h2>
+                        <p class="text-sm text-gray-600 mt-2">Each diagnostic runs against the live assets that power the public storefront. Use these quick checks before running deeper functional tests.</p>
+                    </div>
+                    <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+                        <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 flex flex-col gap-4" data-status-card="cdn">
+                            <div class="flex items-start justify-between gap-3">
+                                <div>
+                                    <p class="text-xs font-semibold uppercase tracking-wider text-primary/70">External CDN</p>
+                                    <h3 class="text-lg font-semibold text-gray-900">Tailwind CSS</h3>
+                                </div>
+                                <span data-status-indicator class="inline-flex items-center gap-1 px-3 py-1 text-xs font-semibold rounded-full bg-amber-100 text-amber-700">Pending</span>
+                            </div>
+                            <p data-status-detail class="text-sm text-gray-600">Waiting for diagnostics...</p>
+                        </div>
+                        <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 flex flex-col gap-4" data-status-card="fonts">
+                            <div class="flex items-start justify-between gap-3">
+                                <div>
+                                    <p class="text-xs font-semibold uppercase tracking-wider text-primary/70">Typography</p>
+                                    <h3 class="text-lg font-semibold text-gray-900">Google Fonts</h3>
+                                </div>
+                                <span data-status-indicator class="inline-flex items-center gap-1 px-3 py-1 text-xs font-semibold rounded-full bg-amber-100 text-amber-700">Pending</span>
+                            </div>
+                            <p data-status-detail class="text-sm text-gray-600">Waiting for diagnostics...</p>
+                        </div>
+                        <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 flex flex-col gap-4" data-status-card="icons">
+                            <div class="flex items-start justify-between gap-3">
+                                <div>
+                                    <p class="text-xs font-semibold uppercase tracking-wider text-primary/70">Iconography</p>
+                                    <h3 class="text-lg font-semibold text-gray-900">Material Symbols</h3>
+                                </div>
+                                <span data-status-indicator class="inline-flex items-center gap-1 px-3 py-1 text-xs font-semibold rounded-full bg-amber-100 text-amber-700">Pending</span>
+                            </div>
+                            <p data-status-detail class="text-sm text-gray-600">Waiting for diagnostics...</p>
+                        </div>
+                        <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 flex flex-col gap-4" data-status-card="data">
+                            <div class="flex items-start justify-between gap-3">
+                                <div>
+                                    <p class="text-xs font-semibold uppercase tracking-wider text-primary/70">Site Data</p>
+                                    <h3 class="text-lg font-semibold text-gray-900">Product Catalog</h3>
+                                </div>
+                                <span data-status-indicator class="inline-flex items-center gap-1 px-3 py-1 text-xs font-semibold rounded-full bg-amber-100 text-amber-700">Pending</span>
+                            </div>
+                            <p data-status-detail class="text-sm text-gray-600">Waiting for diagnostics...</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="bg-gray-50 py-16">
+                <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12">
+                    <div class="grid gap-8 lg:grid-cols-2">
+                        <div class="test-card">
+                            <div>
+                                <h2>
+                                    <span class="material-symbols-rounded text-primary">shopping_cart</span>
+                                    <span>Cart Logic</span>
+                                </h2>
+                                <p class="text-sm text-gray-600 mt-2">Adds <span id="sample-product-label" class="font-semibold text-primary">loading catalog...</span> using the shared Cart module. Verify counters, persistence, and totals in real time.</p>
+                            </div>
+                            <div class="flex flex-wrap gap-3">
+                                <button id="add-sample-product" class="btn-test btn-test-primary">
+                                    <span class="material-symbols-rounded text-lg">add_shopping_cart</span>
+                                    <span>Add Sample Product</span>
+                                </button>
+                                <button id="cart-refresh" class="btn-test btn-test-soft">
+                                    <span class="material-symbols-rounded text-lg">refresh</span>
+                                    <span>Snapshot Cart</span>
+                                </button>
+                                <button id="cart-clear" class="btn-test btn-test-danger">
+                                    <span class="material-symbols-rounded text-lg">delete</span>
+                                    <span>Clear Cart</span>
+                                </button>
+                            </div>
+                            <pre id="cart-output" class="test-pre">Cart diagnostics will appear here after the first snapshot.</pre>
+                        </div>
+                        <div class="test-card">
+                            <div>
+                                <h2>
+                                    <span class="material-symbols-rounded text-primary">campaign</span>
+                                    <span>Alert Banner Tests</span>
+                                </h2>
+                                <p class="text-sm text-gray-600 mt-2">Trigger the shared alert system to check styling, animation, dismissal, and stacking rules.</p>
+                            </div>
+                            <div class="flex flex-wrap gap-3">
+                                <button id="alert-success" class="btn-test btn-test-primary">
+                                    <span class="material-symbols-rounded text-lg">task_alt</span>
+                                    <span>Success</span>
+                                </button>
+                                <button id="alert-info" class="btn-test btn-test-outline">
+                                    <span class="material-symbols-rounded text-lg">info</span>
+                                    <span>Info</span>
+                                </button>
+                                <button id="alert-error" class="btn-test btn-test-danger">
+                                    <span class="material-symbols-rounded text-lg">error</span>
+                                    <span>Error</span>
+                                </button>
+                            </div>
+                            <pre class="test-pre">Alerts render at the top-right of the viewport. Trigger to validate presence, timing, and accessibility roles.</pre>
+                        </div>
+                        <div class="test-card">
+                            <div>
+                                <h2>
+                                    <span class="material-symbols-rounded text-primary">chat</span>
+                                    <span>WhatsApp Messaging</span>
+                                </h2>
+                                <p class="text-sm text-gray-600 mt-2">Generate the WhatsApp order message exactly as the checkout flow would, then preview or open it in a new tab.</p>
+                            </div>
+                            <div class="flex flex-wrap gap-3">
+                                <button id="whatsapp-preview" class="btn-test btn-test-primary">
+                                    <span class="material-symbols-rounded text-lg">visibility</span>
+                                    <span>Preview Message</span>
+                                </button>
+                                <button id="whatsapp-open" class="btn-test btn-test-outline">
+                                    <span class="material-symbols-rounded text-lg">open_in_new</span>
+                                    <span>Open WhatsApp</span>
+                                </button>
+                            </div>
+                            <pre id="message-output" class="test-pre">Generate a message to review the WhatsApp payload.</pre>
+                        </div>
+                        <div class="test-card">
+                            <div>
+                                <h2>
+                                    <span class="material-symbols-rounded text-primary">tune</span>
+                                    <span>Utilities and Storage</span>
+                                </h2>
+                                <p class="text-sm text-gray-600 mt-2">Rerun diagnostics, inspect local storage footprints, and reset data to keep testing on a clean slate.</p>
+                            </div>
+                            <div class="flex flex-wrap gap-3">
+                                <button id="run-diagnostics" class="btn-test btn-test-primary">
+                                    <span class="material-symbols-rounded text-lg">monitoring</span>
+                                    <span>Run Diagnostics</span>
+                                </button>
+                                <button id="inspect-storage" class="btn-test btn-test-soft">
+                                    <span class="material-symbols-rounded text-lg">storage</span>
+                                    <span>Inspect Storage</span>
+                                </button>
+                                <button id="reset-test-data" class="btn-test btn-test-danger">
+                                    <span class="material-symbols-rounded text-lg">restart_alt</span>
+                                    <span>Reset Test Data</span>
+                                </button>
+                            </div>
+                            <pre id="utility-output" class="test-pre">Utility output will appear here.</pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer></footer>
+        <script src="/js/cart.js"></script>
+        <script type="module" src="/js/app.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+        const currencySymbol = typeof window.currency === 'string' ? window.currency : '₹';
+                const state = { products: [], sampleProduct: null };
+                const sampleLabel = document.getElementById('sample-product-label');
+                const cartOutput = document.getElementById('cart-output');
+                const messageOutput = document.getElementById('message-output');
+                const utilityOutput = document.getElementById('utility-output');
+                const statusCards = Array.from(document.querySelectorAll('[data-status-card]')).reduce((acc, card) => {
+                    const key = card.getAttribute('data-status-card');
+                    acc[key] = {
+                        indicator: card.querySelector('[data-status-indicator]'),
+                        detail: card.querySelector('[data-status-detail]')
+                    };
+                    return acc;
+                }, {});
+                const setStatus = (key, variant, message) => {
+                    const target = statusCards[key];
+                    if (!target) return;
+                    const baseClass = 'inline-flex items-center gap-1 px-3 py-1 text-xs font-semibold rounded-full';
+                    let toneClass = 'bg-amber-100 text-amber-700';
+                    let label = 'Testing';
+                    if (variant === 'ok') {
+                        toneClass = 'bg-green-100 text-green-700';
+                        label = 'Operational';
+                    } else if (variant === 'error') {
+                        toneClass = 'bg-red-100 text-red-700';
+                        label = 'Attention';
+                    }
+                    target.indicator.className = `${baseClass} ${toneClass}`;
+                    target.indicator.textContent = label;
+                    target.detail.textContent = message;
+                };
+                const setPending = (key) => setStatus(key, 'pending', 'Running diagnostic...');
+                const statusChecks = {
+                    cdn: async () => {
+                        const ok = typeof tailwind !== 'undefined';
+                        const version = ok && tailwind && tailwind.version ? ` (v${tailwind.version})` : '';
+                        const message = ok ? `Tailwind CDN is online${version}.` : 'Tailwind global not detected. CDN may be blocked.';
+                        return { ok, message };
+                    },
+                    fonts: async () => {
+                        let ok = false;
+                        let message = '';
+                        if (document.fonts && document.fonts.check) {
+                            try {
+                                await document.fonts.load('1rem "Urbanist"');
+                                ok = document.fonts.check('1rem "Urbanist"');
+                            } catch (error) {
+                                message = error.message;
+                            }
+                        } else {
+                            ok = !!document.querySelector('link[href*="fonts.googleapis.com"]');
+                        }
+                        if (!message) {
+                            message = ok ? 'Urbanist font loaded from Google Fonts.' : 'Unable to confirm Urbanist font availability.';
+                        }
+                        return { ok, message };
+                    },
+                    icons: async () => {
+                        let ok = false;
+                        if (document.fonts && document.fonts.check) {
+                            ok = document.fonts.check('1rem "Material Symbols Rounded"');
+                        } else {
+                            ok = !!document.querySelector('link[href*="Material+Symbols"]');
+                        }
+                        const message = ok ? 'Material Symbols icon font ready.' : 'Icon font missing or still loading.';
+                        return { ok, message };
+                    },
+                    data: async () => {
+                        try {
+                            const response = await fetch('/data/products.json', { cache: 'no-cache' });
+                            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                            const json = await response.json();
+                            state.products = Array.isArray(json) ? json : [];
+                            state.sampleProduct = state.products.find((product) => product && product.price) || state.products[0] || null;
+                            if (sampleLabel) {
+                                sampleLabel.textContent = state.sampleProduct ? state.sampleProduct.name : 'No sample available';
+                            }
+                            const count = state.products.length;
+                            const message = count > 0 ? `Loaded ${count} products${state.sampleProduct ? ` (sample: ${state.sampleProduct.name})` : ''}.` : 'Catalog loaded but contains no entries.';
+                            return { ok: count > 0, message };
+                        } catch (error) {
+                            state.products = [];
+                            state.sampleProduct = null;
+                            if (sampleLabel) {
+                                sampleLabel.textContent = 'Unavailable';
+                            }
+                            return { ok: false, message: `Failed to load catalog: ${error.message}` };
+                        }
+                    }
+                };
+                const formatCurrency = (value) => {
+                    const amount = Number(value) || 0;
+                    try {
+                        return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(amount);
+                    } catch (error) {
+                        return `${currencySymbol}${amount.toLocaleString('en-IN')}`;
+                    }
+                };
+                const renderCartSnapshot = (note) => {
+                    if (!cartOutput || !window.Cart) return;
+                    const cart = Cart.getCart();
+                    const uniqueItems = cart.length;
+                    const totalQuantity = Cart.getCartCount();
+                    const totalValue = cart.reduce((sum, item) => {
+                        const lineTotal = (Number(item.price) || 0) * (Number(item.quantity) || 0);
+                        return sum + lineTotal;
+                    }, 0);
+                    const snapshot = {
+                        timestamp: new Date().toLocaleString('en-IN'),
+                        note: note || undefined,
+                        uniqueItems,
+                        totalQuantity,
+                        totalValue,
+                        formattedTotalValue: formatCurrency(totalValue),
+                        items: cart
+                    };
+                    cartOutput.textContent = JSON.stringify(snapshot, null, 2);
+                };
+                const inspectStorage = (note) => {
+                    if (!utilityOutput) return;
+                    const payload = {
+                        timestamp: new Date().toLocaleString('en-IN'),
+                        note: note || undefined,
+                        localStorageKeys: Object.keys(localStorage),
+                        cartSize: window.Cart ? Cart.getCartCount() : 0,
+                        favorites: JSON.parse(localStorage.getItem('favorites') || '[]')
+                    };
+                    utilityOutput.textContent = JSON.stringify(payload, null, 2);
+                };
+                const runAllDiagnostics = async () => {
+                    Object.keys(statusChecks).forEach(setPending);
+                    for (const key of Object.keys(statusChecks)) {
+                        try {
+                            const result = await statusChecks[key]();
+                            setStatus(key, result.ok ? 'ok' : 'error', result.message);
+                        } catch (error) {
+                            setStatus(key, 'error', error.message);
+                        }
+                    }
+                    renderCartSnapshot('Diagnostics completed');
+                    inspectStorage('Diagnostics completed');
+                };
+                const ensureProductsLoaded = () => {
+                    if (!state.sampleProduct) {
+                        Alert.info('Product catalog still loading. Run diagnostics first.', 5000);
+                        renderCartSnapshot('Attempted to add product before catalog was ready.');
+                        return false;
+                    }
+                    return true;
+                };
+                const addSampleProduct = () => {
+                    if (!ensureProductsLoaded()) return;
+                    const product = state.sampleProduct;
+                    Cart.addItem(
+                        product.id,
+                        product.name,
+                        product.sku,
+                        product.price,
+                        Array.isArray(product.images) && product.images.length ? product.images[0] : 'assets/images/placeholder.jpg',
+                        1
+                    );
+                    Alert.success(`Added "${product.name}" to the cart for testing.`, 5000);
+                    renderCartSnapshot('Sample product added');
+                    inspectStorage('After adding sample product');
+                };
+                const clearTestCart = () => {
+                    if (!window.Cart) return;
+                    Cart.clearCart();
+                    Alert.info('Cart cleared for a fresh test run.', 5000);
+                    renderCartSnapshot('Cart cleared');
+                    inspectStorage('After clearing cart');
+                };
+                const previewWhatsAppMessage = async () => {
+                    if (!window.WhatsApp) {
+                        messageOutput.textContent = 'WhatsApp helper is not available.';
+                        Alert.error('WhatsApp helper is unavailable on this page.', 5000);
+                        return;
+                    }
+                    const cart = Cart.getCart();
+                    if (!cart.length) {
+                        messageOutput.textContent = 'Cart is empty. Add a product before generating the WhatsApp message.';
+                        Alert.info('Add a product to the cart before generating the WhatsApp message.', 5000);
+                        return;
+                    }
+                    try {
+                        const encoded = await WhatsApp.generateCartMessage();
+                        const decoded = decodeURIComponent(encoded);
+                        messageOutput.textContent = decoded;
+                        Alert.success('Generated WhatsApp order message preview.', 5000);
+                    } catch (error) {
+                        messageOutput.textContent = `Failed to generate WhatsApp message: ${error.message}`;
+                        Alert.error('Failed to generate WhatsApp test message.', 5000);
+                    }
+                };
+                const openWhatsApp = async () => {
+                    if (!window.WhatsApp) {
+                        Alert.error('WhatsApp helper is unavailable on this page.', 5000);
+                        return;
+                    }
+                    const cart = Cart.getCart();
+                    if (!cart.length) {
+                        Alert.info('Add a product to the cart before opening WhatsApp.', 5000);
+                        return;
+                    }
+                    const encoded = await WhatsApp.generateCartMessage();
+                    WhatsApp.send(encoded);
+                    Alert.info('Opening WhatsApp with the generated cart message.', 5000);
+                };
+                const heroDiagnosticsBtn = document.getElementById('hero-run-diagnostics');
+                if (heroDiagnosticsBtn) heroDiagnosticsBtn.addEventListener('click', runAllDiagnostics);
+                const heroCartBtn = document.getElementById('hero-show-cart');
+                if (heroCartBtn) heroCartBtn.addEventListener('click', () => {
+                    renderCartSnapshot('Snapshot triggered from hero');
+                    Alert.info('Cart snapshot updated below.', 4000);
+                });
+                const addSampleBtn = document.getElementById('add-sample-product');
+                if (addSampleBtn) addSampleBtn.addEventListener('click', addSampleProduct);
+                const cartRefreshBtn = document.getElementById('cart-refresh');
+                if (cartRefreshBtn) cartRefreshBtn.addEventListener('click', () => renderCartSnapshot('Manual refresh'));
+                const cartClearBtn = document.getElementById('cart-clear');
+                if (cartClearBtn) cartClearBtn.addEventListener('click', clearTestCart);
+                const alertSuccessBtn = document.getElementById('alert-success');
+                if (alertSuccessBtn) alertSuccessBtn.addEventListener('click', () => Alert.success('Success alert from Website Test Lab.', 5000));
+                const alertInfoBtn = document.getElementById('alert-info');
+                if (alertInfoBtn) alertInfoBtn.addEventListener('click', () => Alert.info('Information alert from Website Test Lab.', 5000));
+                const alertErrorBtn = document.getElementById('alert-error');
+                if (alertErrorBtn) alertErrorBtn.addEventListener('click', () => Alert.error('Error alert from Website Test Lab.', 5000));
+                const whatsappPreviewBtn = document.getElementById('whatsapp-preview');
+                if (whatsappPreviewBtn) whatsappPreviewBtn.addEventListener('click', previewWhatsAppMessage);
+                const whatsappOpenBtn = document.getElementById('whatsapp-open');
+                if (whatsappOpenBtn) whatsappOpenBtn.addEventListener('click', openWhatsApp);
+                const diagnosticsBtn = document.getElementById('run-diagnostics');
+                if (diagnosticsBtn) diagnosticsBtn.addEventListener('click', runAllDiagnostics);
+                const inspectStorageBtn = document.getElementById('inspect-storage');
+                if (inspectStorageBtn) inspectStorageBtn.addEventListener('click', () => inspectStorage('Manual inspection'));
+                const resetDataBtn = document.getElementById('reset-test-data');
+                if (resetDataBtn) resetDataBtn.addEventListener('click', () => {
+                    if (!window.Cart) return;
+                    Cart.clearCart();
+                    localStorage.removeItem('favorites');
+                    Alert.success('Cleared cart and favourites. Fresh slate ready.', 5000);
+                    renderCartSnapshot('Test data reset');
+                    inspectStorage('After resetting test data');
+                });
+                renderCartSnapshot('Initial load');
+                inspectStorage('Initial load');
+                runAllDiagnostics();
+            });
+        </script>
+    </body>
+</html>

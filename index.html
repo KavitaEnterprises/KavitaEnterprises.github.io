@@ -30,29 +30,21 @@
 			}
 		</script>
 		
-		<!-- Google Fonts -->
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
-		
-		<!-- GSAP CDN -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-		
 		<link rel="stylesheet" href="/css/style.css" />
 		<script src="/js/app.js" type="module"></script>
 	</head>
-	<body class="font-sans antialiased">
+	<body class="font-sans antialiased bg-gray-50">
 		<header></header>
-		<main>
+		<main class="pt-16 lg:pt-20 pb-16">
 			<!-- Hero Section -->
-			<section class="hero-bg-gradient relative min-h-screen flex items-center overflow-hidden pt-16 lg:pt-20">
+			<section class="hero-bg-gradient relative flex items-center overflow-hidden min-h-[calc(100vh-4rem)] lg:min-h-[calc(100vh-5rem)]">
 				<!-- Background decorations -->
 				<div class="hero-shape hero-shape-1"></div>
 				<div class="hero-shape hero-shape-2"></div>
 				<div class="hero-shape hero-shape-3"></div>
 				<div class="hero-grid absolute inset-0 -z-10"></div>
 
-				<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+				<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
 					<div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 						<!-- Left content -->
 						<div class="text-center lg:text-left space-y-6 lg:space-y-8">
@@ -111,11 +103,11 @@
 
 							<!-- CTA Buttons -->
 							<div id="hero-actions" class="flex flex-col sm:flex-row gap-4 items-center justify-center lg:justify-start">
-								<a href="/products.html" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary hover:bg-primary-dark text-white font-semibold rounded-full border-2 border-primary hover:border-primary-dark hover:shadow-lg hover:scale-105 w-full sm:w-auto">
+								<a href="/products.html" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary hover:bg-primary-dark text-white font-semibold rounded-xl border-2 border-primary hover:border-primary-dark hover:shadow-lg hover:scale-105 w-full sm:w-auto">
 									<span class="material-symbols-rounded text-xl">shopping_bag</span>
 									<span>Shop Now</span>
 								</a>
-								<a href="/service.html" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white hover:bg-gray-50 text-primary border-2 border-primary font-semibold rounded-full hover:shadow-lg hover:scale-105 w-full sm:w-auto">
+								<a href="/service.html" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white hover:bg-gray-50 text-primary border-2 border-primary font-semibold rounded-xl hover:shadow-lg hover:scale-105 w-full sm:w-auto">
 									<span class="material-symbols-rounded text-xl">support_agent</span>
 									<span>Get Service</span>
 								</a>
@@ -129,7 +121,7 @@
 								</span>
 								<span class="text-gray-300">•</span>
 								<span class="flex items-center gap-1.5">
-									<span class="material-symbols-rounded text-base text-primary">star</span>
+									<span class="material-symbols-rounded text-base text-primary">flag</span>
 									Made in India
 								</span>
 								<span class="text-gray-300">•</span>
@@ -233,7 +225,7 @@
 					<div class="absolute bottom-20 right-10 w-80 h-80 bg-orange-300 rounded-full filter blur-3xl"></div>
 				</div>
 
-				<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 					<!-- Section Header -->
 					<div class="max-w-4xl mx-auto text-center mb-12 lg:mb-16">
 						<div class="inline-flex items-center gap-2 px-4 py-2 bg-red-100 border border-red-200 rounded-full text-sm font-medium text-red-700 mb-6">
@@ -333,14 +325,14 @@
 			<section class="relative py-16 lg:py-24 bg-gradient-to-br from-white via-blue-50/30 to-white overflow-hidden">
 				<!-- Background Grid -->
 				<div class="absolute inset-0 -z-10 opacity-20">
-					<div class="absolute inset-0" style="background-image: linear-gradient(rgba(37, 99, 235, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(37, 99, 235, 0.03) 1px, transparent 1px); background-size: 30px 30px;"></div>
+					<div class="absolute inset-0 solution-grid-pattern"></div>
 				</div>
 				
 				<!-- Floating Shapes -->
 				<div class="absolute top-20 -left-20 w-72 h-72 bg-primary/5 rounded-full filter blur-3xl"></div>
 				<div class="absolute bottom-20 -right-20 w-96 h-96 bg-secondary/10 rounded-full filter blur-3xl"></div>
 
-				<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 					<!-- Section Header -->
 					<div class="max-w-4xl mx-auto text-center mb-16 lg:mb-20">
 						<div class="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm font-medium text-primary mb-6">
@@ -474,7 +466,7 @@
 				<div class="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full filter blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
 				<div class="absolute bottom-0 right-0 w-96 h-96 bg-secondary/10 rounded-full filter blur-3xl translate-x-1/2 translate-y-1/2"></div>
 
-				<div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+				<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
 					<!-- Section Header -->
 					<div class="max-w-4xl mx-auto text-center mb-16 lg:mb-20">
 						<div class="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm font-medium text-primary mb-6">
@@ -496,7 +488,7 @@
 
 					<!-- CTA Button -->
 					<div class="text-center">
-						<a href="/products.html" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-gray-50 text-primary border-2 border-primary font-bold rounded-full hover:shadow-2xl hover:scale-105 group">
+						<a href="/products.html" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-gray-50 text-primary border-2 border-primary font-bold rounded-xl hover:shadow-2xl hover:scale-105 group">
 							<span>View All Products</span>
 							<span class="material-symbols-rounded text-xl group-hover:translate-x-1">arrow_forward</span>
 						</a>
@@ -515,7 +507,7 @@
 				<div class="absolute -top-20 -left-20 w-80 h-80 bg-primary/10 rounded-full filter blur-3xl"></div>
 				<div class="absolute -bottom-20 -right-20 w-96 h-96 bg-secondary/10 rounded-full filter blur-3xl"></div>
 
-				<div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+				<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
 					<!-- Section Header -->
 					<div class="max-w-4xl mx-auto text-center mb-16 lg:mb-20">
 						<div class="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm font-medium text-primary mb-6">
@@ -615,7 +607,7 @@
 									<!-- ISO 9001 -->
 									<div class="flex items-center gap-4 group cursor-pointer">
 										<div class="w-16 h-16 flex items-center justify-center bg-white rounded-2xl shadow-md group-hover:shadow-xl group-hover:scale-110">
-											<span class="material-symbols-rounded text-4xl" style="background: linear-gradient(135deg, #2563eb 0%, #54e8e8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">verified</span>
+											<span class="material-symbols-rounded text-4xl gradient-icon">verified</span>
 										</div>
 										<div class="text-left">
 											<div class="font-bold text-gray-900 text-lg">ISO 9001</div>
@@ -626,7 +618,7 @@
 									<!-- BIS -->
 									<div class="flex items-center gap-4 group cursor-pointer">
 										<div class="w-16 h-16 flex items-center justify-center bg-white rounded-2xl shadow-md group-hover:shadow-xl group-hover:scale-110">
-											<span class="material-symbols-rounded text-4xl" style="background: linear-gradient(135deg, #2563eb 0%, #54e8e8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">verified</span>
+											<span class="material-symbols-rounded text-4xl gradient-icon">verified</span>
 										</div>
 										<div class="text-left">
 											<div class="font-bold text-gray-900 text-lg">BIS</div>
@@ -637,7 +629,7 @@
 									<!-- NSF -->
 									<div class="flex items-center gap-4 group cursor-pointer">
 										<div class="w-16 h-16 flex items-center justify-center bg-white rounded-2xl shadow-md group-hover:shadow-xl group-hover:scale-110">
-											<span class="material-symbols-rounded text-4xl" style="background: linear-gradient(135deg, #2563eb 0%, #54e8e8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">verified</span>
+											<span class="material-symbols-rounded text-4xl gradient-icon">verified</span>
 										</div>
 										<div class="text-left">
 											<div class="font-bold text-gray-900 text-lg">NSF</div>
@@ -660,9 +652,9 @@
 				
 				<!-- Animated Shapes -->
 				<div class="absolute top-10 left-10 w-64 h-64 bg-secondary/20 rounded-full filter blur-3xl animate-pulse"></div>
-				<div class="absolute bottom-10 right-10 w-80 h-80 bg-white/10 rounded-full filter blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+				<div class="absolute bottom-10 right-10 w-80 h-80 bg-white/10 rounded-full filter blur-3xl animate-pulse animation-delay-1000"></div>
 
-				<div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+				<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
 					<div class="max-w-5xl mx-auto text-center">
 						<!-- Badge -->
 						<div class="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-sm font-medium text-white mb-6 hover:bg-white/30 hover:scale-105">
@@ -683,11 +675,11 @@
 
 						<!-- CTA Buttons -->
 						<div class="flex flex-col sm:flex-row gap-4 justify-center mb-12 lg:mb-16">
-							<a href="/products.html" class="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-gray-100 text-primary font-bold rounded-full hover:shadow-2xl hover:scale-105">
+							<a href="/products.html" class="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-gray-100 text-primary font-bold rounded-xl hover:shadow-2xl hover:scale-105">
 								<span>Shop RO Systems</span>
 								<span class="material-symbols-rounded text-xl group-hover:translate-x-1">arrow_forward</span>
 							</a>
-							<a href="#expert-advice" class="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-secondary hover:bg-secondary/90 text-gray-900 font-bold rounded-full hover:shadow-2xl hover:scale-105">
+							<a href="#expert-advice" class="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-secondary hover:bg-secondary/90 text-gray-900 font-bold rounded-xl hover:shadow-2xl hover:scale-105">
 								<span class="material-symbols-rounded text-xl">support_agent</span>
 								<span>Get Expert Advice</span>
 							</a>
@@ -737,7 +729,7 @@
 				<div class="absolute -top-20 left-0 w-80 h-80 bg-primary/10 rounded-full filter blur-3xl"></div>
 				<div class="absolute -bottom-20 right-0 w-96 h-96 bg-secondary/10 rounded-full filter blur-3xl"></div>
 
-				<div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+				<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
 					<div class="max-w-4xl mx-auto">
 						<!-- Section Header -->
 						<div class="text-center mb-12 lg:mb-16">
@@ -902,78 +894,6 @@
 		</main>
 		<footer></footer>
 
-		<!-- Load app.js for header/footer -->
-		<script src="/js/app.js" type="module"></script>
-
-		<!-- GSAP Animations -->
-		<script>
-			// Set initial states for all animated elements
-			gsap.set("#hero-badge", { opacity: 0, y: -30 });
-			gsap.set("#hero-title", { opacity: 0, y: 30 });
-			gsap.set("#hero-description", { opacity: 0, y: 30 });
-			gsap.set(".stat-card", { opacity: 0, y: 30 });
-			gsap.set("#hero-actions", { opacity: 0, y: 30 });
-			gsap.set("#hero-trust", { opacity: 0 });
-			gsap.set("#hero-visual", { opacity: 0, x: 50 });
-			gsap.set(".floating-card-item", { opacity: 0, scale: 0 });
-			gsap.set(".mobile-card", { opacity: 0, y: 30 });
-
-			// Create timeline
-			const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-
-			// Animate on load
-			window.addEventListener('DOMContentLoaded', () => {
-				tl.to("#hero-badge", { 
-					opacity: 1, 
-					y: 0, 
-					duration: 0.8 
-				})
-				.to("#hero-title", { 
-					opacity: 1, 
-					y: 0, 
-					duration: 0.8 
-				}, "-=0.6")
-				.to("#hero-description", { 
-					opacity: 1, 
-					y: 0, 
-					duration: 0.8 
-				}, "-=0.6")
-				.to(".stat-card", { 
-					opacity: 1, 
-					y: 0, 
-					duration: 0.6,
-					stagger: 0.1
-				}, "-=0.4")
-				.to("#hero-actions", { 
-					opacity: 1, 
-					y: 0, 
-					duration: 0.8 
-				}, "-=0.4")
-				.to("#hero-trust", { 
-					opacity: 1, 
-					duration: 0.6 
-				}, "-=0.4")
-				.to("#hero-visual", { 
-					opacity: 1, 
-					x: 0, 
-					duration: 1 
-				}, "-=1")
-				.to(".floating-card-item", { 
-					opacity: 1, 
-					scale: 1, 
-					duration: 0.6,
-					stagger: 0.2,
-					ease: "back.out(1.7)"
-				}, "-=0.4")
-				.to(".mobile-card", { 
-					opacity: 1, 
-					y: 0, 
-					duration: 0.6,
-					stagger: 0.15
-				}, "-=0.8");
-			});
-		</script>
-
 		<!-- Featured Products Loader -->
 		<script>
 			// Load featured products dynamically
@@ -987,14 +907,18 @@
 
 					// Show first 4 products
 					const featuredProducts = products.slice(0, 4);
-					
-					grid.innerHTML = featuredProducts.map(product => `
+				
+					grid.innerHTML = featuredProducts.map(product => {
+						const coverImage = Array.isArray(product.images) && product.images.length
+							? product.images[0]
+							: 'assets/images/placeholder.jpg';
+						return `
 						<div class="group relative bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md hover:-translate-y-1 overflow-hidden flex flex-col">
 							<!-- Animated Glow Background -->
 							<div class="absolute inset-0 bg-gradient-to-br from-primary/0 via-secondary/0 to-primary/0 group-hover:from-primary/5 group-hover:via-secondary/5 group-hover:to-primary/5 opacity-0 group-hover:opacity-100"></div>
 							
 							<!-- Bestseller Badge with Pulse -->
-							<div class="absolute top-3 right-3 z-20 px-2.5 py-1 bg-gradient-to-r from-amber-400 via-orange-500 to-amber-400 bg-size-200 text-white text-xs font-bold rounded-lg shadow-md">
+							<div class="absolute top-3 right-3 z-20 px-2.5 py-1 bg-gradient-to-r from-amber-400 via-orange-500 to-amber-400 bg-size-200 text-white text-xs font-bold rounded-full border border-white/40 shadow-md">
 								<span class="flex items-center gap-1">
 									<span class="material-symbols-rounded text-xs">star</span>
 									BESTSELLER
@@ -1008,7 +932,7 @@
 								
 								<!-- Product Image with Advanced Hover -->
 								<img 
-									src="${product.image}" 
+									src="${coverImage}"
 									alt="${product.name}"
 									class="relative w-full h-full object-contain mix-blend-multiply group-hover:scale-110 filter group-hover:drop-shadow-lg" />
 								
@@ -1057,7 +981,8 @@
 								</a>
 							</div>
 						</div>
-					`).join('');
+					`;
+				}).join('');
 				} catch (error) {
 					console.error('Failed to load products:', error);
 				}

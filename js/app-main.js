@@ -1,13 +1,162 @@
-// --- CUSTOM ALERT SYSTEM ---
+/**
+ * FinGaurd - Unified Application Script
+ * Handles: Component loading, Products, Cart, WhatsApp messaging, Forms, and Animations
+ */
+
+// ============================================================================
+// 1. CONFIGURATION
+// ============================================================================
+const WHATSAPP_PHONE_NUMBER = "919821560609"; // Change to your WhatsApp number
+const currency = '₹';
+
+// ============================================================================
+// 2. PRODUCT DATABASE
+// ============================================================================
+const ProductDB = {
+    async getAllProducts() {
+        try {
+            const response = await fetch('data/products.json');
+            if (!response.ok) throw new Error('Network response was not ok.');
+            return await response.json();
+        } catch (error) {
+            console.error("Failed to fetch products:", error);
+            return [];
+        }
+    },
+    
+    async getProductById(id) {
+        const products = await this.getAllProducts();
+        return products.find(p => p.id === parseInt(id));
+    }
+};
+
+function getPrimaryImage(product) {
+    if (product && Array.isArray(product.images) && product.images.length > 0) {
+        return product.images[0];
+    }
+    return 'assets/images/placeholder.jpg';
+}
+
+function getStructuredImageList(product) {
+    if (product && Array.isArray(product.images) && product.images.length > 0) {
+        return product.images;
+    }
+    return ['assets/images/placeholder.jpg'];
+}
+
+// ============================================================================
+// 3. CART MANAGEMENT
+// ============================================================================
+const Cart = {
+    getCart() {
+        return JSON.parse(localStorage.getItem('cart')) || [];
+    },
+    
+    saveCart(cart) {
+        localStorage.setItem('cart', JSON.stringify(cart));
+        this.updateCartIcon();
+    },
+    
+    addItem(id, quantity) {
+        const cart = this.getCart();
+        const existingItem = cart.find(item => item.id === id);
+        if (existingItem) {
+            existingItem.quantity += quantity;
+        } else {
+            cart.push({ id, quantity });
+        }
+        this.saveCart(cart);
+        showAlert('Product added to cart successfully!', 'success');
+    },
+    
+    updateItemQuantity(id, quantity) {
+        let cart = this.getCart();
+        const item = cart.find(item => item.id === id);
+        if (item) {
+            item.quantity = quantity;
+            if (item.quantity <= 0) {
+                cart = cart.filter(cartItem => cartItem.id !== id);
+            }
+        }
+        this.saveCart(cart);
+    },
+    
+    removeItem(id) {
+        let cart = this.getCart();
+        cart = cart.filter(item => item.id !== id);
+        this.saveCart(cart);
+    },
+    
+    getCartCount() {
+        return this.getCart().reduce((count, item) => count + item.quantity, 0);
+    },
+    
+    updateCartIcon() {
+        const cartCountElement = document.querySelector('.cart-count');
+        if (cartCountElement) {
+            const count = this.getCartCount();
+            if (count > 0) {
+                cartCountElement.textContent = count;
+                cartCountElement.classList.remove('hidden');
+            } else {
+                cartCountElement.classList.add('hidden');
+                cartCountElement.textContent = '';
+            }
+        }
+    },
+    
+    clearCart() {
+        localStorage.removeItem('cart');
+        this.updateCartIcon();
+    }
+};
+
+// ============================================================================
+// 4. WHATSAPP MESSAGING
+// ============================================================================
+const WhatsApp = {
+    generateSingleProductMessage(product, quantity) {
+        const message = `Hello, I'm interested in this product:\n\n*Product:* ${product.name}\n*SKU:* ${product.sku}\n*Quantity:* ${quantity}\n\nPlease provide more details.`;
+        return encodeURIComponent(message);
+    },
+    
+    async generateCartMessage() {
+        const cart = Cart.getCart();
+        const products = await ProductDB.getAllProducts();
+        let message = "Hello, I'd like to place an order for the following items:\n\n";
+        let total = 0;
+
+        cart.forEach(item => {
+            const product = products.find(p => p.id === item.id);
+            if (product) {
+                message += `*${product.name}*\n`;
+                message += `  - SKU: ${product.sku}\n`;
+                message += `  - Quantity: ${item.quantity}\n`;
+                message += `  - Price: ${currency}${product.price.toLocaleString()}\n\n`;
+                total += product.price * item.quantity;
+            }
+        });
+
+        message += `*Total Estimated Price: ${currency}${total.toLocaleString()}*`;
+        return encodeURIComponent(message);
+    },
+    
+    send(message) {
+        const encodedMessage = message.includes('%') ? message : encodeURIComponent(message);
+        const url = `https://wa.me/${WHATSAPP_PHONE_NUMBER}?text=${encodedMessage}`;
+        window.open(url, '_blank');
+    }
+};
+
+// ============================================================================
+// 5. ALERT/NOTIFICATION SYSTEM
+// ============================================================================
 function showAlert(message, type = 'info', duration = 10000) {
-    // Remove existing alerts
     const existingAlerts = document.querySelectorAll('.custom-alert');
     existingAlerts.forEach(alert => alert.remove());
     
-    // Create alert element
     const alertDiv = document.createElement('div');
     alertDiv.className = `custom-alert ${type}`;
-    
     alertDiv.innerHTML = `
         <div class="custom-alert-content">
             <div class="custom-alert-message">${message}</div>
@@ -15,13 +164,9 @@ function showAlert(message, type = 'info', duration = 10000) {
         </div>
     `;
     
-    // Add to page
     document.body.appendChild(alertDiv);
-    
-    // Show alert with animation
     setTimeout(() => alertDiv.classList.add('show'), 100);
     
-    // Auto remove after duration
     setTimeout(() => {
         if (document.body.contains(alertDiv)) {
             alertDiv.classList.remove('show');
@@ -30,29 +175,99 @@ function showAlert(message, type = 'info', duration = 10000) {
     }, duration);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const path = window.location.pathname.split("/").pop();
+// ============================================================================
+// 6. COMPONENT LOADING (Header, Footer, WhatsApp Float, Aurora Background)
+// ============================================================================
+async function loadIncludes() {
+    const includes = document.querySelectorAll('[data-include]');
+    await Promise.all(Array.from(includes).map(async el => {
+        const src = el.getAttribute('data-include');
+        try {
+            const res = await fetch(src, { cache: 'no-cache' });
+            if (!res.ok) throw new Error('Failed to fetch ' + src);
+            el.innerHTML = await res.text();
+        } catch (e) {
+            console.error('Include error:', e);
+        }
+    }));
+    
+    // Update cart count after header loads (with small delay to ensure DOM is ready)
+    setTimeout(() => {
+        Cart.updateCartIcon();
+    }, 100);
 
-    if (path === 'index.html' || path === '') {
-        loadHomePage();
-        setupExpertAdviceForm();
-        if (window.setupWholesaleForm) window.setupWholesaleForm();
-    } else if (path === 'products.html') {
-        loadProductsPage();
-    } else if (path === 'product.html') {
-        loadProductDetailPage();
-    } else if (path === 'cart.html') {
-        loadCartPage();
-    } else if (path === 'wholesale.html') {
-        if (window.setupWholesaleForm) window.setupWholesaleForm();
+    // Wire mobile nav toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('nav .nav-menu');
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', () => {
+            const isOpen = navMenu.classList.toggle('open');
+            navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+        navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+            navMenu.classList.remove('open');
+            navToggle.setAttribute('aria-expanded', 'false');
+        }));
     }
-});
 
+    // Add floating WhatsApp button
+    if (!document.getElementById('floating-whatsapp-link')) {
+        const wrap = document.createElement('div');
+        wrap.setAttribute('data-include', 'components/whatsapp-float.html');
+        document.body.appendChild(wrap);
+        try {
+            const res = await fetch('components/whatsapp-float.html', { cache: 'no-cache' });
+            if (res.ok) wrap.innerHTML = await res.text();
+        } catch {}
+    }
+
+    // Configure WhatsApp button
+    const w = document.getElementById('floating-whatsapp-link');
+    if (w && typeof WHATSAPP_PHONE_NUMBER !== 'undefined') {
+        const msg = encodeURIComponent('Hello! I have a quick question about FinGaurd RO systems.');
+        w.href = `https://wa.me/${WHATSAPP_PHONE_NUMBER}?text=${msg}`;
+    }
+
+    // Add animated aurora background
+    if (!document.querySelector('.bg-aurora')) {
+        const bg = document.createElement('div');
+        bg.className = 'bg-aurora';
+        bg.innerHTML = '<div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="blob b4"></div>';
+        document.body.appendChild(bg);
+    }
+}
+
+// ============================================================================
+// 7. SCROLL REVEAL ANIMATIONS
+// ============================================================================
+function setupScrollReveal() {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    if (!prefersReduced && 'IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    } else {
+        document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
+    }
+}
+
+// ============================================================================
+// 8. PRODUCT DISPLAY
+// ============================================================================
 function createProductCard(product) {
+    const primaryImage = getPrimaryImage(product);
     return `
-        <div class="product-card" itemscope itemtype="http://schema.org/Product">
+        <div class="product-card reveal" itemscope itemtype="http://schema.org/Product">
             <a href="product.html?id=${product.id}">
-                <img src="${product.image}" alt="${product.name}" itemprop="image" loading="lazy">
+                <img src="${primaryImage}" alt="${product.name}" itemprop="image" loading="lazy">
                 <div class="product-card-content">
                     <h3 itemprop="name">${product.name}</h3>
                     <p class="price" itemprop="price" content="${product.price}">${currency}${product.price.toLocaleString()}</p>
@@ -67,13 +282,28 @@ function createProductCard(product) {
     `;
 }
 
+function formatSpecLabel(key) {
+    return key
+        .replace(/([A-Z])/g, ' $1')
+        .replace(/^./, str => str.toUpperCase())
+        .replace(/Tds/g, 'TDS')
+        .replace(/Uv/g, 'UV')
+        .replace(/Ro/g, 'RO')
+        .replace(/Gpd/g, 'GPD')
+        .replace(/Ph/g, 'pH')
+        .replace(/Psi/g, 'PSI');
+}
+
+// ============================================================================
+// 9. PAGE LOADERS
+// ============================================================================
+
 // --- HOME PAGE ---
 async function loadHomePage() {
     const featuredGrid = document.getElementById('featured-products-grid');
     if (!featuredGrid) return;
     
     const products = await ProductDB.getAllProducts();
-    // Show first 4 products as featured
     featuredGrid.innerHTML = products.slice(0, 4).map(createProductCard).join('');
 }
 
@@ -86,12 +316,10 @@ async function loadProductsPage() {
 
     if (!productGrid) return;
 
-    // Check for URL parameters
     const urlParams = new URLSearchParams(window.location.search);
     const categoryParam = urlParams.get('category');
     const qParam = urlParams.get('q') || '';
 
-    // Define displayed categories to align with footer
     const displayedCategories = [
         { label: 'All', category: 'All' },
         { label: 'RO Systems', category: 'RO Systems' },
@@ -100,28 +328,26 @@ async function loadProductsPage() {
         { label: 'Membranes', category: 'Spares', q: 'membrane' }
     ];
 
-    // Render category filters with optional q filters
-    categoryFilters.innerHTML = `<ul>${displayedCategories.map(c => `<li data-category="${c.category}"${c.q ? ` data-q="${c.q}"` : ''}>${c.label}</li>`).join('')}</ul>`;
+    categoryFilters.innerHTML = `<ul>${displayedCategories.map(c => 
+        `<li data-category="${c.category}"${c.q ? ` data-q="${c.q}"` : ''}>${c.label}</li>`
+    ).join('')}</ul>`;
 
     const categoryItems = categoryFilters.querySelectorAll('li');
 
-    // Determine initial active item
     let initialActiveItem = null;
-    // Priority: if q=membrane and category is Spares (or missing), activate Membranes
     if (qParam && qParam.toLowerCase().includes('membrane')) {
         initialActiveItem = Array.from(categoryItems).find(li => li.textContent.trim() === 'Membranes') || null;
     }
     if (!initialActiveItem) {
-        // If category matches a displayed item, use it; map 'Spares' -> Accessories by default
         const desiredCategory = categoryParam || 'All';
-        initialActiveItem = Array.from(categoryItems).find(li => li.dataset.category === desiredCategory && (!li.dataset.q))
-            || Array.from(categoryItems).find(li => li.dataset.category === desiredCategory)
-            || Array.from(categoryItems).find(li => li.dataset.category === 'All');
+        initialActiveItem = Array.from(categoryItems).find(li => 
+            li.dataset.category === desiredCategory && (!li.dataset.q)
+        ) || Array.from(categoryItems).find(li => li.dataset.category === desiredCategory)
+          || Array.from(categoryItems).find(li => li.dataset.category === 'All');
     }
     if (initialActiveItem) {
         initialActiveItem.classList.add('active');
     }
-    // If URL provides q, reflect it in search box unless Membranes virtual filter will set it
     if (qParam && (!initialActiveItem || !initialActiveItem.dataset.q)) {
         searchBox.value = qParam;
     }
@@ -138,7 +364,6 @@ async function loadProductsPage() {
         const activeItem = categoryFilters.querySelector('li.active');
         const activeCategory = activeItem ? activeItem.dataset.category : 'All';
         const qFilter = activeItem && activeItem.dataset.q ? activeItem.dataset.q.toLowerCase() : '';
-        // Combine the virtual filter q with user-entered search
         const combined = `${qFilter} ${searchBox.value}`.trim().toLowerCase();
         const tokens = combined.split(/\s+/).filter(Boolean);
 
@@ -157,15 +382,12 @@ async function loadProductsPage() {
         item.addEventListener('click', () => {
             categoryItems.forEach(i => i.classList.remove('active'));
             item.classList.add('active');
-            // Reflect virtual q filter in search box for clarity
             searchBox.value = item.dataset.q || '';
             filterAndDisplay();
         });
     });
 
     searchBox.addEventListener('input', filterAndDisplay);
-
-    // Initial display with category filtering
     filterAndDisplay();
 }
 
@@ -183,21 +405,16 @@ async function loadProductDetailPage() {
         return;
     }
 
-    // Update page title and meta description
     document.title = `${product.name} - FinGaurd RO Water Purifier Systems`;
     
-    // Add structured data
     const structuredData = {
         "@context": "http://schema.org",
         "@type": "Product",
         "name": product.name,
-        "image": product.image,
+        "image": getStructuredImageList(product),
         "description": product.description,
         "sku": product.sku,
-        "brand": {
-            "@type": "Brand",
-            "name": "FinGaurd"
-        },
+        "brand": { "@type": "Brand", "name": "FinGaurd" },
         "offers": {
             "@type": "Offer",
             "price": product.price,
@@ -212,14 +429,21 @@ async function loadProductDetailPage() {
     script.text = JSON.stringify(structuredData);
     document.head.appendChild(script);
 
-    // Generate detailed product information
-    const detailedHTML = generateDetailedProductHTML(product);
-    
-    container.innerHTML = detailedHTML;
+    container.innerHTML = generateDetailedProductHTML(product);
 
-    document.getElementById('add-to-cart').addEventListener('click', () => {
-        const quantity = parseInt(document.getElementById('quantity').value);
-        Cart.addItem(product.id, quantity);
+    const addToCartButton = document.getElementById('add-to-cart');
+    addToCartButton.addEventListener('click', () => {
+        const quantity = parseInt(document.getElementById('quantity').value) || 1;
+        const productImage = getPrimaryImage(product);
+        Cart.addItem(
+            product.id,
+            product.name,
+            product.sku,
+            product.price,
+            productImage,
+            quantity,
+            addToCartButton
+        );
     });
 
     document.getElementById('query-whatsapp').addEventListener('click', () => {
@@ -229,11 +453,11 @@ async function loadProductDetailPage() {
     });
 }
 
-// --- DETAILED PRODUCT HTML GENERATOR ---
 function generateDetailedProductHTML(product) {
+    const primaryImage = getPrimaryImage(product);
     let html = `
         <div class="product-image" itemscope itemtype="http://schema.org/Product">
-            <img src="${product.image}" alt="${product.name}" itemprop="image">
+            <img src="${primaryImage}" alt="${product.name}" itemprop="image">
         </div>
         <div class="product-info" itemprop="mainEntity" itemscope itemtype="http://schema.org/Product">
             <h1 itemprop="name">${product.name}</h1>
@@ -261,109 +485,55 @@ function generateDetailedProductHTML(product) {
             </div>
     `;
 
-    // Add specifications if available
     if (product.specifications) {
-        html += `<div class="product-specifications">
-            <h3>Specifications</h3>
-            <div class="spec-grid">`;
-        
+        html += `<div class="product-specifications"><h3>Specifications</h3><div class="spec-grid">`;
         Object.entries(product.specifications).forEach(([key, value]) => {
             if (value && value !== "" && value !== null) {
                 const label = formatSpecLabel(key);
                 const formattedValue = Array.isArray(value) ? value.join(', ') : value.toString();
-                html += `
-                    <div class="spec-item">
-                        <span class="spec-label">${label}:</span>
-                        <span class="spec-value">${formattedValue}</span>
-                    </div>`;
+                html += `<div class="spec-item"><span class="spec-label">${label}:</span><span class="spec-value">${formattedValue}</span></div>`;
             }
         });
-        
         html += `</div></div>`;
     }
 
-    // Add features if available
     if (product.features) {
-        html += `<div class="product-features">
-            <h3>Key Features</h3>`;
-        
+        html += `<div class="product-features"><h3>Key Features</h3>`;
         Object.entries(product.features).forEach(([category, items]) => {
             if (items && items.length > 0) {
                 const categoryLabel = formatSpecLabel(category);
-                html += `
-                    <div class="feature-category">
-                        <h4>${categoryLabel}</h4>
-                        <ul>`;
-                items.forEach(item => {
-                    html += `<li>${item}</li>`;
-                });
-                html += `</ul>
-                    </div>`;
+                html += `<div class="feature-category"><h4>${categoryLabel}</h4><ul>`;
+                items.forEach(item => { html += `<li>${item}</li>`; });
+                html += `</ul></div>`;
             }
         });
-        
         html += `</div>`;
     }
 
-    // Add water quality specs if available
     if (product.waterQuality) {
-        html += `<div class="water-quality">
-            <h3>Water Quality Performance</h3>
-            <div class="spec-grid">`;
-        
+        html += `<div class="water-quality"><h3>Water Quality Performance</h3><div class="spec-grid">`;
         Object.entries(product.waterQuality).forEach(([key, value]) => {
             if (value && value !== "" && value !== null) {
                 const label = formatSpecLabel(key);
-                html += `
-                    <div class="spec-item">
-                        <span class="spec-label">${label}:</span>
-                        <span class="spec-value">${value}</span>
-                    </div>`;
+                html += `<div class="spec-item"><span class="spec-label">${label}:</span><span class="spec-value">${value}</span></div>`;
             }
         });
-        
         html += `</div></div>`;
     }
 
-    // Add installation info if available
     if (product.installation) {
-        html += `<div class="installation-info">
-            <h3>Installation Information</h3>
-            <div class="spec-grid">`;
-        
+        html += `<div class="installation-info"><h3>Installation Information</h3><div class="spec-grid">`;
         Object.entries(product.installation).forEach(([key, value]) => {
             if (value && value !== "" && value !== null) {
                 const label = formatSpecLabel(key);
-                html += `
-                    <div class="spec-item">
-                        <span class="spec-label">${label}:</span>
-                        <span class="spec-value">${value}</span>
-                    </div>`;
+                html += `<div class="spec-item"><span class="spec-label">${label}:</span><span class="spec-value">${value}</span></div>`;
             }
         });
-        
         html += `</div></div>`;
     }
 
-    html += `
-            <div itemprop="brand" itemscope itemtype="http://schema.org/Brand">
-                <meta itemprop="name" content="FinGaurd">
-            </div>
-        </div>`;
-
+    html += `<div itemprop="brand" itemscope itemtype="http://schema.org/Brand"><meta itemprop="name" content="FinGaurd"></div></div>`;
     return html;
-}
-
-function formatSpecLabel(key) {
-    return key
-        .replace(/([A-Z])/g, ' $1')
-        .replace(/^./, str => str.toUpperCase())
-        .replace(/Tds/g, 'TDS')
-        .replace(/Uv/g, 'UV')
-        .replace(/Ro/g, 'RO')
-        .replace(/Gpd/g, 'GPD')
-        .replace(/Ph/g, 'pH')
-        .replace(/Psi/g, 'PSI');
 }
 
 // --- CART PAGE ---
@@ -395,10 +565,11 @@ async function loadCartPage() {
         const product = allProducts.find(p => p.id === item.id);
         if (product) {
             total += product.price * item.quantity;
+            const primaryImage = getPrimaryImage(product);
             cartHTML += `
                 <div class="cart-item">
                     <div class="cart-item-top">
-                        <img src="${product.image}" alt="${product.name}" onclick="goToProduct('${product.sku}')">
+                        <img src="${primaryImage}" alt="${product.name}" onclick="goToProduct('${product.sku}')">
                         <div class="cart-item-info">
                             <h3 onclick="goToProduct('${product.sku}')">${product.name}</h3>
                             <p>SKU: ${product.sku}</p>
@@ -420,12 +591,10 @@ async function loadCartPage() {
 
     cartItemsContainer.innerHTML = cartHTML;
     
-    // Update cart summary
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     cartSummary.querySelector('#total-price').textContent = `${currency}${total.toLocaleString()}`;
     cartSummary.querySelector('#total-items').textContent = `${totalItems} Item${totalItems === 1 ? '' : 's'}`;
     
-    // Update cart subtitle
     const cartSubtitle = document.getElementById('cart-subtitle');
     if (cartSubtitle) {
         cartSubtitle.textContent = `${totalItems} item${totalItems === 1 ? '' : 's'} in your cart`;
@@ -436,7 +605,7 @@ async function loadCartPage() {
             const id = parseInt(e.target.dataset.id);
             const quantity = parseInt(e.target.value);
             Cart.updateItemQuantity(id, quantity);
-            loadCartPage(); // Refresh the cart display
+            loadCartPage();
         });
     });
 
@@ -444,7 +613,7 @@ async function loadCartPage() {
         button.addEventListener('click', (e) => {
             const id = parseInt(e.target.dataset.id);
             Cart.removeItem(id);
-            loadCartPage(); // Refresh the cart display
+            loadCartPage();
         });
     });
 
@@ -456,9 +625,8 @@ async function loadCartPage() {
     });
 }
 
-// --- UTILITY FUNCTIONS ---
+// --- UTILITY ---
 function goToProduct(sku) {
-    // Find product by SKU
     ProductDB.getAllProducts().then(products => {
         const product = products.find(p => p.sku === sku);
         if (product) {
@@ -467,7 +635,9 @@ function goToProduct(sku) {
     });
 }
 
-
+// ============================================================================
+// 10. FORM HANDLERS
+// ============================================================================
 
 // --- EXPERT ADVICE FORM ---
 function setupExpertAdviceForm() {
@@ -477,11 +647,9 @@ function setupExpertAdviceForm() {
     form.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Clear previous errors
         document.querySelectorAll('.error-message').forEach(msg => msg.textContent = '');
         document.querySelectorAll('.error').forEach(field => field.classList.remove('error'));
 
-        // Get form data
         const formData = new FormData(form);
         const name = formData.get('name').trim();
         const phone = formData.get('phone').trim();
@@ -491,14 +659,12 @@ function setupExpertAdviceForm() {
 
         let isValid = true;
 
-        // Validate name
         if (!name || name.length < 2) {
             document.getElementById('name-error').textContent = 'Please enter a valid name (at least 2 characters)';
             document.getElementById('user-name').classList.add('error');
             isValid = false;
         }
 
-        // Validate phone
         const phonePattern = /^[6-9]\d{9}$/;
         if (!phone || !phonePattern.test(phone)) {
             document.getElementById('phone-error').textContent = 'Please enter a valid 10-digit Indian mobile number';
@@ -506,7 +672,6 @@ function setupExpertAdviceForm() {
             isValid = false;
         }
 
-        // Validate address
         if (!address || address.length < 5) {
             document.getElementById('address-error').textContent = 'Please enter your complete address/locality';
             document.getElementById('user-address').classList.add('error');
@@ -514,47 +679,36 @@ function setupExpertAdviceForm() {
         }
 
         if (isValid) {
-            // Generate WhatsApp message
             let message = `🏠 *Expert Consultation Request*\n\n`;
-            message += `� *Customer Details:*\n`;
+            message += `👤 *Customer Details:*\n`;
             message += `• *Name:* ${name}\n`;
             message += `• *Phone:* ${phone}\n`;
             message += `• *Location:* ${address}\n`;
             
             if (familySize || waterSource) {
-                message += `\n� *Requirements:*\n`;
-                if (familySize) {
-                    message += `• *Family Size:* ${familySize}\n`;
-                }
-                if (waterSource) {
-                    message += `• *Water Source:* ${waterSource}\n`;
-                }
+                message += `\n📋 *Requirements:*\n`;
+                if (familySize) message += `• *Family Size:* ${familySize}\n`;
+                if (waterSource) message += `• *Water Source:* ${waterSource}\n`;
             }
             
             message += `\n✨ *Request:*\nI'm interested in getting expert advice for choosing the right RO water purifier for my home. Please help me with the best recommendations based on my requirements.\n\n`;
             message += `Thank you! 🙏`;
 
-            // Send via WhatsApp
             WhatsApp.send(message);
-            
-            // Reset form
             form.reset();
-            
-            // Show success message
             showAlert('Thank you! Your consultation request has been sent. Our expert will contact you shortly.', 'success');
         }
     });
 }
 
 // --- WHOLESALE RFQ FORM ---
-window.setupWholesaleForm = function setupWholesaleForm() {
+function setupWholesaleForm() {
     const form = document.getElementById('wholesale-form');
     if (!form) return;
 
     form.addEventListener('submit', function(e){
         e.preventDefault();
 
-        // Clear errors
         form.querySelectorAll('.error-message').forEach(el => el.textContent = '');
         form.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
 
@@ -570,15 +724,31 @@ window.setupWholesaleForm = function setupWholesaleForm() {
         const notes = (fd.get('notes') || '').trim();
 
         let ok = true;
-        if (bizName.length < 2) { document.getElementById('biz-name-error').textContent = 'Please enter your business name'; document.getElementById('biz-name').classList.add('error'); ok = false; }
-        if (contactPerson.length < 2) { document.getElementById('contact-person-error').textContent = 'Please enter contact person'; document.getElementById('contact-person').classList.add('error'); ok = false; }
+        if (bizName.length < 2) { 
+            document.getElementById('biz-name-error').textContent = 'Please enter your business name'; 
+            document.getElementById('biz-name').classList.add('error'); 
+            ok = false; 
+        }
+        if (contactPerson.length < 2) { 
+            document.getElementById('contact-person-error').textContent = 'Please enter contact person'; 
+            document.getElementById('contact-person').classList.add('error'); 
+            ok = false; 
+        }
         const phonePattern = /^[6-9]\d{9}$/; 
-        if (!phonePattern.test(phone)) { document.getElementById('phone-error').textContent = 'Enter a valid 10‑digit Indian mobile number'; document.getElementById('phone').classList.add('error'); ok = false; }
-        if (!city) { document.getElementById('city-error').textContent = 'Enter City/State'; document.getElementById('city').classList.add('error'); ok = false; }
+        if (!phonePattern.test(phone)) { 
+            document.getElementById('phone-error').textContent = 'Enter a valid 10‑digit Indian mobile number'; 
+            document.getElementById('phone').classList.add('error'); 
+            ok = false; 
+        }
+        if (!city) { 
+            document.getElementById('city-error').textContent = 'Enter City/State'; 
+            document.getElementById('city').classList.add('error'); 
+            ok = false; 
+        }
 
         if (!ok) return;
 
-    let msg = `*Wholesale / Dealer RFQ*\n\n`;
+        let msg = `*Wholesale / Dealer RFQ*\n\n`;
         msg += `• *Business:* ${bizName}\n`;
         msg += `• *Contact:* ${contactPerson}\n`;
         msg += `• *Mobile:* ${phone}\n`;
@@ -595,3 +765,39 @@ window.setupWholesaleForm = function setupWholesaleForm() {
         form.reset();
     });
 }
+
+// ============================================================================
+// 11. INITIALIZATION
+// ============================================================================
+document.addEventListener('DOMContentLoaded', async () => {
+    // Load components first
+    await loadIncludes();
+    
+    // Setup scroll reveal
+    setupScrollReveal();
+    
+    // Route to appropriate page loader
+    const path = window.location.pathname.split("/").pop();
+    
+    if (path === 'index.html' || path === '') {
+        loadHomePage();
+        setupExpertAdviceForm();
+        setupWholesaleForm();
+    } else if (path === 'products.html') {
+        loadProductsPage();
+    } else if (path === 'product.html') {
+        loadProductDetailPage();
+    } else if (path === 'cart.html') {
+        loadCartPage();
+    } else if (path === 'wholesale.html') {
+        setupWholesaleForm();
+    }
+    
+    // Update cart icon immediately and after delay to ensure DOM is ready
+    Cart.updateCartIcon();
+    setTimeout(() => Cart.updateCartIcon(), 200);
+});
+
+// Export for global access
+window.Cart = Cart;
+window.setupWholesaleForm = setupWholesaleForm;

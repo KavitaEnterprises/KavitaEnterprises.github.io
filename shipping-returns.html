@@ -6,11 +6,38 @@
   <title>Shipping & Returns - FinGaurd</title>
   <meta name="description" content="PAN‑India shipping timelines and return policy for FinGaurd products." />
   <link rel="canonical" href="https://fingaurd.com/shipping-returns.html" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2563eb',
+            secondary: '#54e8e8',
+            'primary-dark': '#1e40af',
+          },
+          fontFamily: {
+            sans: ['Urbanist', 'system-ui', 'sans-serif'],
+            display: ['Bebas Neue', 'Arial', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <header data-include="components/header.html"></header>
-  <main>
+  <main class="pt-16 lg:pt-20 pb-16">
+    <section class="bg-white border-b border-gray-200">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">
+        <nav class="flex items-center gap-2 text-sm text-gray-500">
+          <a href="/index.html" class="hover:text-primary transition-colors">Home</a>
+          <span class="material-symbols-rounded text-gray-400 text-sm" aria-hidden="true">chevron_right</span>
+          <span class="text-gray-700 font-medium">Shipping &amp; Returns</span>
+        </nav>
+      </div>
+    </section>
     <section class="products-hero"><div class="container"><div class="products-header"><h1>Shipping & Returns</h1><p>Simple policies for a smooth purchase experience.</p></div></div></section>
     <section class="expert-advice-section"><div class="advice-content content-narrow prose">
   <h3><span class="material-symbols-outlined icon" aria-hidden="true">local_shipping</span> Shipping</h3>
@@ -29,7 +56,5 @@
     </div></section>
   </main>
   <footer data-include="components/footer.html"></footer>
-  <script src="js/products-db.js"></script>
-  <script src="js/include.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/app-main.js"></script>
 </body></html>

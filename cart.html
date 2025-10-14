@@ -12,34 +12,32 @@
 				theme: {
 					extend: {
 						colors: {
-							primary: '#1e40af',
-							'primary-dark': '#1e3a8a',
-							secondary: '#3b82f6'
+							primary: '#2563eb',
+							secondary: '#54e8e8',
+							'primary-dark': '#1e40af'
 						},
 						fontFamily: {
-							display: ['Inter', 'sans-serif'],
-							body: ['Inter', 'sans-serif']
+							sans: ['Urbanist', 'system-ui', 'sans-serif'],
+							display: ['Bebas Neue', 'Urbanist', 'sans-serif'],
+							body: ['Urbanist', 'system-ui', 'sans-serif']
 						}
 					}
 				}
 			}
 		</script>
 
-		<!-- Google Material Icons -->
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-
 		<!-- Custom CSS -->
-		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="/css/style.css" />
 	</head>
-	<body class="font-body text-gray-900 bg-gray-50">
+	<body class="font-body antialiased text-gray-900 bg-gray-50">
 		<header></header>
 
-		<main class="pt-20">
+		<main class="pt-16 lg:pt-20 pb-16">
 			<!-- Breadcrumb -->
 			<section class="bg-white border-b border-gray-200">
 				<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-					<nav class="flex items-center gap-2 text-sm">
-						<a href="/index.html" class="text-gray-500 hover:text-primary transition-colors">Home</a>
+					<nav class="flex items-center gap-2 text-sm text-gray-500">
+						<a href="/index.html" class="hover:text-primary transition-colors">Home</a>
 						<span class="material-symbols-rounded text-gray-400 text-sm">chevron_right</span>
 						<span class="text-gray-700 font-medium">Shopping Cart</span>
 					</nav>
@@ -60,7 +58,7 @@
 						<span class="material-symbols-rounded text-9xl text-gray-300 mb-4 block">shopping_cart</span>
 						<h2 class="text-2xl font-bold text-gray-900 mb-4">Your cart is empty</h2>
 						<p class="text-gray-600 mb-8">Add some products to get started!</p>
-						<a href="/products.html" class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors">
+						<a href="/products.html" class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-xl hover:bg-primary-dark transition-colors">
 							<span class="material-symbols-rounded">arrow_back</span>
 							Continue Shopping
 						</a>
@@ -123,7 +121,7 @@
 									<!-- Checkout Button -->
 									<button 
 										id="checkout-btn"
-										class="w-full flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white font-bold rounded-lg transition-all hover:shadow-lg group"
+										class="w-full flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white font-bold rounded-xl transition-all hover:shadow-lg group"
 									>
 										<span class="material-symbols-rounded">check_circle</span>
 										<span>Proceed to Checkout</span>
@@ -133,7 +131,7 @@
 									<!-- Continue Shopping -->
 									<a 
 										href="/products.html"
-										class="w-full flex items-center justify-center gap-2 px-6 py-3 bg-white border-2 border-gray-300 text-gray-700 font-semibold rounded-lg hover:border-primary hover:text-primary transition-colors"
+										class="w-full flex items-center justify-center gap-2 px-6 py-3 bg-white border-2 border-gray-300 text-gray-700 font-semibold rounded-xl hover:border-primary hover:text-primary transition-colors"
 									>
 										<span class="material-symbols-rounded">arrow_back</span>
 										<span>Continue Shopping</span>
@@ -173,7 +171,7 @@
 								<span class="material-symbols-rounded text-primary">shopping_bag</span>
 								Complete Your Order
 							</h2>
-							<button id="close-modal" class="p-2 hover:bg-gray-100 rounded-lg transition-colors">
+							<button id="close-modal" class="p-2 hover:bg-gray-100 rounded-xl transition-colors">
 								<span class="material-symbols-rounded text-gray-600">close</span>
 							</button>
 						</div>
@@ -381,213 +379,358 @@
 		<footer></footer>
 
 		<!-- Cart JavaScript -->
-		<script src="js/cart.js"></script>
+		<script src="/js/cart.js"></script>
 		<script>
-			// Load and display cart
-			function loadCart() {
-				const cart = Cart.getCart();
-				
-				if (cart.length === 0) {
-					document.getElementById('empty-cart').classList.remove('hidden');
-					document.getElementById('cart-items').classList.add('hidden');
-					return;
-				}
+			(() => {
+				const CartAPI = window.Cart;
+				const WhatsAppAPI = window.WhatsApp;
+				const currencySymbol = typeof window.currency === 'string' ? window.currency : '₹';
+				const FALLBACK_IMAGE = 'assets/images/placeholder.jpg';
+				let renderedCartItems = [];
+				let productCache = null;
 
-				document.getElementById('empty-cart').classList.add('hidden');
-				document.getElementById('cart-items').classList.remove('hidden');
-
-				displayCartItems(cart);
-				updateCartSummary(cart);
-			}
-
-			// Display cart items
-			function displayCartItems(cart) {
-				const container = document.getElementById('cart-items-list');
-				
-				container.innerHTML = cart.map((item, index) => `
-					<div class="p-6 flex flex-col sm:flex-row gap-4 hover:bg-gray-50 transition-colors">
-						<div class="flex-shrink-0">
-							<img src="${item.image}" alt="${item.name}" class="w-24 h-24 object-contain rounded-lg border border-gray-200" />
-						</div>
-						<div class="flex-1 min-w-0">
-							<h3 class="font-bold text-gray-900 mb-1 line-clamp-2">${item.name}</h3>
-							<p class="text-sm text-gray-500 mb-2">SKU: ${item.sku}</p>
-							<div class="flex items-center gap-4">
-								<span class="text-xl font-bold text-primary">₹${item.price.toLocaleString('en-IN')}</span>
-								<span class="text-sm text-gray-500">per unit</span>
-							</div>
-						</div>
-						<div class="flex sm:flex-col items-center sm:items-end justify-between sm:justify-start gap-4">
-							<div class="flex items-center gap-3 bg-gray-100 rounded-lg p-1">
-								<button 
-									onclick="updateQuantity(${item.id}, ${item.quantity - 1})"
-									class="w-8 h-8 flex items-center justify-center bg-white rounded hover:bg-primary hover:text-white transition-colors"
-								>
-									<span class="material-symbols-rounded text-lg">remove</span>
-								</button>
-								<span class="w-8 text-center font-bold">${item.quantity}</span>
-								<button 
-									onclick="updateQuantity(${item.id}, ${item.quantity + 1})"
-									class="w-8 h-8 flex items-center justify-center bg-white rounded hover:bg-primary hover:text-white transition-colors"
-								>
-									<span class="material-symbols-rounded text-lg">add</span>
-								</button>
-							</div>
-							<button 
-								onclick="removeItem(${item.id})"
-								class="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
-								title="Remove item"
-							>
-								<span class="material-symbols-rounded">delete</span>
-							</button>
-						</div>
-					</div>
-				`).join('');
-
-				const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-				document.getElementById('total-items').textContent = totalItems;
-			}
-
-			// Update cart summary
-			function updateCartSummary(cart) {
-				const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-				
-				document.getElementById('subtotal').textContent = subtotal.toLocaleString('en-IN');
-				document.getElementById('total').textContent = subtotal.toLocaleString('en-IN');
-			}
-
-			// Update quantity
-			function updateQuantity(id, newQuantity) {
-				Cart.updateItemQuantity(id, newQuantity);
-				loadCart();
-			}
-
-			// Remove item
-			function removeItem(id) {
-				Cart.removeItem(id);
-				loadCart();
-			}
-
-			// Open checkout modal
-			function openCheckoutModal() {
-				const cart = Cart.getCart();
-				
-				if (cart.length === 0) {
-					Alert.warning('Your cart is empty! Please add some products before checking out.');
-					return;
-				}
-
-				// Populate order items in modal
-				const modalItems = document.getElementById('modal-order-items');
-				modalItems.innerHTML = cart.map(item => `
-					<div class="flex justify-between text-sm">
-						<span class="text-gray-700">${item.name} × ${item.quantity}</span>
-						<span class="font-semibold text-gray-900">₹${(item.price * item.quantity).toLocaleString('en-IN')}</span>
-					</div>
-				`).join('');
-
-				const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-				document.getElementById('modal-total').textContent = total.toLocaleString('en-IN');
-
-				document.getElementById('checkout-modal').classList.remove('hidden');
-				document.body.style.overflow = 'hidden';
-			}
-
-			// Close checkout modal
-			function closeCheckoutModal() {
-				document.getElementById('checkout-modal').classList.add('hidden');
-				document.body.style.overflow = '';
-			}
-
-			// Handle checkout form submission
-			async function handleCheckout(e) {
-				e.preventDefault();
-
-				const cart = Cart.getCart();
-				const formData = new FormData(e.target);
-
-				// Build WhatsApp message
-				let message = `🛒 *NEW ORDER FROM FINGAURD WEBSITE*\n\n`;
-				message += `👤 *Customer Details:*\n`;
-				message += `Name: ${formData.get('name')}\n`;
-				message += `Phone: ${formData.get('phone')}\n\n`;
-				
-				message += `📍 *Delivery Address:*\n`;
-				message += `${formData.get('address')}\n`;
-				message += `${formData.get('city')}, ${formData.get('state')} - ${formData.get('pincode')}\n\n`;
-				
-				if (formData.get('family') || formData.get('water')) {
-					message += `ℹ️ *Additional Info:*\n`;
-					if (formData.get('family')) message += `Family Size: ${formData.get('family')}\n`;
-					if (formData.get('water')) message += `Water Source: ${formData.get('water')}\n`;
-					message += `\n`;
-				}
-				
-				message += `🛍️ *Order Items:*\n`;
-				cart.forEach((item, index) => {
-					message += `${index + 1}. ${item.name}\n`;
-					message += `   SKU: ${item.sku}\n`;
-					message += `   Qty: ${item.quantity} × ₹${item.price.toLocaleString('en-IN')} = ₹${(item.price * item.quantity).toLocaleString('en-IN')}\n\n`;
-				});
-				
-				const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-				message += `💰 *Total Amount: ₹${total.toLocaleString('en-IN')}*\n`;
-				message += `✅ Free Delivery • Free Installation • 1 Year Warranty\n\n`;
-				
-				if (formData.get('notes')) {
-					message += `📝 *Order Notes:*\n${formData.get('notes')}\n\n`;
-				}
-				
-				message += `---\n`;
-				message += `Order placed from: ${window.location.origin}\n`;
-				message += `Date: ${new Date().toLocaleString('en-IN')}`;
-
-				// Send via WhatsApp
-				WhatsApp.send(encodeURIComponent(message));
-
-				// Show success message
-				Alert.success('🎉 Your order has been sent via WhatsApp! Our team will contact you shortly to confirm your order.');
-
-				// Clear cart and close modal
-				Cart.clearCart();
-				closeCheckoutModal();
-				loadCart();
-			}
-
-			// Event listeners
-			document.addEventListener('DOMContentLoaded', () => {
-				loadCart();
-
-				document.getElementById('checkout-btn').addEventListener('click', openCheckoutModal);
-				document.getElementById('close-modal').addEventListener('click', closeCheckoutModal);
-				document.getElementById('checkout-form').addEventListener('submit', handleCheckout);
-
-				// Close modal on outside click
-				document.getElementById('checkout-modal').addEventListener('click', (e) => {
-					if (e.target.id === 'checkout-modal') {
-						closeCheckoutModal();
+				const notify = (type, message, duration = 6000) => {
+					const alertApi = window.Alert;
+					if (alertApi && typeof alertApi[type] === 'function') {
+						alertApi[type](message, duration);
+						return;
 					}
-				});
-			});
-		</script>
+					if (alertApi && typeof alertApi.show === 'function') {
+						alertApi.show(message, type, duration);
+						return;
+					}
+					if (typeof window.showAlert === 'function') {
+						window.showAlert(message, type, duration);
+						return;
+					}
+					window.alert(message);
+				};
 
-		<!-- Load Header and Footer -->
-		<script src="js/jquery.js"></script>
-		<script>
-			$(function() {
-				$('header').load('components/header.html', function() {
-					// Re-initialize mobile menu after header is loaded
-					const menuBtn = document.getElementById('menu-btn');
-					const mobileNav = document.getElementById('mobile-nav');
-					
-					if (menuBtn && mobileNav) {
-						menuBtn.addEventListener('click', () => {
-							mobileNav.classList.toggle('hidden');
+				if (!CartAPI) {
+					console.error('Cart module failed to load. Cart page scripts aborted.');
+					return;
+				}
+
+				const ProductDB = {
+					async getAllProducts() {
+						if (Array.isArray(productCache)) {
+							return productCache;
+						}
+
+						try {
+							const response = await fetch('/data/products.json', { cache: 'no-cache' });
+							if (!response.ok) {
+								throw new Error(`Failed to fetch products: ${response.status}`);
+							}
+							productCache = await response.json();
+						} catch (error) {
+							console.error('Failed to fetch products:', error);
+							productCache = [];
+						}
+
+						return productCache;
+					}
+				};
+
+				const formatCurrency = (value) => (Number(value) || 0).toLocaleString('en-IN');
+
+				const getPrimaryImage = (product) => {
+					if (product && Array.isArray(product.images) && product.images.length > 0) {
+						return product.images[0];
+					}
+					return FALLBACK_IMAGE;
+				};
+
+				async function loadCart() {
+					const storedCart = CartAPI.getCart();
+					const cart = Array.isArray(storedCart) ? storedCart : [];
+
+					if (!cart.length) {
+						renderedCartItems = [];
+						toggleCartVisibility(false);
+						updateCartSummary([]);
+						return;
+					}
+
+					const allProducts = await ProductDB.getAllProducts();
+
+					renderedCartItems = cart
+						.map((rawItem) => {
+							if (!rawItem) return null;
+
+							const quantity = Math.max(0, Number(rawItem.quantity) || 0);
+							if (quantity === 0) return null;
+
+							const rawId = rawItem.id;
+							const matchedProduct = allProducts.find((product) => String(product.id) === String(rawId));
+
+							if (matchedProduct) {
+								return {
+									id: rawId,
+									quantity,
+									name: matchedProduct.name,
+									sku: matchedProduct.sku,
+									price: Number(matchedProduct.price) || 0,
+									image: getPrimaryImage(matchedProduct)
+								};
+							}
+
+							if (rawItem.name || rawItem.price) {
+								return {
+									id: rawId,
+									quantity,
+									name: rawItem.name || `Product ${rawId}`,
+									sku: rawItem.sku || 'N/A',
+									price: Number(rawItem.price) || 0,
+									image: rawItem.image || FALLBACK_IMAGE
+								};
+							}
+
+							return null;
+						})
+						.filter(Boolean);
+
+					toggleCartVisibility(renderedCartItems.length > 0);
+					displayCartItems(renderedCartItems);
+					updateCartSummary(renderedCartItems);
+				}
+
+				function toggleCartVisibility(hasItems) {
+					const emptyState = document.getElementById('empty-cart');
+					const cartSection = document.getElementById('cart-items');
+					const list = document.getElementById('cart-items-list');
+
+					if (!emptyState || !cartSection || !list) return;
+
+					if (hasItems) {
+						emptyState.classList.add('hidden');
+						cartSection.classList.remove('hidden');
+					} else {
+						emptyState.classList.remove('hidden');
+						cartSection.classList.add('hidden');
+						list.innerHTML = '';
+					}
+				}
+
+				function displayCartItems(items) {
+					const container = document.getElementById('cart-items-list');
+					if (!container) return;
+
+					container.innerHTML = items
+						.map((item) => {
+							const itemIdAttr = String(item.id).replace(/"/g, '&quot;');
+
+							return `
+								<div class="p-6 flex flex-col sm:flex-row gap-4 hover:bg-gray-50 transition-colors" data-cart-row="${itemIdAttr}">
+									<div class="flex-shrink-0">
+										<img src="${item.image || FALLBACK_IMAGE}" alt="${item.name}" class="w-24 h-24 object-contain rounded-lg border border-gray-200" />
+									</div>
+									<div class="flex-1 min-w-0">
+										<h3 class="font-bold text-gray-900 mb-1 line-clamp-2">${item.name}</h3>
+										<p class="text-sm text-gray-500 mb-2">SKU: ${item.sku}</p>
+										<div class="flex items-center gap-4">
+											<span class="text-xl font-bold text-primary">${currencySymbol}${formatCurrency(item.price)}</span>
+											<span class="text-sm text-gray-500">per unit</span>
+										</div>
+									</div>
+									<div class="flex sm:flex-col items-center sm:items-end justify-between sm:justify-start gap-4">
+										<div class="flex items-center gap-3 bg-gray-100 rounded-lg p-1">
+											<button type="button" class="w-8 h-8 flex items-center justify-center bg-white rounded hover:bg-primary hover:text-white transition-colors" data-cart-action="decrement" data-cart-id="${itemIdAttr}">
+												<span class="material-symbols-rounded text-lg">remove</span>
+											</button>
+											<span class="w-8 text-center font-bold">${item.quantity}</span>
+											<button type="button" class="w-8 h-8 flex items-center justify-center bg-white rounded hover:bg-primary hover:text-white transition-colors" data-cart-action="increment" data-cart-id="${itemIdAttr}">
+												<span class="material-symbols-rounded text-lg">add</span>
+											</button>
+										</div>
+										<button type="button" class="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors" title="Remove item" data-cart-action="remove" data-cart-id="${itemIdAttr}">
+											<span class="material-symbols-rounded">delete</span>
+										</button>
+									</div>
+								</div>
+							`;
+						})
+						.join('');
+
+					const totalItems = items.reduce((sum, item) => sum + Number(item.quantity || 0), 0);
+					const totalItemsEl = document.getElementById('total-items');
+					if (totalItemsEl) {
+						totalItemsEl.textContent = totalItems;
+					}
+				}
+
+				function updateCartSummary(items) {
+					const subtotal = items.reduce((sum, item) => {
+						const price = Number(item.price) || 0;
+						const qty = Number(item.quantity) || 0;
+						return sum + price * qty;
+					}, 0);
+
+					const subtotalEl = document.getElementById('subtotal');
+					const totalEl = document.getElementById('total');
+
+					if (subtotalEl) subtotalEl.textContent = formatCurrency(subtotal);
+					if (totalEl) totalEl.textContent = formatCurrency(subtotal);
+				}
+
+				function handleCartListClick(event) {
+					const actionButton = event.target.closest('[data-cart-action]');
+					if (!actionButton) return;
+
+					event.preventDefault();
+
+					const action = actionButton.getAttribute('data-cart-action');
+					const cartId = actionButton.getAttribute('data-cart-id');
+					if (!action || !cartId) return;
+
+					const item = renderedCartItems.find((entry) => String(entry.id) === cartId);
+					if (!item) return;
+
+					if (action === 'increment') {
+						CartAPI.updateItemQuantity(item.id, Number(item.quantity) + 1);
+					} else if (action === 'decrement') {
+						CartAPI.updateItemQuantity(item.id, Number(item.quantity) - 1);
+					} else if (action === 'remove') {
+						CartAPI.removeItem(item.id);
+					}
+
+					loadCart();
+				}
+
+				async function openCheckoutModal() {
+					if (!renderedCartItems.length) {
+						notify('info', 'Your cart is empty! Please add some products before checking out.');
+						return;
+					}
+
+					const modalItems = document.getElementById('modal-order-items');
+					if (modalItems) {
+						modalItems.innerHTML = renderedCartItems
+							.map((item) => `
+								<div class="flex justify-between text-sm">
+									<span class="text-gray-700">${item.name} × ${item.quantity}</span>
+									<span class="font-semibold text-gray-900">${currencySymbol}${formatCurrency(item.price * item.quantity)}</span>
+								</div>
+							`)
+							.join('');
+					}
+
+					const total = renderedCartItems.reduce((sum, item) => sum + (Number(item.price) || 0) * (Number(item.quantity) || 0), 0);
+					const modalTotal = document.getElementById('modal-total');
+					if (modalTotal) {
+						modalTotal.textContent = formatCurrency(total);
+					}
+
+					const checkoutModal = document.getElementById('checkout-modal');
+					if (checkoutModal) {
+						checkoutModal.classList.remove('hidden');
+					}
+					document.body.style.overflow = 'hidden';
+				}
+
+				function closeCheckoutModal() {
+					const checkoutModal = document.getElementById('checkout-modal');
+					if (checkoutModal) {
+						checkoutModal.classList.add('hidden');
+					}
+					document.body.style.overflow = '';
+				}
+
+				async function handleCheckout(event) {
+					event.preventDefault();
+
+					if (!renderedCartItems.length) {
+						notify('info', 'Your cart is empty! Please add some products before checking out.');
+						return;
+					}
+
+					const formData = new FormData(event.target);
+					let message = `🛒 *NEW ORDER FROM FINGAURD WEBSITE*\n\n`;
+					message += `👤 *Customer Details:*\n`;
+					message += `Name: ${formData.get('name')}\n`;
+					message += `Phone: ${formData.get('phone')}\n\n`;
+					message += `📍 *Delivery Address:*\n`;
+					message += `${formData.get('address')}\n`;
+					message += `${formData.get('city')}, ${formData.get('state')} - ${formData.get('pincode')}\n\n`;
+
+					const family = formData.get('family');
+					const water = formData.get('water');
+					if (family || water) {
+						message += `ℹ️ *Additional Info:*\n`;
+						if (family) message += `Family Size: ${family}\n`;
+						if (water) message += `Water Source: ${water}\n`;
+						message += `\n`;
+					}
+
+					message += `🛍️ *Order Items:*\n`;
+					renderedCartItems.forEach((item, index) => {
+						const lineTotal = (Number(item.price) || 0) * (Number(item.quantity) || 0);
+						message += `${index + 1}. ${item.name}\n`;
+						message += `   SKU: ${item.sku}\n`;
+						message += `   Qty: ${item.quantity} × ${currencySymbol}${formatCurrency(item.price)} = ${currencySymbol}${formatCurrency(lineTotal)}\n\n`;
+					});
+
+					const total = renderedCartItems.reduce((sum, item) => sum + (Number(item.price) || 0) * (Number(item.quantity) || 0), 0);
+					message += `💰 *Total Amount: ${currencySymbol}${formatCurrency(total)}*\n`;
+					message += `✅ Free Delivery • Free Installation • 1 Year Warranty\n\n`;
+
+					const notes = formData.get('notes');
+					if (notes) {
+						message += `📝 *Order Notes:*\n${notes}\n\n`;
+					}
+
+					message += `---\n`;
+					message += `Order placed from: ${window.location.origin}\n`;
+					message += `Date: ${new Date().toLocaleString('en-IN')}`;
+
+					if (WhatsAppAPI && typeof WhatsAppAPI.send === 'function') {
+						WhatsAppAPI.send(message);
+					} else {
+						console.error('WhatsApp module is unavailable. Unable to send checkout message.');
+					}
+
+					notify('success', '🎉 Your order has been sent via WhatsApp! Our team will contact you shortly to confirm your order.');
+
+					CartAPI.clearCart();
+					closeCheckoutModal();
+					loadCart();
+				}
+
+				document.addEventListener('DOMContentLoaded', () => {
+					loadCart();
+
+					const cartItemsList = document.getElementById('cart-items-list');
+					if (cartItemsList) {
+						cartItemsList.addEventListener('click', handleCartListClick);
+					}
+
+					const checkoutBtn = document.getElementById('checkout-btn');
+					if (checkoutBtn) {
+						checkoutBtn.addEventListener('click', openCheckoutModal);
+					}
+
+					const closeModalBtn = document.getElementById('close-modal');
+					if (closeModalBtn) {
+						closeModalBtn.addEventListener('click', closeCheckoutModal);
+					}
+
+					const checkoutForm = document.getElementById('checkout-form');
+					if (checkoutForm) {
+						checkoutForm.addEventListener('submit', handleCheckout);
+					}
+
+					const checkoutModal = document.getElementById('checkout-modal');
+					if (checkoutModal) {
+						checkoutModal.addEventListener('click', (event) => {
+							if (event.target === checkoutModal) {
+								closeCheckoutModal();
+							}
 						});
 					}
 				});
-				$('footer').load('components/footer.html');
-			});
+			})();
 		</script>
+
+		<script type="module" src="/js/app.js"></script>
 	</body>
 </html>
