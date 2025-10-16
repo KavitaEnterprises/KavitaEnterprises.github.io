@@ -65,12 +65,12 @@
 					</div>
 
 					<!-- Cart Items -->
-					<div id="cart-items" class="grid lg:grid-cols-3 gap-8">
+					<div id="cart-items" class="grid lg:grid-cols-3 gap-6 lg:gap-8">
 						<!-- Cart Items List -->
-						<div class="lg:col-span-2 space-y-4">
-							<div class="bg-white rounded-xl border border-gray-200 shadow-sm">
-								<div class="p-4 border-b border-gray-200">
-									<h2 class="font-bold text-lg flex items-center gap-2">
+						<div class="lg:col-span-2 space-y-4 min-w-0">
+							<div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+								<div class="p-4 sm:p-6 border-b border-gray-200">
+									<h2 class="font-bold text-base sm:text-lg flex items-center gap-2">
 										<span class="material-symbols-rounded text-primary">inventory_2</span>
 										Cart Items (<span id="total-items">0</span>)
 									</h2>
@@ -82,16 +82,16 @@
 						</div>
 
 						<!-- Order Summary -->
-						<div class="lg:col-span-1">
-							<div class="bg-white rounded-xl border border-gray-200 shadow-sm sticky top-24">
-								<div class="p-6 border-b border-gray-200">
-									<h2 class="font-bold text-lg flex items-center gap-2">
+						<div class="lg:col-span-1 min-w-0">
+							<div class="bg-white rounded-xl border border-gray-200 shadow-sm sticky top-24 overflow-hidden">
+								<div class="p-4 sm:p-6 border-b border-gray-200">
+									<h2 class="font-bold text-base sm:text-lg flex items-center gap-2">
 										<span class="material-symbols-rounded text-primary">receipt</span>
 										Order Summary
 									</h2>
 								</div>
 								
-								<div class="p-6 space-y-4">
+								<div class="p-4 sm:p-6 space-y-4">
 									<!-- Subtotal -->
 									<div class="flex justify-between text-gray-600">
 										<span>Subtotal</span>
@@ -638,18 +638,18 @@
 							const itemIdAttr = String(item.id).replace(/"/g, '&quot;');
 
 							return `
-								<div class="p-6 flex flex-col sm:flex-row gap-4 hover:bg-gray-50 transition-colors" data-cart-row="${itemIdAttr}">
+								<div class="p-4 sm:p-6 flex flex-col sm:flex-row gap-4 hover:bg-gray-50 transition-colors" data-cart-row="${itemIdAttr}">
 									<a href="product.html?id=${itemIdAttr}" class="flex-shrink-0 group/img">
-										<img src="${item.image || FALLBACK_IMAGE}" alt="${item.name}" class="w-24 h-24 object-contain rounded-lg border border-gray-200 group-hover/img:border-primary transition-colors" />
+										<img src="${item.image || FALLBACK_IMAGE}" alt="${item.name}" class="w-20 h-20 sm:w-24 sm:h-24 object-contain rounded-lg border border-gray-200 group-hover/img:border-primary transition-colors" />
 									</a>
-									<div class="flex-1 min-w-0">
+									<div class="flex-1 min-w-0 overflow-hidden">
 										<a href="product.html?id=${itemIdAttr}" class="block group/name">
-											<h3 class="font-bold text-gray-900 mb-1 line-clamp-2 group-hover/name:text-primary transition-colors">${item.name}</h3>
+											<h3 class="font-bold text-sm sm:text-base text-gray-900 mb-1 line-clamp-2 group-hover/name:text-primary transition-colors">${item.name}</h3>
 										</a>
-										<p class="text-sm text-gray-500 mb-2">SKU: ${item.sku}</p>
-										<div class="flex items-center gap-4">
-											<span class="text-xl font-bold text-primary">${currencySymbol}${formatCurrency(item.price)}</span>
-											<span class="text-sm text-gray-500">per unit</span>
+										<p class="text-xs sm:text-sm text-gray-500 mb-2">SKU: ${item.sku}</p>
+										<div class="flex flex-wrap items-center gap-2 sm:gap-4">
+											<span class="text-lg sm:text-xl font-bold text-primary whitespace-nowrap">${currencySymbol}${formatCurrency(item.price)}</span>
+											<span class="text-xs sm:text-sm text-gray-500">per unit</span>
 										</div>
 									</div>
 									<div class="flex sm:flex-col items-center sm:items-end justify-between sm:justify-start gap-4">
