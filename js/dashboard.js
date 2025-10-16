@@ -7,7 +7,211 @@ class ProductDashboard {
 		this.hasUnsavedChanges = false;
 		this.useAPI = false; // Set to true when server is running
 		this.apiBaseUrl = 'http://localhost:3000/api';
+		this.categoryTemplates = this.initializeCategoryTemplates();
 		this.init();
+	}
+
+	initializeCategoryTemplates() {
+		return {
+			"RO Systems": {
+				tags: ["RO system", "water purifier", "home use", "family"],
+				specifications: {
+					"storageCapacity": "12 Liters",
+					"purificationStages": 7,
+					"purificationTechnology": ["RO", "UV", "UF"],
+					"tdsController": true,
+					"membraneCapacity": "75 GPD",
+					"inputWaterPressure": "10-40 PSI",
+					"powerConsumption": "36 Watts",
+					"dimensions": "370 x 260 x 500 mm",
+					"weight": "8.5 kg",
+					"suitableFor": "Municipal water, Borewell water",
+					"idealFamilySize": "4-6 members",
+					"certifications": ["ISI", "NSF", "WQA"],
+					"installationType": "Wall mounted / Counter top",
+					"warrantyPeriod": "1 Year comprehensive",
+					"warrantyDetails": {
+						"fullText": "1 Year comprehensive warranty covering all manufacturing defects and component failures",
+						"duration": 1,
+						"durationType": "years",
+						"coverage": "Manufacturing defects, component failures, free parts replacement",
+						"exclusions": "Physical damage, misuse, unauthorized repairs, consumables (filters)",
+						"serviceArea": "AMC and service available only in Delhi region",
+						"responseTime": "48 hours on business days only",
+						"extendedWarranty": "Available up to 5 years on request"
+					},
+					"serviceLife": "8-10 years"
+				},
+				features: {
+					"removalCapabilities": [
+						"TDS reduction 90%+",
+						"Chlorine removal",
+						"Heavy metals",
+						"Bacteria & Viruses",
+						"Pesticides",
+						"Bad taste & odor"
+					],
+					"smartFeatures": [
+						"LED indicators",
+						"Auto shut-off",
+						"Tank full indicator",
+						"Filter change alerts"
+					],
+					"safetyFeatures": [
+						"Electrical protection",
+						"Water leak protection",
+						"UV fail safe"
+					],
+					"maintenance": [
+						"Annual service recommended",
+						"Filter replacement: 6-12 months",
+						"UV lamp: 12 months",
+						"RO membrane: 18-24 months"
+					]
+				},
+				waterQuality: {
+					"inputTdsRange": "Up to 2000 ppm",
+					"outputTdsRange": "50-150 ppm",
+					"phLevel": "6.5-8.5",
+					"flowRate": "8-10 L/hour",
+					"recoveryRatio": "30%",
+					"rejectionRate": "95%+"
+				}
+			},
+			"Filters": {
+				tags: ["filter", "replacement", "genuine part", "pre-filter"],
+				specifications: {
+					"filterType": "Spun Polypropylene / Carbon Block",
+					"size": "10 inch x 2.5 inch",
+					"micronRating": "5 micron",
+					"material": "100% Pure Polypropylene",
+					"maxTemperature": "60°C",
+					"maxPressure": "6 bar",
+					"flowRate": "15-20 LPM",
+					"compatibility": "Standard 10-inch housings",
+					"lifespan": "3-6 months",
+					"certifications": ["NSF", "FDA approved material"],
+					"warrantyPeriod": "30 days",
+					"warrantyDetails": {
+						"fullText": "30 days replacement warranty for manufacturing defects only",
+						"duration": 30,
+						"durationType": "days",
+						"coverage": "Manufacturing defects, material defects",
+						"exclusions": "Normal wear and tear, clogging, discoloration, physical damage",
+						"serviceArea": "Replacement available in Delhi region, product sales across India",
+						"responseTime": "48 hours on business days only",
+						"note": "Consumable item - warranty covers defects only, not usage lifespan"
+					}
+				},
+				features: {
+					"removalCapabilities": [
+						"Sand & Silt",
+						"Dirt & Rust",
+						"Suspended particles",
+						"Turbidity reduction"
+					],
+					"construction": [
+						"Gradient density",
+						"No chemical additives",
+						"Food grade material"
+					],
+					"performance": [
+						"High dirt holding capacity",
+						"Low pressure drop",
+						"Excellent particle retention"
+					]
+				},
+				installation: {
+					"position": "First stage pre-filter",
+					"housingRequired": "10-inch sediment housing",
+					"replacementIndicator": "Pressure drop or discoloration"
+				}
+			},
+			"Accessories": {
+				tags: ["accessory", "genuine part", "replacement", "compatible"],
+				specifications: {
+					"productType": "Booster Pump / RO Membrane / Storage Tank",
+					"capacity": "75 GPD",
+					"compatibility": "Universal / Specific models",
+					"dimensions": "160 x 95 x 120 mm",
+					"weight": "1.8 kg",
+					"material": "Food grade materials",
+					"certifications": ["CE", "RoHS", "NSF"],
+					"warrantyPeriod": "6 months",
+					"warrantyDetails": {
+						"fullText": "6 months warranty covering manufacturing defects",
+						"duration": 6,
+						"durationType": "months",
+						"coverage": "Manufacturing defects, component failures",
+						"exclusions": "Physical damage, improper installation, misuse",
+						"serviceArea": "AMC and service available only in Delhi region",
+						"responseTime": "48 hours on business days only",
+						"extendedWarranty": "Not available"
+					},
+					"serviceLife": "3-5 years"
+				},
+				features: {
+					"performance": [
+						"Reliable operation",
+						"Energy efficient",
+						"Long service life"
+					],
+					"construction": [
+						"Durable materials",
+						"Corrosion resistant",
+						"Leak-proof design"
+					],
+					"compatibility": [
+						"Universal fitting",
+						"Easy installation",
+						"Standard connections"
+					]
+				},
+				installation: {
+					"compatibility": "Most RO systems",
+					"mounting": "As per requirement",
+					"maintenance": "Periodic inspection recommended"
+				}
+			},
+			"Parts": {
+				tags: ["spare part", "replacement", "genuine", "compatible"],
+				specifications: {
+					"partType": "Component / Fitting / Connector",
+					"material": "Food grade plastic / Stainless steel",
+					"compatibility": "Universal / Model specific",
+					"dimensions": "Standard size",
+					"certifications": ["NSF", "FDA approved"],
+					"warrantyPeriod": "30 days",
+					"warrantyDetails": {
+						"fullText": "30 days replacement warranty for manufacturing defects only",
+						"duration": 30,
+						"durationType": "days",
+						"coverage": "Manufacturing defects only",
+						"exclusions": "Normal wear and tear, improper installation, physical damage",
+						"serviceArea": "Replacement available in Delhi region",
+						"responseTime": "48 hours on business days only",
+						"note": "Consumable/wear item - limited warranty"
+					}
+				},
+				features: {
+					"construction": [
+						"Durable material",
+						"Precision engineered",
+						"Food safe"
+					],
+					"performance": [
+						"Leak-proof design",
+						"Easy installation",
+						"Long-lasting"
+					]
+				},
+				installation: {
+					"compatibility": "Standard RO systems",
+					"installation": "DIY / Professional",
+					"tools": "Basic tools required"
+				}
+			}
+		};
 	}
 
 	async init() {
@@ -73,10 +277,66 @@ class ProductDashboard {
 		document.getElementById('search-products').addEventListener('input', (e) => this.filterProducts(e.target.value));
 		document.getElementById('filter-category').addEventListener('change', (e) => this.filterByCategory(e.target.value));
 		
+		// Category change handler for templates
+		document.getElementById('product-category').addEventListener('change', (e) => this.handleCategoryChange(e.target.value));
+		
+		// Template loader
+		document.getElementById('load-template-btn').addEventListener('click', () => this.loadCategoryTemplate());
+		
 		// Close modal on backdrop click
 		document.getElementById('edit-modal').addEventListener('click', (e) => {
 			if (e.target.id === 'edit-modal') this.closeModal();
 		});
+	}
+	
+	handleCategoryChange(category) {
+		const templateNotice = document.getElementById('template-notice');
+		const templateCategoryName = document.getElementById('template-category-name');
+		
+		if (category && this.categoryTemplates[category] && !this.currentEditId) {
+			// Only show template for new products
+			templateNotice.classList.remove('hidden');
+			templateCategoryName.textContent = category;
+		} else {
+			templateNotice.classList.add('hidden');
+		}
+	}
+	
+	loadCategoryTemplate() {
+		const category = document.getElementById('product-category').value;
+		const template = this.categoryTemplates[category];
+		
+		if (!template) return;
+		
+		// Load tags
+		if (template.tags) {
+			document.getElementById('product-tags').value = template.tags.join(', ');
+		}
+		
+		// Load specifications
+		if (template.specifications) {
+			document.getElementById('product-specifications').value = JSON.stringify(template.specifications, null, 2);
+		}
+		
+		// Load features
+		if (template.features) {
+			document.getElementById('product-features').value = JSON.stringify(template.features, null, 2);
+		}
+		
+		// Load waterQuality if exists (for RO Systems)
+		if (template.waterQuality) {
+			document.getElementById('product-water-quality').value = JSON.stringify(template.waterQuality, null, 2);
+		}
+		
+		// Load installation if exists (for Filters and Accessories)
+		if (template.installation) {
+			document.getElementById('product-installation').value = JSON.stringify(template.installation, null, 2);
+		}
+		
+		// Hide the notice
+		document.getElementById('template-notice').classList.add('hidden');
+		
+		this.showNotification('✨ Template loaded! Now just fill in product-specific details.', 'success');
 	}
 
 	filterProducts(searchTerm) {
@@ -195,17 +455,20 @@ class ProductDashboard {
 		this.currentEditId = productId;
 		const modal = document.getElementById('edit-modal');
 		const title = document.getElementById('modal-title');
+		const templateNotice = document.getElementById('template-notice');
 		
 		if (productId) {
 			const product = this.products.find(p => p.id === productId);
 			if (product) {
 				title.textContent = 'Edit Product';
 				this.populateForm(product);
+				templateNotice.classList.add('hidden');
 			}
 		} else {
 			title.textContent = 'Add New Product';
 			document.getElementById('product-form').reset();
 			document.getElementById('product-id').value = '';
+			templateNotice.classList.add('hidden');
 		}
 		
 		modal.classList.remove('hidden');
@@ -237,6 +500,12 @@ class ProductDashboard {
 		if (product.features) {
 			document.getElementById('product-features').value = JSON.stringify(product.features, null, 2);
 		}
+		if (product.waterQuality) {
+			document.getElementById('product-water-quality').value = JSON.stringify(product.waterQuality, null, 2);
+		}
+		if (product.installation) {
+			document.getElementById('product-installation').value = JSON.stringify(product.installation, null, 2);
+		}
 	}
 
 	saveProduct() {
@@ -250,6 +519,8 @@ class ProductDashboard {
 		// Parse JSON fields
 		let specifications = {};
 		let features = {};
+		let waterQuality = null;
+		let installation = null;
 		
 		try {
 			const specsText = document.getElementById('product-specifications').value.trim();
@@ -271,6 +542,26 @@ class ProductDashboard {
 			return;
 		}
 		
+		try {
+			const waterQualityText = document.getElementById('product-water-quality').value.trim();
+			if (waterQualityText) {
+				waterQuality = JSON.parse(waterQualityText);
+			}
+		} catch (e) {
+			alert('Invalid JSON in Water Quality field. Please check syntax.');
+			return;
+		}
+		
+		try {
+			const installationText = document.getElementById('product-installation').value.trim();
+			if (installationText) {
+				installation = JSON.parse(installationText);
+			}
+		} catch (e) {
+			alert('Invalid JSON in Installation field. Please check syntax.');
+			return;
+		}
+		
 		const productData = {
 			id: this.currentEditId || this.getNextId(),
 			name: document.getElementById('product-name').value.trim(),
@@ -285,11 +576,26 @@ class ProductDashboard {
 			features: features
 		};
 		
-		// Preserve waterQuality if exists
+		// Add waterQuality if it exists
+		if (waterQuality) {
+			productData.waterQuality = waterQuality;
+		}
+		
+		// Add installation if it exists
+		if (installation) {
+			productData.installation = installation;
+		}
+		
+		// Preserve fields if editing existing product
 		if (this.currentEditId) {
 			const existing = this.products.find(p => p.id === this.currentEditId);
-			if (existing && existing.waterQuality) {
-				productData.waterQuality = existing.waterQuality;
+			if (existing) {
+				if (existing.waterQuality && !productData.waterQuality) {
+					productData.waterQuality = existing.waterQuality;
+				}
+				if (existing.installation && !productData.installation) {
+					productData.installation = existing.installation;
+				}
 			}
 			
 			if (this.useAPI) {

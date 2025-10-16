@@ -228,6 +228,20 @@
 								</select>
 							</div>
 						</div>
+						
+						<!-- Template Loader -->
+						<div id="template-notice" class="mt-6 hidden">
+							<div class="flex items-center gap-3 p-4 bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-lg">
+								<span class="material-symbols-rounded text-blue-600">auto_awesome</span>
+								<div class="flex-1">
+									<p class="text-sm font-semibold text-gray-900">Category Template Available!</p>
+									<p class="text-xs text-gray-600 mt-0.5">All fields will be pre-populated based on <span id="template-category-name" class="font-bold"></span> template. Just fill in the values!</p>
+								</div>
+								<button id="load-template-btn" class="px-4 py-2 bg-gradient-to-r from-primary to-secondary hover:from-primary-dark hover:to-primary text-white text-sm font-semibold rounded-lg shadow-md hover:shadow-lg transition-all">
+									Load Template
+								</button>
+							</div>
+						</div>
 
 						<div class="mt-6">
 							<label class="block text-sm font-bold text-gray-700 mb-2">Description *</label>
@@ -263,6 +277,26 @@
 						</h4>
 						<textarea id="product-features" rows="8" placeholder='{"removalCapabilities": [...], "smartFeatures": [...], ...}' class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 font-mono text-sm"></textarea>
 						<p class="text-xs text-gray-500 mt-2">Enter features as JSON. Include removalCapabilities, smartFeatures, safetyFeatures, maintenance.</p>
+					</div>
+					
+					<!-- Section: Water Quality (Optional - for RO Systems) -->
+					<div id="water-quality-section" class="border border-gray-200 rounded-xl p-6 bg-gradient-to-br from-cyan-50/50 to-white">
+						<h4 class="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+							<span class="material-symbols-rounded text-cyan-600">water_drop</span>
+							Water Quality Parameters (Optional - for RO Systems)
+						</h4>
+						<textarea id="product-water-quality" rows="6" placeholder='{"inputTdsRange": "Up to 2000 ppm", "outputTdsRange": "50-150 ppm", ...}' class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 font-mono text-sm"></textarea>
+						<p class="text-xs text-gray-500 mt-2">Enter water quality specs as JSON. Only for RO Systems category.</p>
+					</div>
+					
+					<!-- Section: Installation (Optional - for Filters/Accessories) -->
+					<div id="installation-section" class="border border-gray-200 rounded-xl p-6 bg-gradient-to-br from-amber-50/50 to-white">
+						<h4 class="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+							<span class="material-symbols-rounded text-amber-600">construction</span>
+							Installation Details (Optional - for Filters/Accessories)
+						</h4>
+						<textarea id="product-installation" rows="4" placeholder='{"position": "First stage pre-filter", "housingRequired": "10-inch housing", ...}' class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 font-mono text-sm"></textarea>
+						<p class="text-xs text-gray-500 mt-2">Enter installation info as JSON. For Filters and Accessories.</p>
 					</div>
 				</form>
 			</div>

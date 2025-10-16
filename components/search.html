@@ -1,0 +1,127 @@
+<!-- Global Search Component -->
+<div id="global-search" class="relative" x-data="searchComponent()">
+	<div class="relative">
+		<input 
+			type="search" 
+			x-model="query"
+			@input.debounce.300ms="search()"
+			@focus="showResults = true"
+			placeholder="Search products..."
+			class="w-full px-4 py-2 pl-10 pr-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+			aria-label="Search products"
+		/>
+		<span class="material-symbols-rounded absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</span>
+		<button 
+			x-show="query.length > 0"
+			@click="clearSearch()"
+			class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+			aria-label="Clear search"
+		>
+			<span class="material-symbols-rounded">close</span>
+		</button>
+	</div>
+
+	<!-- Search Results Dropdown -->
+	<div 
+		x-show="showResults && results.length > 0"
+		@click.outside="showResults = false"
+		x-transition
+		class="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-xl max-h-96 overflow-y-auto z-50"
+	>
+		<div class="p-2">
+			<template x-for="product in results" :key="product.id">
+				<a 
+					:href="`/product.html?id=${product.id}`"
+					class="flex items-center gap-3 p-3 hover:bg-gray-50 rounded-lg transition-colors"
+				>
+					<img 
+						:src="product.image || '/assets/images/placeholder.jpg'" 
+						:alt="product.name"
+						class="w-12 h-12 object-contain rounded"
+					/>
+					<div class="flex-1 min-w-0">
+						<p class="font-medium text-gray-900 truncate" x-text="product.name"></p>
+						<p class="text-sm text-gray-500" x-text="product.category"></p>
+					</div>
+					<p class="font-bold text-primary" x-text="`₹${product.price.toLocaleString('en-IN')}`"></p>
+				</a>
+			</template>
+		</div>
+
+		<!-- View All Results -->
+		<div 
+			x-show="totalResults > results.length"
+			class="border-t border-gray-200 p-3 text-center"
+		>
+			<a 
+				:href="`/products.html?q=${encodeURIComponent(query)}`"
+				class="text-primary hover:text-primary-dark font-medium text-sm"
+			>
+				View all <span x-text="totalResults"></span> results →
+			</a>
+		</div>
+	</div>
+
+	<!-- No Results Message -->
+	<div 
+		x-show="showResults && query.length > 0 && results.length === 0"
+		@click.outside="showResults = false"
+		x-transition
+		class="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-xl p-6 text-center z-50"
+	>
+		<span class="material-symbols-rounded text-4xl text-gray-300 block mb-2">search_off</span>
+		<p class="text-gray-600">No products found for "<span x-text="query" class="font-medium"></span>"</p>
+	</div>
+</div>
+
+<script>
+	function searchComponent() {
+		return {
+			query: '',
+			results: [],
+			totalResults: 0,
+			showResults: false,
+			maxResults: 5,
+
+			async search() {
+				if (this.query.trim().length === 0) {
+					this.results = [];
+					this.totalResults = 0;
+					return;
+				}
+
+				// Use the global Search module
+				if (window.Search && window.Search.initialized) {
+					const allResults = window.Search.search(this.query);
+					this.totalResults = allResults.length;
+					this.results = allResults.slice(0, this.maxResults);
+				} else {
+					// Fallback: load products and search
+					try {
+						const response = await fetch('/data/products.json');
+						const products = await response.json();
+						
+						const query = this.query.toLowerCase();
+						const allResults = products.filter(p => {
+							const searchText = `${p.name} ${p.category} ${p.sku || ''} ${p.description || ''}`.toLowerCase();
+							return searchText.includes(query);
+						});
+						
+						this.totalResults = allResults.length;
+						this.results = allResults.slice(0, this.maxResults);
+					} catch (error) {
+						console.error('Search failed:', error);
+						this.results = [];
+					}
+				}
+			},
+
+			clearSearch() {
+				this.query = '';
+				this.results = [];
+				this.totalResults = 0;
+				this.showResults = false;
+			}
+		};
+	}
+</script>
