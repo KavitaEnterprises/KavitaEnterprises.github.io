@@ -129,11 +129,12 @@ const WhatsApp = {
         cart.forEach(item => {
             const product = products.find(p => p.id === item.id);
             if (product) {
+                const price = product.sellingPrice || product.price || 0;
                 message += `*${product.name}*\n`;
                 message += `  - SKU: ${product.sku}\n`;
                 message += `  - Quantity: ${item.quantity}\n`;
-                message += `  - Price: ${currency}${product.price.toLocaleString()}\n\n`;
-                total += product.price * item.quantity;
+                message += `  - Price: ${currency}${price.toLocaleString()}\n\n`;
+                total += price * item.quantity;
             }
         });
 
@@ -264,13 +265,14 @@ function setupScrollReveal() {
 // ============================================================================
 function createProductCard(product) {
     const primaryImage = getPrimaryImage(product);
+    const price = product.sellingPrice || product.price || 0;
     return `
         <div class="product-card reveal" itemscope itemtype="http://schema.org/Product">
             <a href="product.html?id=${product.id}">
                 <img src="${primaryImage}" alt="${product.name}" itemprop="image" loading="lazy">
                 <div class="product-card-content">
                     <h3 itemprop="name">${product.name}</h3>
-                    <p class="price" itemprop="price" content="${product.price}">${currency}${product.price.toLocaleString()}</p>
+                    <p class="price" itemprop="price" content="${price}">${currency}${price.toLocaleString()}</p>
                     <p style="margin:0;color:var(--text-secondary);font-size:var(--font-size-sm)">Bulk pricing available — <span style="color:var(--accent-color);font-weight:600">Wholesale</span></p>
                     <meta itemprop="priceCurrency" content="INR">
                     <div itemprop="brand" itemscope itemtype="http://schema.org/Brand">
@@ -407,6 +409,7 @@ async function loadProductDetailPage() {
 
     document.title = `${product.name} - FinGaurd RO Water Purifier Systems`;
     
+    const price = product.sellingPrice || product.price || 0;
     const structuredData = {
         "@context": "http://schema.org",
         "@type": "Product",
@@ -417,7 +420,7 @@ async function loadProductDetailPage() {
         "brand": { "@type": "Brand", "name": "FinGaurd" },
         "offers": {
             "@type": "Offer",
-            "price": product.price,
+            "price": price,
             "priceCurrency": "INR",
             "availability": "http://schema.org/InStock"
         },
@@ -455,6 +458,7 @@ async function loadProductDetailPage() {
 
 function generateDetailedProductHTML(product) {
     const primaryImage = getPrimaryImage(product);
+    const price = product.sellingPrice || product.price || 0;
     let html = `
         <div class="product-image" itemscope itemtype="http://schema.org/Product">
             <img src="${primaryImage}" alt="${product.name}" itemprop="image">
@@ -463,7 +467,7 @@ function generateDetailedProductHTML(product) {
             <h1 itemprop="name">${product.name}</h1>
             <p class="sku">SKU: <span itemprop="sku">${product.sku}</span></p>
             <p class="price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-                <span itemprop="price" content="${product.price}">${currency}${product.price.toLocaleString()}</span>
+                <span itemprop="price" content="${price}">${currency}${price.toLocaleString()}</span>
                 <meta itemprop="priceCurrency" content="INR">
                 <meta itemprop="availability" content="http://schema.org/InStock">
             </p>
@@ -564,7 +568,8 @@ async function loadCartPage() {
     cart.forEach(item => {
         const product = allProducts.find(p => p.id === item.id);
         if (product) {
-            total += product.price * item.quantity;
+            const price = product.sellingPrice || product.price || 0;
+            total += price * item.quantity;
             const primaryImage = getPrimaryImage(product);
             cartHTML += `
                 <div class="cart-item">
@@ -573,7 +578,7 @@ async function loadCartPage() {
                         <div class="cart-item-info">
                             <h3 onclick="goToProduct('${product.sku}')">${product.name}</h3>
                             <p>SKU: ${product.sku}</p>
-                            <p>Unit Price: ${currency}${product.price.toLocaleString()}</p>
+                            <p>Unit Price: ${currency}${price.toLocaleString()}</p>
                         </div>
                     </div>
                     <div class="cart-item-controls">
@@ -581,7 +586,7 @@ async function loadCartPage() {
                             <label>Qty:</label>
                             <input type="number" class="quantity-input" value="${item.quantity}" min="1" data-id="${item.id}">
                         </div>
-                        <div class="cart-item-price">${currency}${(product.price * item.quantity).toLocaleString()}</div>
+                        <div class="cart-item-price">${currency}${(price * item.quantity).toLocaleString()}</div>
                         <button class="remove-item" data-id="${item.id}">Remove</button>
                     </div>
                 </div>
@@ -767,7 +772,27 @@ function setupWholesaleForm() {
 }
 
 // ============================================================================
-// 11. INITIALIZATION
+// 11. ACCORDION AUTO-CLOSE FUNCTIONALITY
+// ============================================================================
+function setupAccordions() {
+    const detailsElements = document.querySelectorAll('details');
+    
+    detailsElements.forEach((details) => {
+        details.addEventListener('toggle', () => {
+            if (details.open) {
+                // Close all other accordions
+                detailsElements.forEach((otherDetails) => {
+                    if (otherDetails !== details && otherDetails.open) {
+                        otherDetails.open = false;
+                    }
+                });
+            }
+        });
+    });
+}
+
+// ============================================================================
+// 12. INITIALIZATION
 // ============================================================================
 document.addEventListener('DOMContentLoaded', async () => {
     // Load components first
@@ -775,6 +800,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     // Setup scroll reveal
     setupScrollReveal();
+    
+    // Setup accordions auto-close
+    setupAccordions();
     
     // Route to appropriate page loader
     const path = window.location.pathname.split("/").pop();
@@ -791,6 +819,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         loadCartPage();
     } else if (path === 'wholesale.html') {
         setupWholesaleForm();
+    } else if (path === 'contact.html' || path === 'service.html') {
+        // Re-setup accordions after page specific content loads
+        setTimeout(() => setupAccordions(), 500);
     }
     
     // Update cart icon immediately and after delay to ensure DOM is ready
@@ -801,3 +832,4 @@ document.addEventListener('DOMContentLoaded', async () => {
 // Export for global access
 window.Cart = Cart;
 window.setupWholesaleForm = setupWholesaleForm;
+window.setupAccordions = setupAccordions;

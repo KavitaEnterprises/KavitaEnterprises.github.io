@@ -183,6 +183,93 @@
 									</div>
 								</div>
 
+								<!-- Prepaid Discount Promotional Card -->
+								<div class="relative overflow-hidden bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 rounded-2xl shadow-2xl">
+									<!-- Decorative Background Pattern -->
+									<div class="absolute inset-0 opacity-10">
+										<div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 32px 32px;"></div>
+									</div>
+									
+									<!-- Decorative Blobs -->
+									<div class="absolute -top-20 -right-20 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+									<div class="absolute -bottom-20 -left-20 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+									
+									<!-- Content -->
+									<div class="relative flex flex-col lg:flex-row items-center justify-between gap-6 px-6 sm:px-8 lg:px-12 py-6 lg:py-8">
+										<!-- Left: Icon & Heading -->
+										<div class="flex items-center gap-6">
+											<div class="hidden sm:flex w-16 h-16 lg:w-20 lg:h-20 items-center justify-center bg-white/20 backdrop-blur-sm rounded-2xl shadow-xl">
+												<span class="material-symbols-rounded text-white text-4xl lg:text-5xl">payments</span>
+											</div>
+											<div class="text-center lg:text-left">
+												<div class="inline-flex items-center gap-2 px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full mb-2">
+													<span class="material-symbols-rounded text-yellow-300 text-sm animate-pulse">bolt</span>
+													<span class="text-xs font-bold text-white uppercase tracking-wide">Special Offer</span>
+												</div>
+												<h3 class="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-1">
+													💰 Prepaid Discount Available!
+												</h3>
+												<p class="text-green-50 text-xs sm:text-sm font-medium">
+													Get instant discounts when you order via WhatsApp
+												</p>
+											</div>
+										</div>
+										
+										<!-- Right: Discount Cards -->
+										<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full lg:w-auto">
+											<!-- Card 1: Orders up to ₹5000 -->
+											<div class="bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-xl border border-white/50">
+												<div class="flex items-center gap-3 mb-2">
+													<div class="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center flex-shrink-0">
+														<span class="material-symbols-rounded text-white text-xl">shopping_cart</span>
+													</div>
+													<div>
+														<p class="text-xs text-gray-600 font-semibold">Orders up to ₹5,000</p>
+														<p class="text-xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
+															5% OFF
+														</p>
+													</div>
+												</div>
+												<div class="bg-green-50 border border-green-200 rounded-lg px-2.5 py-1.5">
+													<p class="text-xs text-green-800 font-bold">
+														<span class="material-symbols-rounded text-xs align-middle text-green-600">info</span>
+														Max discount: ₹100
+													</p>
+												</div>
+											</div>
+											
+											<!-- Card 2: Orders above ₹5000 -->
+											<div class="bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-xl border border-white/50">
+												<div class="flex items-center gap-3 mb-2">
+													<div class="w-10 h-10 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-lg flex items-center justify-center flex-shrink-0">
+														<span class="material-symbols-rounded text-white text-xl">workspace_premium</span>
+													</div>
+													<div>
+														<p class="text-xs text-gray-600 font-semibold">Orders above ₹5,000</p>
+														<p class="text-xl font-bold bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent">
+															₹250 OFF
+														</p>
+													</div>
+												</div>
+												<div class="bg-teal-50 border border-teal-200 rounded-lg px-2.5 py-1.5">
+													<p class="text-xs text-teal-800 font-bold">
+														<span class="material-symbols-rounded text-xs align-middle text-teal-600">verified</span>
+														Flat discount
+													</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+									<!-- Bottom Notice -->
+									<div class="relative bg-white/10 backdrop-blur-sm border-t border-white/20 px-4 sm:px-6 lg:px-8 py-2.5">
+										<p class="text-center text-xs sm:text-sm text-white/90 font-medium">
+											<span class="material-symbols-rounded text-xs align-middle text-yellow-300">chat</span>
+											Add to cart and checkout • Message us on WhatsApp • Confirm availability • Pay discounted price
+										</p>
+									</div>
+								</div>
+
 								<!-- Key Features -->
 								<div class="bg-white border border-gray-200 rounded-xl p-6">
 									<h3 class="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
@@ -303,18 +390,26 @@
 			async function loadProduct() {
 				try {
 					const productId = getProductId();
+					console.log('Loading product with ID:', productId);
 					
 					if (!productId) {
+						console.error('No product ID provided in URL');
 						showNotFound();
 						return;
 					}
 
-					const response = await fetch('/data/products.json');
+					const response = await fetch('data/products.json');
+					if (!response.ok) {
+						throw new Error(`HTTP error! status: ${response.status}`);
+					}
 					allProducts = await response.json();
+					console.log('Loaded products:', allProducts.length);
 					
 					currentProduct = allProducts.find(p => p.id === parseInt(productId));
+					console.log('Found product:', currentProduct);
 					
 					if (!currentProduct) {
+						console.error('Product not found with ID:', productId);
 						showNotFound();
 						return;
 					}
@@ -378,12 +473,14 @@
 					`).join('');
 				}
 
-				// Price
-				const mrp = Math.round(product.price * 1.2);
-				const discount = Math.round(((mrp - product.price) / mrp) * 100);
-				document.getElementById('product-price').textContent = product.price.toLocaleString('en-IN');
+				// Price with real MRP/Selling Price
+				const sellingPrice = product.sellingPrice || product.price || 0;
+				const mrp = product.mrp || (sellingPrice * 1.2); // Use real MRP if available, else calculate
+				const discount = mrp > sellingPrice ? Math.round(((mrp - sellingPrice) / mrp) * 100) : 0;
+				
+				document.getElementById('product-price').textContent = sellingPrice.toLocaleString('en-IN');
 				document.getElementById('product-mrp').textContent = mrp.toLocaleString('en-IN');
-				document.getElementById('product-discount').textContent = `${discount}% OFF`;
+				document.getElementById('product-discount').textContent = discount > 0 ? `${discount}% OFF` : 'Best Price';
 
 				// Key Highlights
 				const highlights = [];
@@ -492,8 +589,8 @@
 					<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 						<div class="bg-white rounded-lg border border-gray-200 p-6">
 							<span class="material-symbols-rounded text-primary text-3xl mb-3 block">support_agent</span>
-							<h4 class="font-bold text-gray-900 mb-2">24/7 Support</h4>
-							<p class="text-sm text-gray-600">Round-the-clock customer support for all your queries and issues.</p>
+							<h4 class="font-bold text-gray-900 mb-2">Business Hours Support</h4>
+							<p class="text-sm text-gray-600">Available 11 AM - 5 PM (Mon-Sat). 48-hour response on business days.</p>
 						</div>
 						
 						<div class="bg-white rounded-lg border border-gray-200 p-6">
@@ -523,11 +620,12 @@
 
 			// Add to cart functionality
 			document.getElementById('add-to-cart-btn').addEventListener('click', (event) => {
+				const price = product.sellingPrice || product.price || 0;
 				Cart.addItem(
 					product.id,
 					product.name,
 					product.sku,
-					product.price,
+					price,
 					galleryImages[0],
 					1,
 					event.currentTarget
@@ -785,12 +883,13 @@
 
 				const relatedHtml = related.map(p => {
 					const coverImage = Array.isArray(p.images) && p.images.length ? p.images[0] : 'assets/images/placeholder.jpg';
+					const price = p.sellingPrice || p.price || 0;
 					return `
 						<div class="group relative bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md hover:-translate-y-1 overflow-hidden flex flex-col">
 							<button type="button" class="favorite-toggle absolute top-3 left-3 z-30 p-2 bg-white/90 border border-gray-200 rounded-full shadow-sm hover:bg-pink-50 transition-colors" data-product-favorite="${p.id}" aria-label="Save ${p.name}">
 								<span class="material-symbols-rounded favorite-icon text-gray-500">favorite_border</span>
 							</button>
-							<a href="/product.html?id=${p.id}" class="flex flex-col h-full">
+							<a href="product.html?id=${p.id}" class="flex flex-col h-full">
 								<div class="relative aspect-square bg-gray-50 overflow-hidden">
 									<img src="${coverImage}" alt="${p.name}" class="w-full h-full object-contain p-6 group-hover:scale-110 transition-transform duration-300" />
 									<span class="absolute top-3 right-3 px-2 py-1 ${getCategoryBadgeColor(p.category)} text-white text-xs font-bold rounded-full border border-white/40 shadow">
@@ -801,7 +900,7 @@
 									<h3 class="font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors line-clamp-2">${p.name}</h3>
 									<p class="text-sm text-gray-600 mb-4 line-clamp-2 flex-1">${p.description}</p>
 									<div class="flex items-center justify-between mt-auto">
-										<span class="text-2xl font-bold text-primary">₹${p.price.toLocaleString('en-IN')}</span>
+										<span class="text-2xl font-bold text-primary">₹${price.toLocaleString('en-IN')}</span>
 										<span class="material-symbols-rounded text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
 									</div>
 								</div>

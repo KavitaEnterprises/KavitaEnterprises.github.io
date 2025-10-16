@@ -1,0 +1,145 @@
+<!-- Chat Assistant Component -->
+<div id="chat-assistant-container">
+	<!-- Chat Button -->
+	<button id="chat-button" class="fixed bottom-6 right-6 z-50 w-16 h-16 bg-gradient-to-r from-primary to-secondary hover:from-primary-dark hover:to-primary text-white rounded-full shadow-2xl hover:shadow-primary/50 hover:scale-110 transition-all duration-300 flex items-center justify-center group" aria-label="Open chat assistant">
+		<span class="material-symbols-rounded text-3xl group-hover:rotate-12 transition-transform duration-300">chat</span>
+		<span class="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-white animate-pulse"></span>
+	</button>
+
+	<!-- Chat Window -->
+	<div id="chat-window" class="fixed bottom-6 right-6 z-50 w-[420px] max-w-[calc(100vw-3rem)] h-[650px] max-h-[calc(100vh-5rem)] bg-white rounded-2xl shadow-2xl hidden flex-col overflow-hidden border border-gray-100">
+		<!-- Chat Header -->
+		<div class="bg-gradient-to-r from-primary to-secondary p-5 flex items-center justify-between shadow-lg">
+			<div class="flex items-center gap-3">
+				<div class="w-11 h-11 bg-white/30 backdrop-blur-md rounded-full flex items-center justify-center ring-2 ring-white/50">
+					<span class="material-symbols-rounded text-white text-2xl">support_agent</span>
+				</div>
+				<div>
+					<h3 class="text-white font-bold text-lg tracking-tight">FinGaurd Assistant</h3>
+					<div class="flex items-center gap-1.5">
+						<span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+						<p class="text-white/90 text-xs font-medium">Online now</p>
+					</div>
+				</div>
+			</div>
+			<button id="close-chat" class="w-9 h-9 rounded-full hover:bg-white/20 flex items-center justify-center transition-all duration-200 hover:rotate-90" aria-label="Close chat">
+				<span class="material-symbols-rounded text-white text-xl">close</span>
+			</button>
+		</div>
+
+		<!-- Chat Messages -->
+		<div id="chat-messages" class="flex-1 p-5 overflow-y-auto bg-gradient-to-br from-gray-50 to-blue-50/30 space-y-4">
+			<!-- Welcome Message -->
+			<div class="flex gap-3 animate-fade-in">
+				<div class="w-9 h-9 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
+					<span class="material-symbols-rounded text-white text-base">support_agent</span>
+				</div>
+				<div class="flex-1 max-w-[85%]">
+					<div class="bg-white rounded-2xl rounded-tl-sm p-4 shadow-md border border-gray-100/50">
+						<p class="text-gray-800 text-sm leading-relaxed font-medium mb-2">👋 Hi! I'm your FinGaurd assistant.</p>
+						<p class="text-gray-600 text-xs leading-relaxed mb-3">I can help you with:</p>
+						<div class="grid grid-cols-2 gap-2 text-xs">
+							<div class="flex items-center gap-1.5 text-gray-700">
+								<span class="material-symbols-rounded text-primary text-sm">water_drop</span>
+								<span>Products & Pricing</span>
+							</div>
+							<div class="flex items-center gap-1.5 text-gray-700">
+								<span class="material-symbols-rounded text-primary text-sm">handyman</span>
+								<span>Specifications</span>
+							</div>
+							<div class="flex items-center gap-1.5 text-gray-700">
+								<span class="material-symbols-rounded text-primary text-sm">location_on</span>
+								<span>Store Location</span>
+							</div>
+							<div class="flex items-center gap-1.5 text-gray-700">
+								<span class="material-symbols-rounded text-primary text-sm">verified</span>
+								<span>Warranty Info</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Quick Prompts -->
+		<div id="quick-prompts" class="p-4 bg-white border-t border-gray-100 shadow-sm">
+			<p class="text-xs text-gray-500 mb-2.5 font-semibold uppercase tracking-wide">Quick Actions</p>
+			<div class="flex flex-wrap gap-2">
+				<button class="prompt-btn px-3 py-2 bg-gradient-to-r from-primary/10 to-secondary/10 hover:from-primary hover:to-secondary hover:text-white text-primary text-xs rounded-lg border border-primary/20 hover:border-transparent transition-all duration-200 font-medium shadow-sm hover:shadow-md hover:scale-105" data-prompt="Show me RO water purifiers">
+					<span class="flex items-center gap-1.5">
+						<span class="material-symbols-rounded text-sm">water_drop</span>
+						RO Systems
+					</span>
+				</button>
+				<button class="prompt-btn px-3 py-2 bg-gradient-to-r from-primary/10 to-secondary/10 hover:from-primary hover:to-secondary hover:text-white text-primary text-xs rounded-lg border border-primary/20 hover:border-transparent transition-all duration-200 font-medium shadow-sm hover:shadow-md hover:scale-105" data-prompt="What are your prices?">
+					<span class="flex items-center gap-1.5">
+						<span class="material-symbols-rounded text-sm">payments</span>
+						Pricing
+					</span>
+				</button>
+				<button class="prompt-btn px-3 py-2 bg-gradient-to-r from-primary/10 to-secondary/10 hover:from-primary hover:to-secondary hover:text-white text-primary text-xs rounded-lg border border-primary/20 hover:border-transparent transition-all duration-200 font-medium shadow-sm hover:shadow-md hover:scale-105" data-prompt="Where is your store located?">
+					<span class="flex items-center gap-1.5">
+						<span class="material-symbols-rounded text-sm">location_on</span>
+						Location
+					</span>
+				</button>
+				<button class="prompt-btn px-3 py-2 bg-gradient-to-r from-primary/10 to-secondary/10 hover:from-primary hover:to-secondary hover:text-white text-primary text-xs rounded-lg border border-primary/20 hover:border-transparent transition-all duration-200 font-medium shadow-sm hover:shadow-md hover:scale-105" data-prompt="What warranty do you provide?">
+					<span class="flex items-center gap-1.5">
+						<span class="material-symbols-rounded text-sm">verified</span>
+						Warranty
+					</span>
+				</button>
+			</div>
+		</div>
+
+		<!-- Chat Input -->
+		<div class="p-4 bg-white border-t border-gray-100">
+			<div class="flex gap-3">
+				<input 
+					type="text" 
+					id="chat-input" 
+					placeholder="Ask me anything..."
+					class="flex-1 px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/50 focus:border-primary focus:bg-white text-sm transition-all duration-200 placeholder:text-gray-400"
+				/>
+				<button id="send-message" class="px-5 py-3 bg-gradient-to-r from-primary to-secondary hover:from-primary-dark hover:to-primary text-white rounded-xl flex items-center justify-center shadow-md hover:shadow-lg transition-all duration-200 hover:scale-105" aria-label="Send message">
+					<span class="material-symbols-rounded">send</span>
+				</button>
+			</div>
+			<p class="text-xs text-gray-400 mt-2 text-center">Press Enter to send</p>
+		</div>
+	</div>
+</div>
+
+<style>
+@keyframes fade-in {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.animate-fade-in {
+	animation: fade-in 0.3s ease-out;
+}
+
+#chat-messages::-webkit-scrollbar {
+	width: 6px;
+}
+
+#chat-messages::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+#chat-messages::-webkit-scrollbar-thumb {
+	background: #cbd5e1;
+	border-radius: 3px;
+}
+
+#chat-messages::-webkit-scrollbar-thumb:hover {
+	background: #94a3b8;
+}
+</style>

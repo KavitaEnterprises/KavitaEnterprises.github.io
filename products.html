@@ -88,6 +88,7 @@
 					</nav>
 				</div>
 			</section>
+			
 			<!-- Page Hero Section -->
 			<section class="relative bg-gradient-to-br from-gray-50 via-white to-blue-50 py-16 lg:py-20 overflow-hidden">
 				<!-- Background Pattern -->
@@ -238,10 +239,10 @@
 										<span>Sort By</span>
 									</h3>
 									<select id="sort-select" title="Sort products by" class="w-full px-3 py-2 text-sm bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 focus:bg-white text-gray-700 cursor-pointer hover:border-orange-300">
-										<option value="featured">⭐ Featured</option>
-										<option value="price-low">💰 Price: Low to High</option>
-										<option value="price-high">💎 Price: High to Low</option>
-										<option value="name">🔤 Name: A to Z</option>
+										<option value="featured">Featured</option>
+										<option value="price-low">Price: Low to High</option>
+										<option value="price-high">Price: High to Low</option>
+										<option value="name">Name: A to Z</option>
 									</select>
 								</div>
 
@@ -249,7 +250,7 @@
 								<button id="clear-filters" class="w-full px-4 py-2.5 bg-gradient-to-r from-gray-100 to-gray-200 hover:from-gray-200 hover:to-gray-300 text-gray-900 text-sm font-bold rounded-lg border border-gray-300 hover:border-gray-400 shadow-md hover:shadow-lg">
 									<span class="flex items-center justify-center gap-2">
 										<span class="material-symbols-rounded text-lg">refresh</span>
-										Clear All Filters
+										Clear Filters
 									</span>
 								</button>
 								
@@ -272,20 +273,22 @@
 								
 								<div class="relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
 									<div>
-										<h2 class="text-2xl font-bold bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent mb-2 flex items-center gap-2">
-											<span class="inline-flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-primary to-secondary text-white rounded-lg font-bold shadow-md">
-												<span class="material-symbols-rounded text-lg">inventory_2</span>
-												<span id="results-count">0</span>
+										<h2 class="text-2xl font-bold text-gray-900 mb-3 flex items-center gap-3">
+											<span class="relative inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white font-bold rounded-lg overflow-hidden group/badge shadow-lg hover:shadow-primary/30 transition-all">
+												<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full group-hover/badge:translate-x-full transition-transform duration-700"></div>
+												<span class="material-symbols-rounded text-lg relative">inventory_2</span>
+												<span id="results-count" class="relative">0</span>
 											</span>
-											<span>Products Found</span>
+											<span class="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">Products</span>
 										</h2>
 										<p class="text-gray-700 text-sm font-medium" id="active-filters">Showing all products</p>
 									</div>
 									
 									<!-- Mobile Filters Toggle -->
-									<button id="mobile-filter-toggle" class="lg:hidden inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-secondary text-white font-bold rounded-lg shadow-md hover:shadow-lg">
-										<span class="material-symbols-rounded">tune</span>
-										Filters
+									<button id="mobile-filter-toggle" class="lg:hidden relative inline-flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white font-bold rounded-lg overflow-hidden group/btn shadow-lg hover:shadow-primary/30 transition-all">
+										<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700"></div>
+										<span class="material-symbols-rounded relative">tune</span>
+										<span class="relative">Filters</span>
 									</button>
 								</div>
 							</div>
@@ -355,7 +358,7 @@
 									<span class="material-symbols-rounded text-white text-3xl">support_agent</span>
 								</div>
 								<h3 class="font-bold text-lg text-gray-900 mb-2">Expert Support</h3>
-								<p class="text-gray-600 text-sm">24/7 customer service and technical assistance</p>
+								<p class="text-gray-600 text-sm">Available 11 AM - 5 PM (Mon-Sat) • 48-hour response</p>
 							</div>
 						</div>
 					</div>
@@ -383,33 +386,73 @@
 				const coverImage = getCoverImage(product);
 				const favorites = window.Favorites;
 				const isSaved = favorites ? favorites.isSaved(product.id) : false;
-				const favoriteButtonClasses = `favorite-toggle absolute top-3 left-3 z-30 p-2 bg-white/90 border ${isSaved ? 'border-pink-200 bg-pink-50' : 'border-gray-200'} rounded-full shadow-sm hover:bg-pink-50 transition-colors`;
-				const favoriteIconClasses = `material-symbols-rounded favorite-icon ${isSaved ? 'text-pink-500' : 'text-gray-500'}`;
+				const favoriteButtonClasses = `favorite-toggle w-10 h-10 flex items-center justify-center bg-white/95 backdrop-blur-sm border ${isSaved ? 'border-pink-200 bg-pink-50' : 'border-gray-200'} rounded-full shadow-md hover:bg-pink-50 hover:border-pink-200 transition-all duration-200`;
+				const favoriteIconClasses = `material-symbols-rounded favorite-icon text-lg ${isSaved ? 'text-pink-500' : 'text-gray-500'}`;
+				
+				// Calculate discount percentage if MRP exists
+				const sellingPrice = product.sellingPrice || product.price || 0;
+				const mrp = product.mrp || null;
+				let discountPercent = 0;
+				
+				if (mrp && mrp > sellingPrice) {
+					discountPercent = Math.round(((mrp - sellingPrice) / mrp) * 100);
+				}
 
 				return `
 					<div class="group relative bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md hover:-translate-y-1 overflow-hidden flex flex-col">
-						<button type="button" class="${favoriteButtonClasses}" data-product-favorite="${product.id}" data-product-name="${product.name.replace(/"/g, '&quot;')}" aria-label="${isSaved ? 'Unsave' : 'Save'} ${product.name}">
-							<span class="${favoriteIconClasses}">${isSaved ? 'favorite' : 'favorite_border'}</span>
-						</button>
 						<a href="/product.html?id=${product.id}" class="flex flex-col h-full">
 							<div class="relative aspect-square p-8 bg-gradient-to-br from-gray-50 via-white to-gray-50 overflow-hidden">
+								<!-- Left Side Actions -->
+								<div class="absolute top-3 left-3 z-30 flex flex-col gap-2">
+									<!-- Favorite Button -->
+									<button type="button" class="${favoriteButtonClasses}" data-product-favorite="${product.id}" data-product-name="${product.name.replace(/"/g, '&quot;')}" aria-label="${isSaved ? 'Unsave' : 'Save'} ${product.name}" onclick="event.preventDefault(); event.stopPropagation();">
+										<span class="${favoriteIconClasses}">${isSaved ? 'favorite' : 'favorite_border'}</span>
+									</button>
+									
+									<!-- Quick Add to Cart Button -->
+									<button 
+										type="button" 
+										class="w-10 h-10 flex items-center justify-center bg-white/95 backdrop-blur-sm hover:bg-primary hover:text-white text-primary rounded-full shadow-md border border-gray-200 hover:border-primary hover:shadow-lg transition-all duration-200 group/cart"
+										data-product-quick-add="${product.id}"
+										title="Add to Cart"
+										onclick="event.preventDefault(); event.stopPropagation();"
+									>
+										<span class="material-symbols-rounded text-lg">shopping_cart</span>
+									</button>
+								</div>
+								
+								<!-- Top Right Badges (Category and Discount side by side) -->
+								<div class="absolute top-3 right-3 z-20 flex items-center gap-2">
+									${discountPercent > 0 ? `
+										<span class="px-2.5 py-1 bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs font-bold rounded-full border border-white shadow-lg">
+											${discountPercent}% OFF
+										</span>
+									` : ''}
+									<span class="px-2.5 py-1 ${getCategoryBadgeColor(product.category)} text-white text-xs font-bold rounded-full border border-white/40 shadow-md">
+										${product.category}
+									</span>
+								</div>
+								
 								<div class="absolute inset-0 bg-gradient-radial from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 blur-2xl"></div>
 								<img 
 									src="${coverImage}"
 									alt="${product.name}"
 									onerror="this.src='assets/images/placeholder.jpg'"
 									class="relative w-full h-full object-contain mix-blend-multiply group-hover:scale-110 filter group-hover:drop-shadow-2xl" />
-								<span class="absolute top-3 right-3 z-20 px-2.5 py-1 ${getCategoryBadgeColor(product.category)} text-white text-xs font-bold rounded-full border border-white/40 shadow-md">
-									${product.category}
-								</span>
 							</div>
 							<div class="relative p-6 bg-white z-10 flex flex-col flex-1">
 								<div class="text-xs text-gray-500 mb-2 font-mono">${product.sku}</div>
 								<h3 class="font-bold text-lg text-gray-900 mb-3 line-clamp-2 group-hover:text-primary">${product.name}</h3>
 								<p class="text-sm text-gray-600 mb-4 line-clamp-2">${product.description}</p>
 								<div class="flex items-center justify-between mb-4">
-									<div class="flex flex-col">
-										<span class="text-2xl font-bold bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent group-hover:scale-110 inline-block origin-left">₹${product.price.toLocaleString('en-IN')}</span>
+									<div class="flex flex-col gap-1">
+										${mrp ? `
+											<div class="flex items-center gap-2">
+												<span class="text-sm text-gray-500 line-through">₹${mrp.toLocaleString('en-IN')}</span>
+												<span class="text-xs font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded-full">-${discountPercent}%</span>
+											</div>
+										` : ''}
+										<span class="text-2xl font-bold bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent group-hover:scale-110 inline-block origin-left">₹${sellingPrice.toLocaleString('en-IN')}</span>
 										${product.category === 'RO Systems' ? `
 											<span class="text-xs text-gray-500 group-hover:text-green-600">
 												<span class="material-symbols-rounded text-xs align-middle">check_circle</span> 
@@ -469,6 +512,38 @@
 				});
 			}
 
+			function initializeQuickAddButtons(root = document) {
+				root.querySelectorAll('[data-product-quick-add]').forEach(button => {
+					const productId = Number(button.dataset.productQuickAdd);
+					if (Number.isNaN(productId)) return;
+
+					button.onclick = (event) => {
+						event.preventDefault();
+						event.stopPropagation();
+						
+						// Add to cart
+						if (window.Cart) {
+							Cart.addItem(productId, 1);
+							
+							// Visual feedback
+							const icon = button.querySelector('.material-symbols-rounded');
+							if (icon) {
+								const originalText = icon.textContent;
+								icon.textContent = 'check_circle';
+								button.classList.add('bg-green-600', 'text-white', 'border-green-600');
+								button.classList.remove('bg-white/95', 'text-primary', 'border-gray-200');
+								
+								setTimeout(() => {
+									icon.textContent = originalText;
+									button.classList.remove('bg-green-600', 'text-white', 'border-green-600');
+									button.classList.add('bg-white/95', 'text-primary', 'border-gray-200');
+								}, 1000);
+							}
+						}
+					};
+				});
+			}
+
 			document.addEventListener('favorites:updated', () => {
 				if (!window.Favorites) return;
 				document.querySelectorAll('[data-product-favorite]').forEach(button => {
@@ -488,7 +563,7 @@
 			// Load products from JSON
 			async function loadProducts() {
 				try {
-					const response = await fetch('/data/products.json');
+					const response = await fetch('data/products.json');
 					allProducts = await response.json();
 					filteredProducts = [...allProducts];
 					
@@ -563,7 +638,10 @@
 				const selectedPrice = document.querySelector('input[name="price"]:checked')?.value;
 				if (selectedPrice && selectedPrice !== 'all') {
 					const [min, max] = selectedPrice.split('-').map(Number);
-					results = results.filter(p => p.price >= min && p.price <= max);
+					results = results.filter(p => {
+						const price = p.sellingPrice || p.price || 0;
+						return price >= min && price <= max;
+					});
 				}
 
 				// Search filter
@@ -581,10 +659,18 @@
 				const sortBy = document.getElementById('sort-select').value;
 				switch(sortBy) {
 					case 'price-low':
-						results.sort((a, b) => a.price - b.price);
+						results.sort((a, b) => {
+							const priceA = a.sellingPrice || a.price || 0;
+							const priceB = b.sellingPrice || b.price || 0;
+							return priceA - priceB;
+						});
 						break;
 					case 'price-high':
-						results.sort((a, b) => b.price - a.price);
+						results.sort((a, b) => {
+							const priceA = a.sellingPrice || a.price || 0;
+							const priceB = b.sellingPrice || b.price || 0;
+							return priceB - priceA;
+						});
 						break;
 					case 'name':
 						results.sort((a, b) => a.name.localeCompare(b.name));
@@ -611,6 +697,7 @@
 				noResults.classList.add('hidden');
 				grid.innerHTML = filteredProducts.map(createProductCard).join('');
 				initializeFavoriteCardButtons(grid);
+				initializeQuickAddButtons(grid);
 			}
 
 			// Get category badge color

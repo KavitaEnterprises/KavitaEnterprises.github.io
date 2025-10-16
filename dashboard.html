@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Product Management Dashboard - FinGaurd</title>
+	
+	<!-- Tailwind CSS CDN -->
+	<script src="https://cdn.tailwindcss.com"></script>
+	
+	<!-- Tailwind Config -->
+	<script>
+		tailwind.config = {
+			theme: {
+				extend: {
+					colors: {
+						primary: '#2563eb',
+						secondary: '#54e8e8',
+						'primary-dark': '#1e40af',
+					},
+					fontFamily: {
+						sans: ['Urbanist', 'system-ui', 'sans-serif'],
+						display: ['Bebas Neue', 'Arial', 'sans-serif'],
+					},
+				}
+			}
+		}
+	</script>
+	
+	<link rel="stylesheet" href="/css/style.css" />
+	
+	<style>
+		.modal-overlay {
+			background: rgba(0, 0, 0, 0.5);
+			backdrop-filter: blur(4px);
+		}
+	</style>
+</head>
+<body class="font-sans antialiased bg-gray-50">
+	<div class="min-h-screen">
+		<!-- Header -->
+		<header class="bg-white border-b border-gray-200 sticky top-0 z-40 shadow-sm">
+			<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">
+				<div class="flex items-center justify-between">
+					<div class="flex items-center gap-4">
+						<a href="/index.html" class="flex items-center gap-2">
+							<span class="material-symbols-rounded text-primary text-3xl">dashboard</span>
+							<h1 class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+								Product Dashboard
+							</h1>
+						</a>
+					</div>
+					<div class="flex items-center gap-3">
+						<button id="add-product-btn" class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary to-secondary hover:from-primary-dark hover:to-primary text-white font-semibold rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all">
+							<span class="material-symbols-rounded">add</span>
+							<span class="hidden sm:inline">Add Product</span>
+						</button>
+						<button id="save-all-btn" class="inline-flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all">
+							<span class="material-symbols-rounded">save</span>
+							<span class="hidden sm:inline">Save Changes</span>
+						</button>
+						<a href="/index.html" class="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold rounded-lg transition-colors">
+							<span class="material-symbols-rounded">home</span>
+							<span class="hidden sm:inline">Home</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<!-- Main Content -->
+		<main class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+			<!-- Stats -->
+			<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+				<div class="bg-white rounded-xl shadow-md p-6 border border-gray-200">
+					<div class="flex items-center justify-between">
+						<div>
+							<p class="text-gray-500 text-sm font-medium">Total Products</p>
+							<p id="stat-total" class="text-3xl font-bold text-gray-900 mt-1">0</p>
+						</div>
+						<div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+							<span class="material-symbols-rounded text-blue-600 text-2xl">inventory_2</span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="bg-white rounded-xl shadow-md p-6 border border-gray-200">
+					<div class="flex items-center justify-between">
+						<div>
+							<p class="text-gray-500 text-sm font-medium">RO Systems</p>
+							<p id="stat-ro" class="text-3xl font-bold text-gray-900 mt-1">0</p>
+						</div>
+						<div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+							<span class="material-symbols-rounded text-green-600 text-2xl">water_drop</span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="bg-white rounded-xl shadow-md p-6 border border-gray-200">
+					<div class="flex items-center justify-between">
+						<div>
+							<p class="text-gray-500 text-sm font-medium">Avg Price</p>
+							<p id="stat-avg-price" class="text-3xl font-bold text-gray-900 mt-1">₹0</p>
+						</div>
+						<div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+							<span class="material-symbols-rounded text-purple-600 text-2xl">currency_rupee</span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="bg-white rounded-xl shadow-md p-6 border border-gray-200">
+					<div class="flex items-center justify-between">
+						<div>
+							<p class="text-gray-500 text-sm font-medium">Unsaved Changes</p>
+							<p id="stat-unsaved" class="text-3xl font-bold text-orange-600 mt-1">0</p>
+						</div>
+						<div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+							<span class="material-symbols-rounded text-orange-600 text-2xl">edit_note</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Products Table -->
+			<div class="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden">
+				<div class="p-6 border-b border-gray-200">
+					<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+						<h2 class="text-xl font-bold text-gray-900">All Products</h2>
+						<div class="flex items-center gap-3 w-full sm:w-auto">
+							<div class="relative flex-1 sm:flex-initial">
+								<input 
+									type="text" 
+									id="search-products" 
+									placeholder="Search products..."
+									class="w-full sm:w-64 pl-10 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary text-sm"
+								/>
+								<span class="material-symbols-rounded absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm">search</span>
+							</div>
+							<select id="filter-category" class="px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary text-sm">
+								<option value="all">All Categories</option>
+								<option value="RO Systems">RO Systems</option>
+								<option value="Filters">Filters</option>
+								<option value="Parts">Parts</option>
+								<option value="Accessories">Accessories</option>
+							</select>
+						</div>
+					</div>
+				</div>
+
+				<div class="overflow-x-auto">
+					<table class="w-full">
+						<thead class="bg-gray-50 border-b border-gray-200">
+							<tr>
+								<th class="px-6 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">Product</th>
+								<th class="px-6 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">SKU</th>
+								<th class="px-6 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">Category</th>
+								<th class="px-6 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">Price</th>
+								<th class="px-6 py-3 text-right text-xs font-bold text-gray-700 uppercase tracking-wider">Actions</th>
+							</tr>
+						</thead>
+						<tbody id="products-table-body" class="bg-white divide-y divide-gray-200">
+							<!-- Products will be loaded here -->
+						</tbody>
+					</table>
+				</div>
+
+				<div id="empty-state" class="hidden p-12 text-center">
+					<div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+						<span class="material-symbols-rounded text-gray-400 text-3xl">inventory_2</span>
+					</div>
+					<p class="text-gray-500 text-lg font-medium">No products found</p>
+					<p class="text-gray-400 text-sm mt-2">Try adjusting your search or filters</p>
+				</div>
+			</div>
+		</main>
+	</div>
+
+	<!-- Edit Product Modal -->
+	<div id="edit-modal" class="fixed inset-0 z-50 hidden items-center justify-center modal-overlay">
+		<div class="bg-white rounded-2xl shadow-2xl max-w-4xl w-full mx-4 max-h-[90vh] overflow-hidden flex flex-col">
+			<!-- Modal Header -->
+			<div class="bg-gradient-to-r from-primary to-secondary p-6 flex items-center justify-between">
+				<h3 id="modal-title" class="text-2xl font-bold text-white">Edit Product</h3>
+				<button id="close-modal" class="w-10 h-10 rounded-full hover:bg-white/20 flex items-center justify-center transition-colors">
+					<span class="material-symbols-rounded text-white text-2xl">close</span>
+				</button>
+			</div>
+
+			<!-- Modal Body -->
+			<div class="flex-1 overflow-y-auto p-6">
+				<form id="product-form" class="space-y-8">
+					<input type="hidden" id="product-id" />
+					
+					<!-- Section: Basic Info -->
+					<div class="border border-gray-200 rounded-xl p-6 bg-gradient-to-br from-blue-50/50 to-white">
+						<h4 class="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+							<span class="material-symbols-rounded text-primary">info</span>
+							Basic Information
+						</h4>
+						<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+							<div>
+								<label class="block text-sm font-bold text-gray-700 mb-2">Product Name *</label>
+								<input type="text" id="product-name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" />
+							</div>
+							<div>
+								<label class="block text-sm font-bold text-gray-700 mb-2">SKU *</label>
+								<input type="text" id="product-sku" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" />
+							</div>
+						</div>
+
+						<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+							<div>
+								<label class="block text-sm font-bold text-gray-700 mb-2">MRP (₹) *</label>
+								<input type="number" id="product-mrp" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" placeholder="Original Price" />
+							</div>
+							<div>
+								<label class="block text-sm font-bold text-gray-700 mb-2">Selling Price (₹) *</label>
+								<input type="number" id="product-selling-price" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" />
+							</div>
+							<div>
+								<label class="block text-sm font-bold text-gray-700 mb-2">Category *</label>
+								<select id="product-category" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
+									<option value="">Select Category</option>
+									<option value="RO Systems">RO Systems</option>
+									<option value="Filters">Filters</option>
+									<option value="Parts">Parts</option>
+									<option value="Accessories">Accessories</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="mt-6">
+							<label class="block text-sm font-bold text-gray-700 mb-2">Description *</label>
+							<textarea id="product-description" required rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"></textarea>
+						</div>
+
+						<div class="mt-6">
+							<label class="block text-sm font-bold text-gray-700 mb-2">Tags (comma-separated)</label>
+							<input type="text" id="product-tags" placeholder="e.g. 12L storage, RO+UV, TDS control" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" />
+						</div>
+
+						<div class="mt-6">
+							<label class="block text-sm font-bold text-gray-700 mb-2">Image URLs (comma-separated)</label>
+							<textarea id="product-images" rows="2" placeholder="e.g. assets/images/product1.jpg, assets/images/product2.jpg" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"></textarea>
+						</div>
+					</div>
+
+					<!-- Section: Specifications (JSON Editor) -->
+					<div class="border border-gray-200 rounded-xl p-6 bg-gradient-to-br from-purple-50/50 to-white">
+						<h4 class="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+							<span class="material-symbols-rounded text-purple-600">settings</span>
+							Specifications (JSON Format)
+						</h4>
+						<textarea id="product-specifications" rows="10" placeholder='{"storageCapacity": "12 Liters", "purificationStages": 7, ...}' class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 font-mono text-sm"></textarea>
+						<p class="text-xs text-gray-500 mt-2">Enter specifications as JSON. Include warrantyDetails, waterQuality, etc.</p>
+					</div>
+
+					<!-- Section: Features (JSON Editor) -->
+					<div class="border border-gray-200 rounded-xl p-6 bg-gradient-to-br from-green-50/50 to-white">
+						<h4 class="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+							<span class="material-symbols-rounded text-green-600">stars</span>
+							Features (JSON Format)
+						</h4>
+						<textarea id="product-features" rows="8" placeholder='{"removalCapabilities": [...], "smartFeatures": [...], ...}' class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 font-mono text-sm"></textarea>
+						<p class="text-xs text-gray-500 mt-2">Enter features as JSON. Include removalCapabilities, smartFeatures, safetyFeatures, maintenance.</p>
+					</div>
+				</form>
+			</div>
+
+			<!-- Modal Footer -->
+			<div class="p-6 bg-gray-50 border-t border-gray-200 flex items-center justify-end gap-3">
+				<button id="cancel-btn" class="px-6 py-2.5 bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold rounded-lg transition-colors">
+					Cancel
+				</button>
+				<button id="save-product-btn" class="px-6 py-2.5 bg-gradient-to-r from-primary to-secondary hover:from-primary-dark hover:to-primary text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all">
+					Save Product
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<script src="/js/dashboard.js"></script>
+</body>
+</html>

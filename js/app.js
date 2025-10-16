@@ -150,6 +150,16 @@ $(function () {
 	});
 	$("body > footer").load("components/footer.html");
 	
+	// Load chat assistant component
+	$("body").append('<div id="chat-assistant-placeholder"></div>');
+	$("#chat-assistant-placeholder").load("components/chat-assistant.html", function() {
+		// Load chat assistant script after component is loaded
+		const script = document.createElement('script');
+		script.src = '/js/chat-assistant.js';
+		script.type = 'module';
+		document.body.appendChild(script);
+	});
+	
 	// Also update cart icon immediately in case header is already loaded
 	setTimeout(() => Cart.updateCartIcon(), 200);
 });

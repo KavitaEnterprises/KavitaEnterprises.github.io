@@ -3,19 +3,31 @@
     "id": 1,
     "name": "FinGaurd HomePure 12L RO+UV Water Purifier",
     "sku": "FG-HP-12L-ROUV",
-    "price": 14500,
+    "mrp": 18999,
+    "sellingPrice": 14000,
     "category": "RO Systems",
     "description": "Premium 7-stage purification system with RO, UV sterilization, and TDS controller. Manufactured by FinGaurd for Indian households. Ideal for families of 4-6 members with storage tank and advanced purification technology.",
+    "tags": [
+      "12L storage",
+      "RO+UV",
+      "TDS control",
+      "home use",
+      "7-stage",
+      "family"
+    ],
     "images": [
       "assets/images/ro_system_1.jpg",
       "assets/images/ro_system_2.jpg",
       "assets/images/hero.png"
     ],
-    "tags": ["12L storage", "RO+UV", "TDS control", "home use", "7-stage", "family"],
     "specifications": {
       "storageCapacity": "12 Liters",
       "purificationStages": 7,
-      "purificationTechnology": ["RO", "UV", "UF"],
+      "purificationTechnology": [
+        "RO",
+        "UV",
+        "UF"
+      ],
       "tdsController": true,
       "membraneCapacity": "75 GPD",
       "inputWaterPressure": "10-40 PSI",
@@ -24,16 +36,51 @@
       "weight": "8.5 kg",
       "suitableFor": "Municipal water, Borewell water",
       "idealFamilySize": "4-6 members",
-      "certifications": ["ISI", "NSF", "WQA"],
+      "certifications": [
+        "ISI",
+        "NSF",
+        "WQA"
+      ],
       "installationType": "Wall mounted / Counter top",
       "warrantyPeriod": "1 Year comprehensive",
+      "warrantyDetails": {
+        "fullText": "1 Year comprehensive warranty covering all manufacturing defects and component failures",
+        "duration": 1,
+        "durationType": "years",
+        "coverage": "Manufacturing defects, component failures, free parts replacement",
+        "exclusions": "Physical damage, misuse, unauthorized repairs, consumables (filters)",
+        "serviceArea": "AMC and service available only in Delhi region",
+        "responseTime": "48 hours on business days only",
+        "extendedWarranty": "Available up to 5 years on request"
+      },
       "serviceLife": "8-10 years"
     },
     "features": {
-      "removalCapabilities": ["TDS reduction 90%+", "Chlorine removal", "Heavy metals", "Bacteria & Viruses", "Pesticides", "Bad taste & odor"],
-      "smartFeatures": ["LED indicators", "Auto shut-off", "Tank full indicator", "Filter change alerts"],
-      "safetyFeatures": ["Electrical protection", "Water leak protection", "UV fail safe"],
-      "maintenance": ["Annual service recommended", "Filter replacement: 6-12 months", "UV lamp: 12 months", "RO membrane: 18-24 months"]
+      "removalCapabilities": [
+        "TDS reduction 90%+",
+        "Chlorine removal",
+        "Heavy metals",
+        "Bacteria & Viruses",
+        "Pesticides",
+        "Bad taste & odor"
+      ],
+      "smartFeatures": [
+        "LED indicators",
+        "Auto shut-off",
+        "Tank full indicator",
+        "Filter change alerts"
+      ],
+      "safetyFeatures": [
+        "Electrical protection",
+        "Water leak protection",
+        "UV fail safe"
+      ],
+      "maintenance": [
+        "Annual service recommended",
+        "Filter replacement: 6-12 months",
+        "UV lamp: 12 months",
+        "RO membrane: 18-24 months"
+      ]
     },
     "waterQuality": {
       "inputTdsRange": "Up to 2000 ppm",
@@ -48,7 +95,8 @@
     "id": 2,
     "name": "FinGaurd Compact 8L RO Water Purifier",
     "sku": "FG-CP-8L-RO",
-    "price": 11500,
+    "mrp": 14999,
+    "sellingPrice": 11500,
     "category": "RO Systems",
     "description": "Space-saving 8-liter RO water purifier perfect for small kitchens and apartments. Features 6-stage purification including pre-filters, RO membrane, and post-carbon filter for pure, healthy water.",
     "images": [
@@ -56,11 +104,21 @@
       "assets/images/ro_system_1.jpg",
       "assets/images/hero.png"
     ],
-    "tags": ["8L compact", "space-saving", "RO system", "apartment", "6-stage", "small family"],
+    "tags": [
+      "8L compact",
+      "space-saving",
+      "RO system",
+      "apartment",
+      "6-stage",
+      "small family"
+    ],
     "specifications": {
       "storageCapacity": "8 Liters",
       "purificationStages": 6,
-      "purificationTechnology": ["RO", "UF"],
+      "purificationTechnology": [
+        "RO",
+        "UF"
+      ],
       "tdsController": false,
       "membraneCapacity": "50 GPD",
       "inputWaterPressure": "10-40 PSI",
@@ -69,16 +127,46 @@
       "weight": "6.2 kg",
       "suitableFor": "Municipal water, Low TDS borewell",
       "idealFamilySize": "2-4 members",
-      "certifications": ["ISI", "NSF"],
+      "certifications": [
+        "ISI",
+        "NSF"
+      ],
       "installationType": "Counter top",
       "warrantyPeriod": "1 Year comprehensive",
+      "warrantyDetails": {
+        "fullText": "1 Year comprehensive warranty covering all manufacturing defects and component failures",
+        "duration": 1,
+        "durationType": "years",
+        "coverage": "Manufacturing defects, component failures, free parts replacement",
+        "exclusions": "Physical damage, misuse, unauthorized repairs, consumables (filters)",
+        "serviceArea": "AMC and service available only in Delhi region",
+        "responseTime": "48 hours on business days only",
+        "extendedWarranty": "Available up to 5 years on request"
+      },
       "serviceLife": "6-8 years"
     },
     "features": {
-      "removalCapabilities": ["TDS reduction 85%+", "Chlorine removal", "Heavy metals", "Bacteria & Viruses", "Bad taste & odor"],
-      "smartFeatures": ["LED service indicator", "Auto shut-off", "Tank full indicator"],
-      "safetyFeatures": ["Electrical protection", "Water leak protection"],
-      "maintenance": ["Annual service recommended", "Filter replacement: 6-12 months", "RO membrane: 12-18 months"]
+      "removalCapabilities": [
+        "TDS reduction 85%+",
+        "Chlorine removal",
+        "Heavy metals",
+        "Bacteria & Viruses",
+        "Bad taste & odor"
+      ],
+      "smartFeatures": [
+        "LED service indicator",
+        "Auto shut-off",
+        "Tank full indicator"
+      ],
+      "safetyFeatures": [
+        "Electrical protection",
+        "Water leak protection"
+      ],
+      "maintenance": [
+        "Annual service recommended",
+        "Filter replacement: 6-12 months",
+        "RO membrane: 12-18 months"
+      ]
     },
     "waterQuality": {
       "inputTdsRange": "Up to 1500 ppm",
@@ -91,16 +179,24 @@
   },
   {
     "id": 3,
-    "name": "FinGaurd Spun Sediment Filter (10-inch)",
-    "sku": "FG-SF-10-PP",
-    "price": 280,
+    "name": "FinGaurd Sediment Filter - 10 Micron (Pack of 2)",
+    "sku": "FG-SF-10M-P2",
+    "mrp": 399,
+    "sellingPrice": 280,
     "category": "Filters",
     "description": "Genuine FinGaurd 10-inch spun polypropylene sediment filter. Removes sand, silt, dirt, rust, and other suspended particles. Compatible with all FinGaurd RO systems and most standard housings.",
     "images": [
       "assets/images/filter_1.jpg",
       "assets/images/ro_system_1.jpg"
     ],
-    "tags": ["sediment filter", "10 inch", "PP spun", "genuine part", "pre-filter", "replacement"],
+    "tags": [
+      "sediment filter",
+      "10 inch",
+      "PP spun",
+      "genuine part",
+      "pre-filter",
+      "replacement"
+    ],
     "specifications": {
       "filterType": "Spun Polypropylene",
       "size": "10 inch x 2.5 inch",
@@ -111,12 +207,39 @@
       "flowRate": "15-20 LPM",
       "compatibility": "Standard 10-inch housings",
       "lifespan": "3-6 months",
-      "certifications": ["NSF", "FDA approved material"]
+      "certifications": [
+        "NSF",
+        "FDA approved material"
+      ],
+      "warrantyPeriod": "30 days",
+      "warrantyDetails": {
+        "fullText": "30 days replacement warranty for manufacturing defects only",
+        "duration": 30,
+        "durationType": "days",
+        "coverage": "Manufacturing defects, material defects",
+        "exclusions": "Normal wear and tear, clogging, discoloration, physical damage",
+        "serviceArea": "Replacement available in Delhi region, product sales across India",
+        "responseTime": "48 hours on business days only",
+        "note": "Consumable item - warranty covers defects only, not usage lifespan"
+      }
     },
     "features": {
-      "removalCapabilities": ["Sand & Silt", "Dirt & Rust", "Suspended particles", "Turbidity reduction"],
-      "construction": ["Gradient density", "No chemical additives", "Food grade material"],
-      "performance": ["High dirt holding capacity", "Low pressure drop", "Excellent particle retention"]
+      "removalCapabilities": [
+        "Sand & Silt",
+        "Dirt & Rust",
+        "Suspended particles",
+        "Turbidity reduction"
+      ],
+      "construction": [
+        "Gradient density",
+        "No chemical additives",
+        "Food grade material"
+      ],
+      "performance": [
+        "High dirt holding capacity",
+        "Low pressure drop",
+        "Excellent particle retention"
+      ]
     },
     "installation": {
       "position": "First stage pre-filter",
@@ -126,16 +249,24 @@
   },
   {
     "id": 4,
-    "name": "FinGaurd Carbon Block Filter (10-inch)",
-    "sku": "FG-CB-10-ACF",
-    "price": 380,
+    "name": "FinGaurd Activated Carbon Block Filter (Pack of 2)",
+    "sku": "FG-ACB-P2",
+    "mrp": 499,
+    "sellingPrice": 380,
     "category": "Filters",
     "description": "High-quality activated carbon block filter that removes chlorine, bad taste, odor, and organic compounds. Essential for maintaining water quality and protecting RO membrane life.",
     "images": [
       "assets/images/filter_1.jpg",
       "assets/images/hero.png"
     ],
-    "tags": ["carbon filter", "10 inch", "taste & odor", "chlorine removal", "genuine part", "pre-filter"],
+    "tags": [
+      "carbon filter",
+      "10 inch",
+      "taste & odor",
+      "chlorine removal",
+      "genuine part",
+      "pre-filter"
+    ],
     "specifications": {
       "filterType": "Compressed Carbon Block",
       "size": "10 inch x 2.5 inch",
@@ -146,12 +277,42 @@
       "flowRate": "10-15 LPM",
       "compatibility": "Standard 10-inch housings",
       "lifespan": "6-12 months",
-      "certifications": ["NSF 42", "NSF 53", "FDA approved"]
+      "certifications": [
+        "NSF 42",
+        "NSF 53",
+        "FDA approved"
+      ],
+      "warrantyPeriod": "30 days",
+      "warrantyDetails": {
+        "fullText": "30 days replacement warranty for manufacturing defects only",
+        "duration": 30,
+        "durationType": "days",
+        "coverage": "Manufacturing defects, material defects",
+        "exclusions": "Normal wear and tear, clogging, reduced flow, physical damage",
+        "serviceArea": "Replacement available in Delhi region, product sales across India",
+        "responseTime": "48 hours on business days only",
+        "note": "Consumable item - warranty covers defects only, not usage lifespan"
+      }
     },
     "features": {
-      "removalCapabilities": ["Free Chlorine 99%+", "Chloramines", "Bad taste & odor", "Organic chemicals", "Pesticides", "Herbicides"],
-      "construction": ["High-density carbon block", "Uniform pore structure", "No carbon dust release"],
-      "performance": ["Excellent contaminant reduction", "Consistent flow rate", "Long service life"]
+      "removalCapabilities": [
+        "Free Chlorine 99%+",
+        "Chloramines",
+        "Bad taste & odor",
+        "Organic chemicals",
+        "Pesticides",
+        "Herbicides"
+      ],
+      "construction": [
+        "High-density carbon block",
+        "Uniform pore structure",
+        "No carbon dust release"
+      ],
+      "performance": [
+        "Excellent contaminant reduction",
+        "Consistent flow rate",
+        "Long service life"
+      ]
     },
     "installation": {
       "position": "Second stage pre-filter",
@@ -161,16 +322,24 @@
   },
   {
     "id": 5,
-    "name": "FinGaurd 75 GPD Booster Pump",
-    "sku": "FG-BP-75-GPD",
-    "price": 1850,
-    "category": "Spares",
+    "name": "FinGaurd Booster Pump 75 GPD",
+    "sku": "FG-BP-75",
+    "mrp": 2499,
+    "sellingPrice": 1850,
+    "category": "Accessories",
     "description": "Reliable 75 GPD booster pump designed for home RO systems. Increases input water pressure for optimal RO membrane performance. Energy-efficient and long-lasting motor with automatic pressure switch.",
     "images": [
       "assets/images/pump_1.jpg",
       "assets/images/ro_system_2.jpg"
     ],
-    "tags": ["booster pump", "75 GPD", "home use", "pressure pump", "energy efficient", "auto switch"],
+    "tags": [
+      "booster pump",
+      "75 GPD",
+      "home use",
+      "pressure pump",
+      "energy efficient",
+      "auto switch"
+    ],
     "specifications": {
       "pumpType": "Diaphragm Booster Pump",
       "capacity": "75 GPD (280 LPD)",
@@ -183,12 +352,40 @@
       "outletConnection": "1/4 inch Quick Fit",
       "operatingVoltage": "24V DC",
       "serviceLife": "3-5 years",
-      "certifications": ["CE", "RoHS"]
+      "certifications": [
+        "CE",
+        "RoHS"
+      ],
+      "warrantyPeriod": "6 months",
+      "warrantyDetails": {
+        "fullText": "6 months warranty covering motor and electrical components",
+        "duration": 6,
+        "durationType": "months",
+        "coverage": "Motor defects, electrical failures, manufacturing defects",
+        "exclusions": "Physical damage, water damage, burnt coil due to dry run, improper voltage",
+        "serviceArea": "AMC and service available only in Delhi region",
+        "responseTime": "48 hours on business days only",
+        "extendedWarranty": "Not available for electrical components"
+      }
     },
     "features": {
-      "performance": ["Auto start/stop", "Self-priming", "Dry run protection", "Thermal protection"],
-      "construction": ["Corrosion resistant", "Quiet operation", "Leak-proof design", "Food grade materials"],
-      "efficiency": ["Low power consumption", "High pressure boost", "Consistent performance"]
+      "performance": [
+        "Auto start/stop",
+        "Self-priming",
+        "Dry run protection",
+        "Thermal protection"
+      ],
+      "construction": [
+        "Corrosion resistant",
+        "Quiet operation",
+        "Leak-proof design",
+        "Food grade materials"
+      ],
+      "efficiency": [
+        "Low power consumption",
+        "High pressure boost",
+        "Consistent performance"
+      ]
     },
     "installation": {
       "compatibility": "All 75 GPD RO systems",
@@ -199,15 +396,23 @@
   {
     "id": 6,
     "name": "FinGaurd RO Membrane 75 GPD",
-    "sku": "FG-ROM-75-TFC",
-    "price": 1200,
-    "category": "Spares",
+    "sku": "FG-MEM-75",
+    "mrp": 1599,
+    "sellingPrice": 1200,
+    "category": "Accessories",
     "description": "Premium Thin Film Composite (TFC) RO membrane with 75 GPD capacity. Removes dissolved salts, heavy metals, bacteria, and viruses. Compatible with most domestic RO systems.",
     "images": [
       "assets/images/filter_1.jpg",
       "assets/images/hero.png"
     ],
-    "tags": ["RO membrane", "75 GPD", "TFC technology", "genuine part", "replacement", "purification"],
+    "tags": [
+      "RO membrane",
+      "75 GPD",
+      "TFC technology",
+      "genuine part",
+      "replacement",
+      "purification"
+    ],
     "specifications": {
       "membraneType": "Thin Film Composite (TFC)",
       "capacity": "75 GPD (280 LPD)",
@@ -221,12 +426,43 @@
       "weight": "0.3 kg",
       "compatibility": "Standard 1812 housings",
       "serviceLife": "18-24 months",
-      "certifications": ["NSF 58", "FDA approved"]
+      "certifications": [
+        "NSF 58",
+        "FDA approved"
+      ],
+      "warrantyPeriod": "90 days",
+      "warrantyDetails": {
+        "fullText": "90 days replacement warranty for manufacturing defects and performance issues",
+        "duration": 90,
+        "durationType": "days",
+        "coverage": "Manufacturing defects, rejection rate below 90%, membrane leakage",
+        "exclusions": "Chlorine damage, scaling, fouling, physical damage, expired lifespan",
+        "serviceArea": "Replacement available in Delhi region, product sales across India",
+        "responseTime": "48 hours on business days only",
+        "note": "Requires proper pre-treatment and regular maintenance"
+      }
     },
     "features": {
-      "removalCapabilities": ["Dissolved salts 96%+", "Heavy metals", "Bacteria & Viruses", "Nitrates", "Fluorides", "Arsenic", "Lead"],
-      "performance": ["High rejection rate", "Low pressure drop", "Consistent water quality", "Extended life"],
-      "construction": ["Multi-layer polyamide", "Polysulfone support", "Polyester backing"]
+      "removalCapabilities": [
+        "Dissolved salts 96%+",
+        "Heavy metals",
+        "Bacteria & Viruses",
+        "Nitrates",
+        "Fluorides",
+        "Arsenic",
+        "Lead"
+      ],
+      "performance": [
+        "High rejection rate",
+        "Low pressure drop",
+        "Consistent water quality",
+        "Extended life"
+      ],
+      "construction": [
+        "Multi-layer polyamide",
+        "Polysulfone support",
+        "Polyester backing"
+      ]
     },
     "installation": {
       "position": "RO stage",
